@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31205.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SandBox", "SandBox\SandBox.vcxproj", "{66EC0F29-DE12-4704-B863-9D83C8C52E12}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PlutoniumGameEngine", "PlutoniumGameEngine\PlutoniumGameEngine.vcxproj", "{F4E7DCD4-FD28-49BA-BAC5-FB6823B7A71F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4E7DCD4-FD28-49BA-BAC5-FB6823B7A71F}.Debug|x64.ActiveCfg = Debug|x64
+		{F4E7DCD4-FD28-49BA-BAC5-FB6823B7A71F}.Debug|x64.Build.0 = Debug|x64
+		{F4E7DCD4-FD28-49BA-BAC5-FB6823B7A71F}.Release|x64.ActiveCfg = Release|x64
+		{F4E7DCD4-FD28-49BA-BAC5-FB6823B7A71F}.Release|x64.Build.0 = Release|x64
+		{66EC0F29-DE12-4704-B863-9D83C8C52E12}.Debug|x64.ActiveCfg = Debug|x64
+		{66EC0F29-DE12-4704-B863-9D83C8C52E12}.Debug|x64.Build.0 = Debug|x64
+		{66EC0F29-DE12-4704-B863-9D83C8C52E12}.Release|x64.ActiveCfg = Release|x64
+		{66EC0F29-DE12-4704-B863-9D83C8C52E12}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B18A3C63-65CD-40B8-B7C8-015148CAE8E9}
+	EndGlobalSection
+EndGlobal
