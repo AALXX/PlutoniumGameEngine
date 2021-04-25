@@ -1,4 +1,6 @@
 #pragma once
+
+//* aplication entry point
 #ifdef PGE_PLATFORM_WINDOWS
 
 extern PGE::Aplication* PGE::CreateAplication();

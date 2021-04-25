@@ -1,0 +1,3 @@
+[submodule "PlutoniumGameEngine/Dependecies/spdlog"]
+	path = PlutoniumGameEngine/Dependecies/spdlog
+	url = https://github.com/gabime/spdlog

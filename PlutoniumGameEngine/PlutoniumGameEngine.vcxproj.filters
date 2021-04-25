@@ -45,6 +45,15 @@
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\MouseEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Platform_Windows\WindowsOsWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PlutoniumGameEngine\Aplication.cpp">
@@ -54,6 +63,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Platform_Windows\WindowsOsWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

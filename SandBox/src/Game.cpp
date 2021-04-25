@@ -5,13 +5,13 @@ class GameLayer : public PGE::Layer
 {
 public:
 	GameLayer()
-		: Layer("Example")
+		: Layer("Game")
 	{
 	}
 
 	void OnUpdate() override
 	{
-		std::cout << "Example layer:Update \n";
+		PGE_CLIENT_TRACE("GameLayer: update");
 	}
 
 

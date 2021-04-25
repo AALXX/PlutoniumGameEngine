@@ -5,6 +5,8 @@
 #include <sstream>
 
 namespace PGE {
+
+	
 	class PGE_API WindowResizeEvent : public Event
 	{
 	public:

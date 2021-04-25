@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Aplication.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Core\Core.h" />
     <ClInclude Include="src\PlutoniumGameEngine.h" />
@@ -21,11 +22,15 @@
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\MouseEvent.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\Layer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Window.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Platform_Windows\WindowsOsWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\Aplication.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\Layer.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Platform_Windows\WindowsOsWindow.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -81,6 +86,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)PlutoniumGameEngine\Dependecies\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -100,6 +106,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)PlutoniumGameEngine\Dependecies\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
