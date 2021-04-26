@@ -11,7 +11,7 @@ public:
 
 	void OnUpdate() override
 	{
-		PGE_CLIENT_TRACE("GameLayer: update");
+		//PGE_CLIENT_TRACE("GameLayer: update");
 	}
 
 

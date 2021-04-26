@@ -54,6 +54,9 @@
     <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PlutoniumGameEngine\Aplication.cpp">
@@ -69,6 +72,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

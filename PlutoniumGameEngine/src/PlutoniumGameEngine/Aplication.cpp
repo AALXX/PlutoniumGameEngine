@@ -26,38 +26,50 @@ namespace PGE {
 		m_layer_stack.PushOverlay(layer);
 	}
 
-	bool Aplication::OnWindowClosed(WindowCloseEvent& e)
-	{
-
-		PGE_CORE_INFO("test");
-
-		m_running = false;
-		return true;
-	}
-
-
+	//* aplictaion lifetime
 	void Aplication::Start()
 	{
 		Log::Init();
 		PGE_CORE_INFO("Started Engine");
+
+		GraphicsEngine::get()->Init();
 	}
 
 	void Aplication::Update()
 	{
 		while (m_running) {
 
-			m_Window->OnUpdate();
 			for (Layer* layer : m_layer_stack)
 			{
 				layer->OnUpdate();
 			}
+
+			m_Window->OnUpdate();
+
 		};
 	}
 
+	void Aplication::Stop()
+	{
+		GraphicsEngine::get()->Release();
+	}
+
+
+	//* Events
+	bool Aplication::OnWindowClosed(WindowCloseEvent& e)
+	{
+
+		Stop();
+
+		m_running = false;
+		return true;
+	}
 	void Aplication::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNC(OnWindowClosed));
+
+
 
 		for (auto it = m_layer_stack.end(); it != m_layer_stack.begin(); )
 		{

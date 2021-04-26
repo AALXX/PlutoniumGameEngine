@@ -5,6 +5,9 @@
 #include "LayerSystem/LayerStack.h"
 #include "../PlutoniumGameEngine/GraphicsEngine/WindowSystem/Window.h"
 
+//* Graphics engine
+#include "GraphicsEngine/GraphicsEngine.h"
+
 namespace PGE {
 	class PGE_API Aplication
 	{
@@ -19,6 +22,7 @@ namespace PGE {
 		
 		void Start();
 		void Update();
+		void Stop();
 
 		void OnEvent(Event& e);
 

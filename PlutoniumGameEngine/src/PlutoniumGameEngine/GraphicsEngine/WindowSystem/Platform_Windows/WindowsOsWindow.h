@@ -26,6 +26,7 @@ namespace PGE {
 
 	private:
 		virtual void Init(const WindowProps& props);
+		virtual void Release();
 
 	private:
 		static LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);

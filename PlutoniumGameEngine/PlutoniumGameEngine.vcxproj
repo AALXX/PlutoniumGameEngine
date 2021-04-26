@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Aplication.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Core\Core.h" />
@@ -26,6 +27,7 @@
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Platform_Windows\WindowsOsWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\Aplication.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\Layer.cpp" />
@@ -91,6 +93,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>d3d11.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -103,9 +106,8 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
-      <PrecompiledHeaderFile>
-      </PrecompiledHeaderFile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>$(SolutionDir)PlutoniumGameEngine\src\PlutoniumGameEngine\PrecompiledHeadders\pgeph.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SolutionDir)PlutoniumGameEngine\Dependecies\spdlog\include;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
