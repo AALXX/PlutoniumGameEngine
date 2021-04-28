@@ -31,9 +31,13 @@ namespace PGE {
 
 		virtual ~Window() {}
 		
-		virtual void OnCreate(HWND hwnd) = 0;
+		//*Windows Specific
+		virtual HWND GetHwnd() = 0;
+		virtual RECT getClientWindowRect() = 0;
+
+		virtual void OnCreate() = 0;
 		virtual void OnUpdate() = 0;
-		virtual void OnDestroy(HWND hwnd) = 0;
+		virtual void OnDestroy() = 0;
 
 		virtual unsigned int GetWidth() const = 0;
 		virtual unsigned int GetHeight() const = 0;

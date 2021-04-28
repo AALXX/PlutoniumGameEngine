@@ -2,7 +2,12 @@
 #include "../LogingSystem/Log.h"
 
 namespace PGE {
-
+	GraphicsEngine::GraphicsEngine()
+	{
+	}
+	GraphicsEngine::~GraphicsEngine()
+	{
+	}
 	bool GraphicsEngine::Init()
 	{
 
@@ -26,7 +31,7 @@ namespace PGE {
 
 		for (UINT driver_types_index = 0; driver_types_index < num_driver_types;)
 		{
-			res =  D3D11CreateDevice(NULL, driver_types[driver_types_index], NULL, NULL, feature_levels, 
+			res = D3D11CreateDevice(NULL, driver_types[driver_types_index], NULL, NULL, feature_levels,
 				num_feature_levels, D3D11_SDK_VERSION, &m_d3d11_device, &m_feature_level, &m_imm_device_context);
 
 			if (SUCCEEDED(res)) {
@@ -42,17 +47,29 @@ namespace PGE {
 			return false;
 		}
 
+		m_d3d11_device->QueryInterface(__uuidof(IDXGIDevice), (void**)&m_dxgi_device);
+		m_dxgi_device->GetParent(__uuidof(IDXGIAdapter), (void**)&m_dxgi_adapter);
+		m_dxgi_adapter->GetParent(__uuidof(IDXGIFactory), (void**)&m_dxgi_factory);
 
 		return true;
 	}
 
 	bool GraphicsEngine::Release()
 	{
+		m_dxgi_device->Release();
+		m_dxgi_adapter->Release();
+		m_dxgi_factory->Release();
+
 		m_imm_device_context->Release();
 		m_d3d11_device->Release();
 		PGE_CORE_INFO("DirectX released succesfully");
 
 		return true;
+	}
+
+	SwapChain* GraphicsEngine::createSwapChain()
+	{
+		return new SwapChain();
 	}
 
 	GraphicsEngine* GraphicsEngine::get()

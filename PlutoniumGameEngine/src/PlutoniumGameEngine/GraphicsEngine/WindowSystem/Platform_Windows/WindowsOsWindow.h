@@ -1,5 +1,7 @@
 #pragma once
 #include "../Window.h"
+//* Graphics engine
+#include "../../GraphicsEngine.h"
 
 namespace PGE {
 
@@ -10,13 +12,17 @@ namespace PGE {
 		WindowsOsWindow(const WindowProps& props);
 		virtual ~WindowsOsWindow();
 
-		void OnCreate(HWND hwnd) override;
+		void OnCreate() override;
 		void OnUpdate() override;
-		void OnDestroy(HWND hwnd) override;
+		void OnDestroy() override;
 
 
 		inline unsigned int GetWidth() const override { return m_WndData.width;  };
 		inline unsigned int GetHeight() const override { return m_WndData.height;};
+
+		RECT getClientWindowRect() override;
+		HWND GetHwnd() override;
+		void SetHwnd(HWND hwnd);
 
 		// Window attributes
 		inline void SetEventCallback(const EventCallbackFunc& callback) override { EventCallback = callback; };
@@ -41,6 +47,9 @@ namespace PGE {
 
 		WindowData m_WndData;
 		HWND m_hwnd;
+
+		//*SwapChain
+		SwapChain* m_swap_chain;
 	};
 }
 

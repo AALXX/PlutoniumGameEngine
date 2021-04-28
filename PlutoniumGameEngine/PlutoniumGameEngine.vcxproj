@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -25,6 +25,7 @@
     <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Window.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Platform_Windows\WindowsOsWindow.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicApis\DirectX11\Components\SwapChain\SwapChain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp" />
@@ -33,6 +34,7 @@
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\Layer.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Platform_Windows\WindowsOsWindow.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicApis\DirectX11\Components\SwapChain\SwapChain.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

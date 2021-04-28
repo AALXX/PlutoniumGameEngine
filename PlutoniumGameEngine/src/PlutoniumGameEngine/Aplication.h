@@ -33,8 +33,18 @@ namespace PGE {
 		bool OnWindowClosed(WindowCloseEvent& e);
 
 		bool m_running = true;
+		
+		//*Layer stack
 		LayerStack m_layer_stack;
+
+		//*Window
 		std::unique_ptr<Window> m_Window;
+
+		//*Window handler 
+		HWND WindowHwnd;
+
+		//*SwapChain
+		SwapChain* m_swap_chain;
 	};
 	
 	//*To be defined in client

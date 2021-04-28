@@ -33,6 +33,14 @@ namespace PGE {
 		PGE_CORE_INFO("Started Engine");
 
 		GraphicsEngine::get()->Init();
+		m_swap_chain =  GraphicsEngine::get()->createSwapChain();
+
+		WindowHwnd =  m_Window->GetHwnd();
+
+
+		RECT rc = m_Window->getClientWindowRect();
+		m_swap_chain->Init(WindowHwnd, rc.right - rc.left, rc.bottom - rc.top);
+
 	}
 
 	void Aplication::Update()
@@ -51,7 +59,9 @@ namespace PGE {
 
 	void Aplication::Stop()
 	{
+		m_swap_chain->Release();
 		GraphicsEngine::get()->Release();
+
 	}
 
 

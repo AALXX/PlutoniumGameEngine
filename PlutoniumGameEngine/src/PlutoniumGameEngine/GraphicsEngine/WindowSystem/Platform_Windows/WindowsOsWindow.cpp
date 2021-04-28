@@ -25,6 +25,15 @@ namespace PGE {
 
 
 
+	RECT WindowsOsWindow::getClientWindowRect()
+	{
+		RECT rc;
+		::GetClientRect(this->m_hwnd, &rc);
+
+		return rc;
+	}
+
+
 	void WindowsOsWindow::SetVSync(bool enabled)
 	{
 	}
@@ -47,7 +56,8 @@ namespace PGE {
 			SetWindowLongPtr(hwnd, GWLP_USERDATA, (LONG_PTR)window);
 
 
-			window->OnCreate(hwnd);
+			window->SetHwnd(hwnd);
+			window->OnCreate();
 
 			break;
 		}
@@ -55,7 +65,7 @@ namespace PGE {
 		{
 			// Event fired when the window is destroyed
 			WindowsOsWindow* window = (WindowsOsWindow*)GetWindowLongPtr(hwnd, GWLP_USERDATA);
-			window->OnDestroy(hwnd);
+			window->OnDestroy();
 
 			//* When close Callback 
 			WindowCloseEvent event;
@@ -116,7 +126,18 @@ namespace PGE {
 
 	}
 
-	void WindowsOsWindow::OnCreate(HWND hwnd)
+	void WindowsOsWindow::SetHwnd(HWND hwnd)
+	{
+		this->m_hwnd = hwnd;
+	}
+
+	HWND WindowsOsWindow::GetHwnd()
+	{
+		return m_hwnd;
+	}
+
+
+	void WindowsOsWindow::OnCreate()
 	{
 
 	}
@@ -130,6 +151,7 @@ namespace PGE {
 			DispatchMessage( &msg);
 
 		}
+
 	}
 	
 	void WindowsOsWindow::Release()
@@ -140,7 +162,7 @@ namespace PGE {
 
 
 
-	void WindowsOsWindow::OnDestroy(HWND hwnd)
+	void WindowsOsWindow::OnDestroy()
 	{
 
 	}
