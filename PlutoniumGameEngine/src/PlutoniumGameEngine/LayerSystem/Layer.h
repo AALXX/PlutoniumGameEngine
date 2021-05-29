@@ -4,7 +4,7 @@
 #include <string>
 
 namespace PGE {
-
+	
 	class PGE_API Layer {
 	public:
 		Layer(const std::string& name = "Layer");

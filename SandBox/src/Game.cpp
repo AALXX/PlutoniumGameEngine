@@ -1,19 +1,30 @@
 #include <PlutoniumGameEngine.h>
+
+//* -------------Entrypoint-----------
+#include "PlutoniumGameEngine/EntryPoint/EntryPoint.h"
+//* ----------------------------------
+
+#include "MainGameLayer.h"
 #include <iostream>
 
-class GameLayer : public PGE::Layer
+class ExampleLayer : public PGE::Layer
 {
 public:
-	GameLayer()
-		: Layer("Game")
+	ExampleLayer()
+		: Layer("Example")
 	{
 	}
+
+	void OnAttach()
+	{
+		PGE_CLIENT_INFO("AAAAA");
+	}
+
 
 	void OnUpdate() override
 	{
-		PGE_CLIENT_INFO("GameLayer: update");
+		//PGE_CLIENT_INFO("ExampleLayer::Update");
 	}
-
 
 	void OnEvent(PGE::Event& event) override
 	{
@@ -22,11 +33,12 @@ public:
 
 };
 
+
 class Game : public PGE::Aplication
 {
 public:
 	Game() {
-		PushLayer(new GameLayer());
+		PushLayer(new ExampleLayer());
 	}
 	~Game() {}
 

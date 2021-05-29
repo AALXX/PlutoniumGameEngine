@@ -2,11 +2,13 @@
 #include<d3d11.h>
 #include "../Core/Core.h"
 #include "GraphicApis/DirectX11/Components/SwapChain/SwapChain.h"
-
-class SwapChain;
+#include "GraphicApis/DirectX11/Components/DeviceContext/DeviceContext.h"
 
 namespace PGE {
-	class GraphicsEngine
+	class SwapChain;
+	class DeviceContext;
+
+	class PGE_API GraphicsEngine
 	{
 	public:
 		GraphicsEngine();
@@ -18,15 +20,16 @@ namespace PGE {
 		bool Release();
 	public:
 		SwapChain* createSwapChain();
-
+		DeviceContext* getImmediateDeviceContext();
 	public:
 
 		static GraphicsEngine* get();
+	private:
+		DeviceContext* m_imm_device_context;
 
 	private:
 		ID3D11Device* m_d3d11_device;
 		D3D_FEATURE_LEVEL m_feature_level;
-		ID3D11DeviceContext* m_imm_device_context;
 
 	private:
 		IDXGIDevice* m_dxgi_device;
@@ -35,6 +38,7 @@ namespace PGE {
 
 	private:
 		friend class SwapChain;
+		friend class DeviceContext;
 	};
 }
 

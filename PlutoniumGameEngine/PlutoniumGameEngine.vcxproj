@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicApis\DirectX11\Components\DeviceContext\DeviceContext.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Aplication.h" />
@@ -28,6 +29,7 @@
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicApis\DirectX11\Components\SwapChain\SwapChain.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicApis\DirectX11\Components\DeviceContext\DeviceContext.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\Aplication.cpp" />

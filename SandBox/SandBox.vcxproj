@@ -89,11 +89,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\MainGameLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj">
       <Project>{f4e7dcd4-fd28-49ba-bac5-fb6823b7a71f}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\MainGameLayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

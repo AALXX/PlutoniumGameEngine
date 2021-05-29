@@ -1,5 +1,9 @@
 #pragma once
 #include "../Window.h"
+#include"../../../EventSystem/AplicationEvent.h"
+#include"../../../EventSystem/MouseEvent.h"
+#include"../../../EventSystem/KeyEvent.h"
+
 //* Graphics engine
 #include "../../GraphicsEngine.h"
 

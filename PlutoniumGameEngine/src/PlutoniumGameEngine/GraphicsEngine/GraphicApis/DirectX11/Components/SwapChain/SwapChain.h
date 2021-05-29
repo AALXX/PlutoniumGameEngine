@@ -4,8 +4,8 @@
 
 namespace PGE {
 
-
-	class  SwapChain
+	class DeviceContext;
+	class PGE_API SwapChain
 	{
 	public:
 		SwapChain();
@@ -13,11 +13,16 @@ namespace PGE {
 
 		bool Init(HWND hwnd, UINT Width, UINT Height);
 
+		bool present(bool vsync);
+
 		//*Release SwapChain
 		bool Release();
 
 	private:
 		IDXGISwapChain* m_swap_chain;
+		ID3D11RenderTargetView* m_render_target_view;
+	private:
+		friend class DeviceContext;
 	};
 
 }

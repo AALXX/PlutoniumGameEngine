@@ -10,6 +10,3 @@
 //*Layers
 #include "PlutoniumGameEngine/LayerSystem/Layer.h"
 
-//* -------------Entrypoint-----------
-#include "PlutoniumGameEngine/EntryPoint/EntryPoint.h"
-//* ----------------------------------

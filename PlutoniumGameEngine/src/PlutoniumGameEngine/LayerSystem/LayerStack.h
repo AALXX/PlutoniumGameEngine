@@ -1,7 +1,8 @@
 #pragma once
 #include "../Core/Core.h"
-#include <vector>
 #include "./Layer.h"
+
+#include <vector>
 
 namespace PGE {
 

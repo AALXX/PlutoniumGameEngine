@@ -1,5 +1,4 @@
 #include "Aplication.h"
-#include"EventSystem/AplicationEvent.h"
 #include <iostream>
 
 namespace PGE {
@@ -18,6 +17,7 @@ namespace PGE {
 
 	void Aplication::PushLayer(Layer* layer)
 	{
+		//*TOD REPAIR LAYERSISTYEM
 		m_layer_stack.PushLayer(layer);
 	}
 
@@ -40,12 +40,14 @@ namespace PGE {
 
 		RECT rc = m_Window->getClientWindowRect();
 		m_swap_chain->Init(WindowHwnd, rc.right - rc.left, rc.bottom - rc.top);
-
 	}
 
 	void Aplication::Update()
 	{
 		while (m_running) {
+
+			GraphicsEngine::get()->getImmediateDeviceContext()->ClearRenderTargetColor(this->m_swap_chain, 1, 1,0, 1);
+			m_swap_chain->present(false);
 
 			for (Layer* layer : m_layer_stack)
 			{
@@ -74,11 +76,11 @@ namespace PGE {
 		m_running = false;
 		return true;
 	}
+
 	void Aplication::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNC(OnWindowClosed));
-
 
 
 		for (auto it = m_layer_stack.end(); it != m_layer_stack.begin(); )

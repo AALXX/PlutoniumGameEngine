@@ -40,12 +40,35 @@ namespace PGE {
 
 			return false;
 		}
-		else
-		{
-			PGE_CORE_INFO("created swap chain");
+		PGE_CORE_INFO("created swap chain");
+		
+		//*Get back buffer 
+		ID3D11Texture2D* buffer = NULL;
+		hr = m_swap_chain->GetBuffer(0, __uuidof(ID3D11Texture2D), (void**)&buffer);
+
+		if (FAILED(hr)) {
+
+			PGE_CORE_ERROR("failed to get back buffer");
+
+			return false;
 		}
 
+		hr = device->CreateRenderTargetView(buffer, NULL, &m_render_target_view);
+		buffer->Release();
+		 
 
+		if (FAILED(hr)) {
+
+			PGE_CORE_ERROR("failed to create render target view");
+
+			return false;
+		}
+		return true;
+	}
+
+	bool SwapChain::present(bool vsync)
+	{
+		m_swap_chain->Present(vsync, NULL);
 		return true;
 	}
 
