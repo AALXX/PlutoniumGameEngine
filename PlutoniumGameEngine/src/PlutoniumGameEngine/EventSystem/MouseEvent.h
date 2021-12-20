@@ -1,7 +1,7 @@
 #pragma once
+#include "pphd.h"
 #include "../Core/Core.h"
 #include "./Event.h"
-#include <sstream>
 
 namespace PGE {
 	class PGE_API MouseMovedEvent : public Event

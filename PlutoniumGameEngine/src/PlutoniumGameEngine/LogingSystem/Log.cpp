@@ -1,3 +1,4 @@
+#include "pphd.h"
 #include "Log.h"
 
 namespace PGE {

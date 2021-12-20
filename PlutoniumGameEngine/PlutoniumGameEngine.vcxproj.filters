@@ -18,19 +18,13 @@
     <ClInclude Include="src\PlutoniumGameEngine\Core\Core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\Aplication.h">
+    <ClInclude Include="src\PlutoniumGameEngine\Application.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\EntryPoint\EntryPoint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\Layer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\Event.h">
@@ -45,48 +39,30 @@
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\MouseEvent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Platform_Windows\WindowsOsWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h">
+    <ClInclude Include="src\pphd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicApis\DirectX11\Components\SwapChain\SwapChain.h">
+    <ClInclude Include="src\PlutoniumGameEngine\Window\Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicApis\DirectX11\Components\DeviceContext\DeviceContext.h">
+    <ClInclude Include="src\Platofrm\Windows\WindowsWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\PlutoniumGameEngine\Aplication.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\Layer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\WindowSystem\Platform_Windows\WindowsOsWindow.cpp">
+    <ClCompile Include="src\PlutoniumGameEngine\Application.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp">
+    <ClCompile Include="src\pphd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicApis\DirectX11\Components\SwapChain\SwapChain.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicApis\DirectX11\Components\DeviceContext\DeviceContext.cpp">
+    <ClCompile Include="src\Platofrm\Windows\WindowsWindow.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,8 +1,7 @@
 #pragma once
-
+#include "pphd.h"
 #include "../Core/Core.h"
 #include "./Event.h"
-#include <sstream>
 
 namespace PGE {
 

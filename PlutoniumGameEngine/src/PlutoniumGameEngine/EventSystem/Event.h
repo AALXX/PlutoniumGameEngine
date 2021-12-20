@@ -1,8 +1,6 @@
 #pragma once
 #include "../Core/Core.h"
-#include <functional>
-#include <sstream>
-#include <string>
+
 
 namespace PGE {
 

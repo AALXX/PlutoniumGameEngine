@@ -5,8 +5,8 @@
 //* Logging
 #include "PlutoniumGameEngine/LogingSystem/Log.h"
 
-#include "PlutoniumGameEngine/Aplication.h"
+#include "PlutoniumGameEngine/Application.h"
 
-//*Layers
-#include "PlutoniumGameEngine/LayerSystem/Layer.h"
-
+// ---Entry Point---------------------
+#include "PlutoniumGameEngine/EntryPoint/EntryPoint.h"
+// -----------------------------------

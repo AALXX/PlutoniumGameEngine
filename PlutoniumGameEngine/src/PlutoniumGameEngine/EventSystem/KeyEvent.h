@@ -1,7 +1,6 @@
 #pragma once
 #include "../Core/Core.h"
 #include "./Event.h"
-#include <sstream>
 
 namespace PGE {
 	class PGE_API KeyEvent : public Event
