@@ -12,6 +12,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Platofrm\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\Layer.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Application.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Core\Core.h" />
@@ -26,6 +28,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\Layer.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\Application.cpp" />
     <ClCompile Include="src\pphd.cpp">
@@ -90,6 +94,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pphd.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>src;$(SolutionDir)PlutoniumGameEngine\Dependecies\spdlog\include;</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
