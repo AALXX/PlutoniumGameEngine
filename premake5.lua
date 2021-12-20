@@ -14,9 +14,13 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "PlutoniumGameEngine/Dependecies/GLFW/include"
 IncludeDir["Glad"] = "PlutoniumGameEngine/Dependecies/Glad/include"
+IncludeDir["ImGui"] = "PlutoniumGameEngine/Dependecies/imgui"
 
 include "PlutoniumGameEngine/Dependecies/GLFW"
 include "PlutoniumGameEngine/Dependecies/Glad"
+include "PlutoniumGameEngine/Dependecies/imgui"
+
+startproject "Sandbox"
 
 project "PlutoniumGameEngine"
 	location "PlutoniumGameEngine"
@@ -40,13 +44,15 @@ project "PlutoniumGameEngine"
 		"%{prj.name}/src",
 		"%{prj.name}/Dependecies/spdlog/include",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.Glad}"
+		"%{IncludeDir.Glad}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links 
 	{ 
 		"GLFW",
 		"Glad",
+		"imgui",
 		"opengl32.lib"
 	}
 

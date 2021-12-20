@@ -4,6 +4,9 @@
     <Filter Include="Platofrm">
       <UniqueIdentifier>{4A908DB4-365D-E8BF-5F76-D6674BA21D4E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platofrm\OpenGl">
+      <UniqueIdentifier>{5EC20FA9-CA4D-7D6D-D35E-00623F69D96D}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platofrm\Windows">
       <UniqueIdentifier>{84E42323-70DD-4275-990F-28FA85672281}</UniqueIdentifier>
     </Filter>
@@ -19,6 +22,9 @@
     <Filter Include="PlutoniumGameEngine\EventSystem">
       <UniqueIdentifier>{985E74C1-0442-8301-0D45-B13D79A74952}</UniqueIdentifier>
     </Filter>
+    <Filter Include="PlutoniumGameEngine\IamGui">
+      <UniqueIdentifier>{AD8CDE7E-999C-8A4F-0256-EF6DEE8479E8}</UniqueIdentifier>
+    </Filter>
     <Filter Include="PlutoniumGameEngine\LayerSystem">
       <UniqueIdentifier>{534A9343-BF2D-A283-C830-D0BF349368D4}</UniqueIdentifier>
     </Filter>
@@ -30,6 +36,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platofrm\OpenGl\ImGuiOpenGLRenderer.h">
+      <Filter>Platofrm\OpenGl</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platofrm\Windows\WindowsWindow.h">
       <Filter>Platofrm\Windows</Filter>
     </ClInclude>
@@ -55,6 +64,9 @@
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\MouseEvent.h">
       <Filter>PlutoniumGameEngine\EventSystem</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.h">
+      <Filter>PlutoniumGameEngine\IamGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\Layer.h">
       <Filter>PlutoniumGameEngine\LayerSystem</Filter>
     </ClInclude>
@@ -76,6 +88,9 @@
     <ClCompile Include="src\PlutoniumGameEngine\Application.cpp">
       <Filter>PlutoniumGameEngine</Filter>
     </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.cpp">
+      <Filter>PlutoniumGameEngine\IamGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\Layer.cpp">
       <Filter>PlutoniumGameEngine\LayerSystem</Filter>
     </ClCompile>
@@ -86,5 +101,6 @@
       <Filter>PlutoniumGameEngine\LogingSystem</Filter>
     </ClCompile>
     <ClCompile Include="src\pphd.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGl\ImGuiOpenGLRenderer.cpp" />
   </ItemGroup>
 </Project>

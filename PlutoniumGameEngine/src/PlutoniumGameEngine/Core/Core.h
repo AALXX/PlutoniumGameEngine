@@ -12,6 +12,11 @@
 	#error Plutonium is supported only by windows!
 #endif // PGE_PLATFORM_WINDOWS
 
+#ifdef PGE_DEBUG
+	#define PGE_ENABLE_ASSERTS
+
+#endif // PGE_DEBUG
+
 
 #ifdef PGE_ENABLE_ASSERTS
 #define PGE_ASSERT(x, ...) { if(!(x)) { PGE_CLIENT_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
@@ -22,3 +27,5 @@
 #endif
 
 #define BIT(x) (1<<x)
+
+#define PGE_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)

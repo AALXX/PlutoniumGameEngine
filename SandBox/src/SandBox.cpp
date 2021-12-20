@@ -9,11 +9,11 @@ public:
 	}
 
 	void OnUpdate() override {
-		PGE_CLIENT_INFO("Example Layer Updafe");
+		//PGE_CLIENT_INFO("Example Layer Update");
 	}
 
 	void OnEvent(PGE::Event& event) override {
-		PGE_CLIENT_TRACE("{0}", event);
+		//PGE_CLIENT_TRACE("{0}", event);
 	}
 
 private:
@@ -26,6 +26,7 @@ public:
 	Sandbox()
 	{
 		PushLayer(new TestLayer());
+		PushOverLay(new PGE::IamGuiLayer());
 	}
 
 	~Sandbox()

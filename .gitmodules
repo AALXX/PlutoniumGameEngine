@@ -4,3 +4,6 @@
 [submodule "PlutoniumGameEngine/Dependecies/GLFWF"]
 	path = PlutoniumGameEngine/Dependecies/GLFWF
 	url = https://github.com/TheCherno/GLFW
+[submodule "PlutoniumGameEngine/Dependecies/imgui"]
+	path = PlutoniumGameEngine/Dependecies/imgui
+	url = https://github.com/TheCherno/imgui

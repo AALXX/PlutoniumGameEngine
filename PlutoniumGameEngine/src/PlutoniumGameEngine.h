@@ -4,6 +4,7 @@
 #include "PlutoniumGameEngine/LogingSystem/Log.h"
 #include "PlutoniumGameEngine/LayerSystem/Layer.h"
 #include "PlutoniumGameEngine/Application.h"
+#include "PlutoniumGameEngine/IamGui/IamGuiLayer.h"
 
 // ---Entry Point---------------------
 #include "PlutoniumGameEngine/EntryPoint/EntryPoint.h"
