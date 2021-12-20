@@ -3,6 +3,7 @@
 #include "PlutoniumGameEngine/EventSystem/KeyEvent.h"
 #include "PlutoniumGameEngine/EventSystem/AplicationEvent.h"
 #include "PlutoniumGameEngine/EventSystem/MouseEvent.h"
+#include <glad/glad.h>
 
 namespace PGE {
 	static bool s_GLFWInitalizated = false;
@@ -48,6 +49,8 @@ namespace PGE {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.windowTitle.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		PGE_CORE_ASSERT(status, "Failed to init GLAD");
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 

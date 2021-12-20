@@ -1,7 +1,7 @@
 #include "pphd.h"
 
 #include "Application.h"
-#include <GLFW/glfw3.h>
+#include <glad/glad.h>
 
 namespace PGE {
 
@@ -39,7 +39,7 @@ namespace PGE {
 		EventDispatcher dipathcer(e);
 		dipathcer.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
 
-		PGE_CORE_TRACE("{0}", e);
+		//PGE_CORE_TRACE("{0}", e);
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{

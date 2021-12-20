@@ -1,3 +1,6 @@
 [submodule "PlutoniumGameEngine/Dependecies/spdlog"]
 	path = PlutoniumGameEngine/Dependecies/spdlog
 	url = https://github.com/gabime/spdlog
+[submodule "PlutoniumGameEngine/Dependecies/GLFWF"]
+	path = PlutoniumGameEngine/Dependecies/GLFWF
+	url = https://github.com/TheCherno/GLFW

@@ -1,81 +1,90 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Platofrm">
+      <UniqueIdentifier>{4A908DB4-365D-E8BF-5F76-D6674BA21D4E}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Platofrm\Windows">
+      <UniqueIdentifier>{84E42323-70DD-4275-990F-28FA85672281}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="PlutoniumGameEngine">
+      <UniqueIdentifier>{E235DC67-4E97-B975-D704-00284365F034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlutoniumGameEngine\Core">
+      <UniqueIdentifier>{7A576C65-667C-BBE5-8FC7-A0757B4BBA03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlutoniumGameEngine\EntryPoint">
+      <UniqueIdentifier>{8D834AF5-79A9-145C-62EF-99274EB43928}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlutoniumGameEngine\EventSystem">
+      <UniqueIdentifier>{985E74C1-0442-8301-0D45-B13D79A74952}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlutoniumGameEngine\LayerSystem">
+      <UniqueIdentifier>{534A9343-BF2D-A283-C830-D0BF349368D4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlutoniumGameEngine\LogingSystem">
+      <UniqueIdentifier>{76B78F84-6208-7BC6-8B6C-6988771C0E30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlutoniumGameEngine\Window">
+      <UniqueIdentifier>{899018A0-75A0-C470-DE59-298FCA88B309}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\PlutoniumGameEngine\Core\Core.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\Platofrm\Windows\WindowsWindow.h">
+      <Filter>Platofrm\Windows</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Application.h">
-      <Filter>Header Files</Filter>
+      <Filter>PlutoniumGameEngine</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Core.h">
+      <Filter>PlutoniumGameEngine\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\EntryPoint\EntryPoint.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\EventSystem\Event.h">
-      <Filter>Header Files</Filter>
+      <Filter>PlutoniumGameEngine\EntryPoint</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\AplicationEvent.h">
-      <Filter>Header Files</Filter>
+      <Filter>PlutoniumGameEngine\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\EventSystem\Event.h">
+      <Filter>PlutoniumGameEngine\EventSystem</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\KeyEvent.h">
-      <Filter>Header Files</Filter>
+      <Filter>PlutoniumGameEngine\EventSystem</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\MouseEvent.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\pphd.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\Window\Window.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platofrm\Windows\WindowsWindow.h">
-      <Filter>Header Files</Filter>
+      <Filter>PlutoniumGameEngine\EventSystem</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\Layer.h">
-      <Filter>Header Files</Filter>
+      <Filter>PlutoniumGameEngine\LayerSystem</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.h">
-      <Filter>Header Files</Filter>
+      <Filter>PlutoniumGameEngine\LayerSystem</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h">
+      <Filter>PlutoniumGameEngine\LogingSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\Window\Window.h">
+      <Filter>PlutoniumGameEngine\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\pphd.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\PlutoniumGameEngine\Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\pphd.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\Platofrm\Windows\WindowsWindow.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Platofrm\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\Application.cpp">
+      <Filter>PlutoniumGameEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\Layer.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>PlutoniumGameEngine\LayerSystem</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>PlutoniumGameEngine\LayerSystem</Filter>
     </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp">
+      <Filter>PlutoniumGameEngine\LogingSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="src\pphd.cpp" />
   </ItemGroup>
 </Project>
