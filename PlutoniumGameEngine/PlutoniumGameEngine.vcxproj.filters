@@ -80,6 +80,8 @@
       <Filter>PlutoniumGameEngine\Window</Filter>
     </ClInclude>
     <ClInclude Include="src\pphd.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Input\Input.h" />
+    <ClInclude Include="src\Platofrm\Windows\Input\WindowInput.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\Windows\WindowsWindow.cpp">
@@ -102,5 +104,7 @@
     </ClCompile>
     <ClCompile Include="src\pphd.cpp" />
     <ClCompile Include="src\Platofrm\OpenGl\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platofrm\Windows\Input\WindowInput.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\Input\Input.cpp" />
   </ItemGroup>
 </Project>

@@ -36,6 +36,8 @@ namespace PGE {
 		virtual void SetVSync(bool enabled) = 0;
 		virtual bool IsVSync() const = 0;
 
+		virtual void* GetNativeWindow() const = 0; //return window (glfw/win32 for example)
+
 		static Window* Create(const WindowProps& props = WindowProps());
 	};
 

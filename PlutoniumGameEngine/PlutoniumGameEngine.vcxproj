@@ -153,6 +153,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Platofrm\OpenGl\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platofrm\Windows\Input\WindowInput.h" />
     <ClInclude Include="src\Platofrm\Windows\WindowsWindow.h" />
     <ClInclude Include="src\PlutoniumGameEngine.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Application.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\KeyEvent.h" />
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\MouseEvent.h" />
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Input\Input.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\Layer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h" />
@@ -171,9 +173,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGl\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platofrm\Windows\Input\WindowInput.cpp" />
     <ClCompile Include="src\Platofrm\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\Application.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\Input\Input.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\Layer.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp" />

@@ -3,6 +3,8 @@
 #include "Application.h"
 #include <glad/glad.h>
 
+#include "PlutoniumGameEngine/Input/Input.h"
+
 namespace PGE {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -33,6 +35,9 @@ namespace PGE {
 			{
 				layer->OnUpdate();
 			}
+
+			auto [x, y] = Input::GetMousePos();
+			PGE_CORE_TRACE("{0}, {1}", x, y);
 
 			m_Window->OnUpdate();
 		}
