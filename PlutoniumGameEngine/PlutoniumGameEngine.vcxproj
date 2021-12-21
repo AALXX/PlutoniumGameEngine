@@ -165,6 +165,8 @@
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\MouseEvent.h" />
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Input\Input.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Input\KeyCodes.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Input\MouseButtonCodes.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\Layer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.h" />
     <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h" />

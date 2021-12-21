@@ -36,9 +36,6 @@ namespace PGE {
 				layer->OnUpdate();
 			}
 
-			auto [x, y] = Input::GetMousePos();
-			PGE_CORE_TRACE("{0}, {1}", x, y);
-
 			m_Window->OnUpdate();
 		}
 

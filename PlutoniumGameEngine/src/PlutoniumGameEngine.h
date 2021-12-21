@@ -6,6 +6,11 @@
 #include "PlutoniumGameEngine/Application.h"
 #include "PlutoniumGameEngine/IamGui/IamGuiLayer.h"
 
+//*Input
+#include "PlutoniumGameEngine/Input/Input.h"
+#include "PlutoniumGameEngine/Input/KeyCodes.h"
+#include "PlutoniumGameEngine/Input/MouseButtonCodes.h"
+
 // ---Entry Point---------------------
 #include "PlutoniumGameEngine/EntryPoint/EntryPoint.h"
 // -----------------------------------

@@ -10,6 +10,9 @@ public:
 
 	void OnUpdate() override {
 		//PGE_CLIENT_INFO("Example Layer Update");
+		if (PGE::Input::IsKeyPressed(PGE_KEY_A)) {
+			PGE_CLIENT_INFO("MILSUGIOOO");
+		}
 	}
 
 	void OnEvent(PGE::Event& event) override {
