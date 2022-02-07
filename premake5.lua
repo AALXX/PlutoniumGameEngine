@@ -1,5 +1,6 @@
 workspace "PlutoniumGameEngine"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations
 	{
@@ -15,12 +16,12 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "PlutoniumGameEngine/Dependecies/GLFW/include"
 IncludeDir["Glad"] = "PlutoniumGameEngine/Dependecies/Glad/include"
 IncludeDir["ImGui"] = "PlutoniumGameEngine/Dependecies/imgui"
+IncludeDir["glm"] = "PlutoniumGameEngine/Dependecies/glm"
 
 include "PlutoniumGameEngine/Dependecies/GLFW"
 include "PlutoniumGameEngine/Dependecies/Glad"
 include "PlutoniumGameEngine/Dependecies/imgui"
 
-startproject "Sandbox"
 
 project "PlutoniumGameEngine"
 	location "PlutoniumGameEngine"
@@ -36,7 +37,9 @@ project "PlutoniumGameEngine"
 	files
 	{
 		"%{prj.name}/src/**.h",
-		"%{prj.name}/src/**.cpp"
+		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/Dependecies/glm/glm/**.hpp",
+		"%{prj.name}/Dependecies/glm/glm/**.inl",
 	}
 
 	includedirs
@@ -45,7 +48,9 @@ project "PlutoniumGameEngine"
 		"%{prj.name}/Dependecies/spdlog/include",
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.Glad}",
-		"%{IncludeDir.ImGui}"
+		"%{IncludeDir.ImGui}",
+		"%{IncludeDir.glm}"
+
 	}
 
 	links 
@@ -70,7 +75,8 @@ project "PlutoniumGameEngine"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
+
 		}
 
 	filter "configurations:Debug"
@@ -105,7 +111,9 @@ project "Sandbox"
 	includedirs
 	{
 		"PlutoniumGameEngine/Dependecies/spdlog/include",
-		"PlutoniumGameEngine/src"
+		"PlutoniumGameEngine/src",
+		"%{IncludeDir.glm}"
+
 	}
 
 	links

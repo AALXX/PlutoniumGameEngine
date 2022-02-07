@@ -7,3 +7,6 @@
 [submodule "PlutoniumGameEngine/Dependecies/imgui"]
 	path = PlutoniumGameEngine/Dependecies/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "PlutoniumGameEngine/Dependecies/glm"]
+	path = PlutoniumGameEngine/Dependecies/glm
+	url = https://github.com/g-truc/glm
