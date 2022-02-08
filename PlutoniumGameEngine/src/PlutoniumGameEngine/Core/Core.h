@@ -1,6 +1,7 @@
 #pragma once
 
 #ifdef PGE_PLATFORM_WINDOWS
+#if PGE_DYNAMIC_LINK
 
 	#ifdef PGE_BUILD_DLL
 		#define PGE_API __declspec(dllexport)
@@ -8,6 +9,10 @@
 		#define PGE_API __declspec(dllimport)
 
 	#endif
+
+#else
+	#define PGE_API
+#endif
 #else
 	#error Plutonium is supported only by windows!
 #endif // PGE_PLATFORM_WINDOWS

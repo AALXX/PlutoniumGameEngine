@@ -18,6 +18,9 @@ namespace PGE {
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+
+		m_ImGuiLayer = new ImGuiLayer;
+		PushOverLay(m_ImGuiLayer);
 	}
 
 	Application::~Application()
@@ -31,10 +34,18 @@ namespace PGE {
 			glClearColor(1, 0, 0, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
 
-			for (Layer* layer : m_LayerStack)
-			{
+			for (Layer* layer : m_LayerStack){
 				layer->OnUpdate();
 			}
+
+			m_ImGuiLayer->Begin(); //begin imgui rendering
+
+			for (Layer* layer : m_LayerStack) {
+				layer->OnImGuiRender();
+			}
+
+			m_ImGuiLayer->End(); //end imgui rendering
+
 
 			m_Window->OnUpdate();
 		}
@@ -60,13 +71,11 @@ namespace PGE {
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
-		layer->OnAttach();
 	}
 
 	void Application::PushOverLay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
-		layer->OnAttach();
 
 	}
 

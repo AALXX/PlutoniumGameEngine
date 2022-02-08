@@ -5,7 +5,6 @@ namespace PGE {
 
 	LayerStack::LayerStack()
 	{
-		m_LayerInsert = m_Layers.begin();
 	}
 
 	LayerStack::~LayerStack()
@@ -16,7 +15,8 @@ namespace PGE {
 
 	void LayerStack::PushLayer(Layer* layer)
 	{
-		m_LayerInsert = m_Layers.emplace(m_LayerInsert, layer);
+		m_Layers.emplace(m_Layers.begin() + m_LayerInsert_index, layer);
+		m_LayerInsert_index++;
 		layer->OnAttach();
 	}
 
@@ -32,7 +32,7 @@ namespace PGE {
 		if (it != m_Layers.end())
 		{
 			m_Layers.erase(it);
-			m_LayerInsert--;
+			m_LayerInsert_index--;
 			layer->OnDeAttach();
 		}
 	}

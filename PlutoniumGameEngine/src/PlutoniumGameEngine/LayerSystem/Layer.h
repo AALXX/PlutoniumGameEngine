@@ -4,15 +4,17 @@
 
 namespace PGE {
 	
-	class PGE_API Layer {
+	class PGE_API Layer
+	{
 	public:
 		Layer(const std::string& name = "Layer");
 		virtual ~Layer();
 
-		virtual void OnAttach() {};
-		virtual void OnDeAttach() {};
-		virtual void OnUpdate() {};
-		virtual void OnEvent(Event& event) {};
+		virtual void OnAttach() {}
+		virtual void OnDeAttach() {}
+		virtual void OnUpdate() {}
+		virtual void OnImGuiRender() {}
+		virtual void OnEvent(Event& event) {}
 
 		inline const std::string& GetName() const { return m_DebugName; }
 	protected:

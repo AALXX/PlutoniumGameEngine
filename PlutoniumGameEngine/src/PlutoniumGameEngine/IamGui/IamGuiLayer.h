@@ -1,35 +1,25 @@
-#pragma 
+#pragma once
+
 #include "PlutoniumGameEngine/LayerSystem/Layer.h"
-#include "PlutoniumGameEngine/EventSystem/Event.h"
-#include "PlutoniumGameEngine/EventSystem/MouseEvent.h"
-#include "PlutoniumGameEngine/EventSystem/KeyEvent.h"
+
 #include "PlutoniumGameEngine/EventSystem/AplicationEvent.h"
-#include "PlutoniumGameEngine/Core/Core.h"
+#include "PlutoniumGameEngine/EventSystem/KeyEvent.h"
+#include "PlutoniumGameEngine/EventSystem/MouseEvent.h"
 
 namespace PGE {
-	class PGE_API IamGuiLayer: public Layer
+
+	class PGE_API ImGuiLayer : public Layer
 	{
 	public:
-		IamGuiLayer();
-		~IamGuiLayer();
+		ImGuiLayer();
+		~ImGuiLayer();
 
-		void OnUpdate();
-		void OnEvent(Event& event);
+		virtual void OnAttach() override;
+		virtual void OnDeAttach() override;
+		virtual void OnImGuiRender() override;
 
-		void OnAttach();
-		void OnDeAttach();
-	private:
-		bool OnMouseButtonPressedEvent(MouseButtonPressedEvent& e);
-		bool OnMouseButtonReleasedEvent(MouseButtonReleasedEvent& e);
-		bool OnMouseMoveReleasedEvent(MouseMovedEvent& e);
-		bool OnMouseScrollReleasedEvent(MouseScrolledEvent& e);
-		bool OnKeyPressedEvent(KeyPressedEvent& e);
-		bool OnKeyReleasedEvent(KeyReleasedEvent& e);
-
-		bool OnKeyTypedEvent(KeyTypedEvent& e);
-
-		bool OnWindowResizeEvent(WindowResizeEvent& e);
-
+		void Begin();
+		void End();
 	private:
 		float m_Time = 0.0f;
 	};

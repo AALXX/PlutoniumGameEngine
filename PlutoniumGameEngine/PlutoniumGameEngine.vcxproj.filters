@@ -28,9 +28,6 @@
     <Filter Include="src\Platofrm">
       <UniqueIdentifier>{419307E5-2DF6-9689-D67B-CF3FC2BD620C}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Platofrm\OpenGl">
-      <UniqueIdentifier>{75E977C3-E14A-55D1-6AB8-9B83D6188C90}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Platofrm\Windows">
       <UniqueIdentifier>{7BEE908A-677D-1A54-109C-2E4FFC092BFA}</UniqueIdentifier>
     </Filter>
@@ -1311,9 +1308,6 @@
     <ClInclude Include="Dependecies\glm\glm\vector_relational.hpp">
       <Filter>Dependecies\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platofrm\OpenGl\ImGuiOpenGLRenderer.h">
-      <Filter>src\Platofrm\OpenGl</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platofrm\Windows\Input\WindowInput.h">
       <Filter>src\Platofrm\Windows\Input</Filter>
     </ClInclude>
@@ -1373,9 +1367,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platofrm\OpenGl\ImGuiOpenGLRenderer.cpp">
-      <Filter>src\Platofrm\OpenGl</Filter>
-    </ClCompile>
     <ClCompile Include="src\Platofrm\Windows\Input\WindowInput.cpp">
       <Filter>src\Platofrm\Windows\Input</Filter>
     </ClCompile>
@@ -1386,6 +1377,9 @@
       <Filter>src\PlutoniumGameEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.cpp">
+      <Filter>src\PlutoniumGameEngine\IamGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\IamGui\ImGuiBuild.cpp">
       <Filter>src\PlutoniumGameEngine\IamGui</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\Input\Input.cpp">

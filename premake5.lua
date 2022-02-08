@@ -25,8 +25,11 @@ include "PlutoniumGameEngine/Dependecies/imgui"
 
 project "PlutoniumGameEngine"
 	location "PlutoniumGameEngine"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
+	cppdialect "C++20"
+
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -40,6 +43,11 @@ project "PlutoniumGameEngine"
 		"%{prj.name}/src/**.cpp",
 		"%{prj.name}/Dependecies/glm/glm/**.hpp",
 		"%{prj.name}/Dependecies/glm/glm/**.inl",
+	}
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS"
 	}
 
 	includedirs
@@ -62,8 +70,6 @@ project "PlutoniumGameEngine"
 	}
 
 	filter "system:windows"
-		cppdialect "C++20"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -71,12 +77,6 @@ project "PlutoniumGameEngine"
 			"PGE_PLATFORM_WINDOWS",
 			"PGE_BUILD_DLL",
 			"GLFW_INCLUDE_NONE"
-		}
-
-		postbuildcommands
-		{
-			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
-
 		}
 
 	filter "configurations:Debug"
@@ -98,6 +98,8 @@ project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	cppdialect "C++20"
+	staticruntime "on"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -112,6 +114,7 @@ project "Sandbox"
 	{
 		"PlutoniumGameEngine/Dependecies/spdlog/include",
 		"PlutoniumGameEngine/src",
+		"PlutoniumGameEngine/Dependecies",
 		"%{IncludeDir.glm}"
 
 	}
@@ -122,8 +125,6 @@ project "Sandbox"
 	}
 
 	filter "system:windows"
-		cppdialect "C++20"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
