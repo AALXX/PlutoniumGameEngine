@@ -14,6 +14,7 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 -- Include directories relative to root folder (solution directory)
 IncludeDir = {}
 IncludeDir["GLFW"] = "PlutoniumGameEngine/Dependecies/GLFW/include"
+IncludeDir["Vulkan"] = "PlutoniumGameEngine/Dependecies/Vulkan/include"
 IncludeDir["Glad"] = "PlutoniumGameEngine/Dependecies/Glad/include"
 IncludeDir["ImGui"] = "PlutoniumGameEngine/Dependecies/imgui"
 IncludeDir["glm"] = "PlutoniumGameEngine/Dependecies/glm"
@@ -21,6 +22,11 @@ IncludeDir["glm"] = "PlutoniumGameEngine/Dependecies/glm"
 include "PlutoniumGameEngine/Dependecies/GLFW"
 include "PlutoniumGameEngine/Dependecies/Glad"
 include "PlutoniumGameEngine/Dependecies/imgui"
+
+-- Lib directories relative to root folder (solution directory)
+LibDir = {}
+LibDir["Vulkan"] = "PlutoniumGameEngine/Dependecies/Vulkan/Lib"
+
 
 
 project "PlutoniumGameEngine"
@@ -45,8 +51,8 @@ project "PlutoniumGameEngine"
 		"%{prj.name}/Dependecies/glm/glm/**.inl",
 	}
 
-	defines
-	{
+	defines{
+
 		"_CRT_SECURE_NO_WARNINGS"
 	}
 
@@ -55,10 +61,16 @@ project "PlutoniumGameEngine"
 		"%{prj.name}/src",
 		"%{prj.name}/Dependecies/spdlog/include",
 		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Vulkan}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
 		"%{IncludeDir.glm}"
 
+	}
+
+	libdirs{
+		"%{LibDir.Vulkan}",
+		
 	}
 
 	links 
@@ -66,7 +78,8 @@ project "PlutoniumGameEngine"
 		"GLFW",
 		"Glad",
 		"imgui",
-		"opengl32.lib"
+		"opengl32.lib",
+		"vulkan-1.lib"
 	}
 
 	filter "system:windows"
@@ -81,18 +94,18 @@ project "PlutoniumGameEngine"
 
 	filter "configurations:Debug"
 		defines "PGE_DEBUG"
-		buildoptions "/MDd"
-		symbols "On"
+		runtime "Debug"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "PGE_RELEASE"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "PGE_DIST"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"
 
 project "Sandbox"
 	location "Sandbox"
@@ -134,15 +147,14 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "PGE_DEBUG"
-		buildoptions "/MDd"
-		symbols "On"
+		runtime "Debug"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "PGE_RELEASE"
-		buildoptions "/MD"
-		optimize "On"
-
+		runtime "Release"
+		optimize "on"
 	filter "configurations:Dist"
 		defines "PGE_DIST"
-		buildoptions "/MD"
-		optimize "On"
+		runtime "Release"
+		optimize "on"

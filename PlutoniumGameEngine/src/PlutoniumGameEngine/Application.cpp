@@ -5,6 +5,8 @@
 
 #include "PlutoniumGameEngine/Input/Input.h"
 
+#include "PlutoniumGameEngine/GraphicsEngine/GraphicsEngine.h"
+
 namespace PGE {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -21,6 +23,8 @@ namespace PGE {
 
 		m_ImGuiLayer = new ImGuiLayer;
 		PushOverLay(m_ImGuiLayer);
+
+		GraphicsEngine::get()->init();
 	}
 
 	Application::~Application()
@@ -81,6 +85,8 @@ namespace PGE {
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{
+		GraphicsEngine::get()->release();
+
 		m_Running = false;
 		return true;
 	}

@@ -1365,6 +1365,8 @@
     <ClInclude Include="src\pphd.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Instance\Instance.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\Windows\Input\WindowInput.cpp">
@@ -1397,5 +1399,6 @@
     <ClCompile Include="src\pphd.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp" />
   </ItemGroup>
 </Project>
