@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-16"?>
-<DevTrackerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SolutionTotalEditTime="PT36M21.8975438S" SolutionTotalViewTime="PT1H48M0.949756S" SolutionTotalDebugTime="PT0S">
+<DevTrackerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" SolutionTotalEditTime="PT1H54M24.8760736S" SolutionTotalViewTime="PT8H44M35.2180509S" SolutionTotalDebugTime="PT2.5378927S">
   <FileVersion>
     <Major>1</Major>
     <Minor>0</Minor>
@@ -30,69 +30,132 @@
   </ProjectsCreatedDateList>
   <SessionTimeList />
   <LastSessionTimeList>
-    <DevTrackerDataItem ViewActiveTime="PT55.6731304S" EditActiveTime="PT14.6697089S">
-      <ModifiedDate>2022-02-08T08:43:54.2351888+02:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT3M1.5283737S" EditActiveTime="PT1M1.435833S">
+      <ModifiedDate>2022-02-09T19:07:09.2651825+02:00</ModifiedDate>
       <ModifiedBy>alexn</ModifiedBy>
       <EditedCount>1</EditedCount>
       <ViewedCount>1</ViewedCount>
       <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\PlutoniumGameEngine\Application.cpp</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
-      <CreatedDate>2022-02-08T01:00:40.485485+02:00</CreatedDate>
+      <CreatedDate>2022-02-09T18:54:12.8207337+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT1M32.4112362S" EditActiveTime="PT4.6266847S">
-      <ModifiedDate>2022-02-08T08:43:56.0803746+02:00</ModifiedDate>
-      <ModifiedBy>alexn</ModifiedBy>
-      <EditedCount>1</EditedCount>
+    <DevTrackerDataItem ViewActiveTime="PT41.1634954S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
       <ViewedCount>1</ViewedCount>
       <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\PlutoniumGameEngine\Application.h</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
-      <CreatedDate>2022-02-08T01:00:48.1349696+02:00</CreatedDate>
+      <CreatedDate>2022-02-09T18:50:15.3700421+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT54.310136S" EditActiveTime="PT3.8873176S">
-      <ModifiedDate>2022-02-08T01:01:04.1348718+02:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT2.5378927S" EditActiveTime="PT10.8482436S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2022-02-10T08:49:51.8168835+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT34M13.6203411S" EditActiveTime="PT10M28.4183997S">
+      <ModifiedDate>2022-02-10T21:33:32.1836815+02:00</ModifiedDate>
       <ModifiedBy>alexn</ModifiedBy>
       <EditedCount>1</EditedCount>
       <ViewedCount>1</ViewedCount>
-      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\PlutoniumGameEngine\IamGui\IamGuiLayer.cpp</Item>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\Platofrm\VulkanApi\Device\Device.h</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
-      <CreatedDate>2022-02-08T00:59:44.4105968+02:00</CreatedDate>
+      <CreatedDate>2022-02-10T08:46:24.319748+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT3M31.0943787S" EditActiveTime="PT19.372311S">
-      <ModifiedDate>2022-02-08T01:04:59.702866+02:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT2H17M38.0423823S" EditActiveTime="PT4M18.2446984S">
+      <ModifiedDate>2022-02-10T10:39:49.549804+02:00</ModifiedDate>
       <ModifiedBy>alexn</ModifiedBy>
       <EditedCount>1</EditedCount>
       <ViewedCount>1</ViewedCount>
-      <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\PlutoniumGameEngine\IamGui\IamGuiLayer.h</Item>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
-      <CreatedDate>2022-02-08T00:59:59.13535+02:00</CreatedDate>
+      <CreatedDate>2022-02-09T18:13:58.1497972+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT4M12.4094775S" EditActiveTime="PT0S">
+    <DevTrackerDataItem ViewActiveTime="PT6.9259902S" EditActiveTime="PT5.0676982S">
+      <ModifiedDate>2022-02-09T18:50:02.9585781+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\GraphicsEngine.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:49:52.5935525+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT11M58.1635462S" EditActiveTime="PT4M6.3434633S">
+      <ModifiedDate>2022-02-10T08:45:12.3011695+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:50:20.2414276+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M34.0865423S" EditActiveTime="PT0S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>0</EditedCount>
       <ViewedCount>1</ViewedCount>
       <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\PlutoniumGameEngine\IamGui\ImGuiBuild.cpp</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
-      <CreatedDate>2022-02-08T08:44:08.8427216+02:00</CreatedDate>
+      <CreatedDate>2022-02-09T18:44:15.9985989+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT33.1972865S" EditActiveTime="PT18.2872596S">
-      <ModifiedDate>2022-02-08T09:04:50.9907466+02:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT43M13.4595093S" EditActiveTime="PT18M34.5628481S">
+      <ModifiedDate>2022-02-09T23:03:24.3195127+02:00</ModifiedDate>
       <ModifiedBy>alexn</ModifiedBy>
       <EditedCount>1</EditedCount>
       <ViewedCount>1</ViewedCount>
-      <Item>d:\projects\plutoniumgameengine\SandBox\src\SandBox.cpp</Item>
+      <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\Platofrm\VulkanApi\instance\Instance.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:33:26.7346544+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT5M1.3447145S" EditActiveTime="PT15M20.2617845S">
+      <ModifiedDate>2022-02-10T08:36:20.1710789+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\Platofrm\VulkanApi\Logging\Logging.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T23:30:18.535099+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT20.5923027S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\pphd.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:35:45.635686+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT14.6840604S" EditActiveTime="PT0.6662871S">
+      <ModifiedDate>2022-02-09T22:09:23.7045788+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\SandBox\src\SandBox.cpp</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\SandBox\Sandbox.vcxproj</ProjectName>
-      <CreatedDate>2022-02-08T01:06:28.3877867+02:00</CreatedDate>
+      <CreatedDate>2022-02-09T18:56:46.6329746+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
   </LastSessionTimeList>
@@ -107,26 +170,80 @@
       <CreatedDate>2022-02-08T00:07:00.4896797+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT4M12.0041118S" EditActiveTime="PT1M51.8096931S">
-      <ModifiedDate>2022-02-08T08:43:54.2351888+02:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT7M13.5324855S" EditActiveTime="PT2M53.2455261S">
+      <ModifiedDate>2022-02-09T19:07:09.2651825+02:00</ModifiedDate>
       <ModifiedBy>alexn</ModifiedBy>
-      <EditedCount>2</EditedCount>
-      <ViewedCount>2</ViewedCount>
+      <EditedCount>3</EditedCount>
+      <ViewedCount>3</ViewedCount>
       <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\PlutoniumGameEngine\Application.cpp</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
       <CreatedDate>2022-02-08T00:07:59.3641325+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT2M58.8656828S" EditActiveTime="PT2M15.6635821S">
+    <DevTrackerDataItem ViewActiveTime="PT3M40.0291782S" EditActiveTime="PT2M15.6635821S">
       <ModifiedDate>2022-02-08T08:43:56.0803746+02:00</ModifiedDate>
       <ModifiedBy>alexn</ModifiedBy>
       <EditedCount>2</EditedCount>
-      <ViewedCount>2</ViewedCount>
+      <ViewedCount>3</ViewedCount>
       <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\PlutoniumGameEngine\Application.h</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
       <CreatedDate>2022-02-08T00:08:06.3274009+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2.5378927S" EditActiveTime="PT10.8482436S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2022-02-10T08:49:51.8168835+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT34M13.6203411S" EditActiveTime="PT10M28.4183997S">
+      <ModifiedDate>2022-02-10T21:33:32.1836815+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\Platofrm\VulkanApi\Device\Device.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-10T08:46:24.319748+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2H17M38.0423823S" EditActiveTime="PT4M18.2446984S">
+      <ModifiedDate>2022-02-10T10:39:49.549804+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:13:58.1497972+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT6.9259902S" EditActiveTime="PT5.0676982S">
+      <ModifiedDate>2022-02-09T18:50:02.9585781+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\GraphicsEngine.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:49:52.5935525+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT11M58.1635462S" EditActiveTime="PT4M6.3434633S">
+      <ModifiedDate>2022-02-10T08:45:12.3011695+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:50:20.2414276+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
     <DevTrackerDataItem ViewActiveTime="PT35M6.5880091S" EditActiveTime="PT22M42.0085662S">
@@ -151,11 +268,11 @@
       <CreatedDate>2022-02-07T20:02:59.2688268+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT6M48.5888S" EditActiveTime="PT2M15.5243405S">
+    <DevTrackerDataItem ViewActiveTime="PT8M22.6753423S" EditActiveTime="PT2M15.5243405S">
       <ModifiedDate>2022-02-07T22:26:13.839435+02:00</ModifiedDate>
       <ModifiedBy>alexn</ModifiedBy>
       <EditedCount>2</EditedCount>
-      <ViewedCount>4</ViewedCount>
+      <ViewedCount>5</ViewedCount>
       <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\PlutoniumGameEngine\IamGui\ImGuiBuild.cpp</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
@@ -180,6 +297,17 @@
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
       <CreatedDate>2022-02-07T20:02:12.6841089+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT43M13.4595093S" EditActiveTime="PT18M34.5628481S">
+      <ModifiedDate>2022-02-09T23:03:24.3195127+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\Platofrm\VulkanApi\instance\Instance.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:33:26.7346544+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
     <DevTrackerDataItem ViewActiveTime="PT9.4670239S" EditActiveTime="PT0.5026835S">
@@ -237,6 +365,17 @@
       <CreatedDate>2022-02-07T19:27:18.432736+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT5M1.3447145S" EditActiveTime="PT15M20.2617845S">
+      <ModifiedDate>2022-02-10T08:36:20.1710789+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\Platofrm\VulkanApi\Logging\Logging.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T23:30:18.535099+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
     <DevTrackerDataItem ViewActiveTime="PT4.1914282S" EditActiveTime="PT0S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>0</EditedCount>
@@ -247,11 +386,21 @@
       <CreatedDate>2022-02-08T00:44:52.1784236+02:00</CreatedDate>
       <ViewedBy>alexn</ViewedBy>
     </DevTrackerDataItem>
-    <DevTrackerDataItem ViewActiveTime="PT7M30.2132932S" EditActiveTime="PT53.576064S">
-      <ModifiedDate>2022-02-08T09:04:50.9907466+02:00</ModifiedDate>
+    <DevTrackerDataItem ViewActiveTime="PT20.5923027S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\pphd.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:35:45.635686+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT7M44.8973536S" EditActiveTime="PT54.2423511S">
+      <ModifiedDate>2022-02-09T22:09:23.7045788+02:00</ModifiedDate>
       <ModifiedBy>alexn</ModifiedBy>
-      <EditedCount>3</EditedCount>
-      <ViewedCount>3</ViewedCount>
+      <EditedCount>4</EditedCount>
+      <ViewedCount>4</ViewedCount>
       <Item>D:\Projects\PlutoniumGameEngine\SandBox\src\SandBox.cpp</Item>
       <ItemType>ProjectItem</ItemType>
       <ProjectName>D:\Projects\PlutoniumGameEngine\SandBox\Sandbox.vcxproj</ProjectName>
@@ -270,6 +419,134 @@
     </DevTrackerDataItem>
   </TotalTimeList>
   <HistoryTimeList>
+    <DevTrackerDataItem ViewActiveTime="PT2.5378927S" EditActiveTime="PT10.8482436S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>Debug Mode</Item>
+      <ItemType>DebugModeItem</ItemType>
+      <ProjectName />
+      <CreatedDate>2022-02-10T08:49:51.8168835+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT34M13.6203411S" EditActiveTime="PT10M28.4183997S">
+      <ModifiedDate>2022-02-10T21:33:32.1836815+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\Platofrm\VulkanApi\Device\Device.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-10T08:46:24.319748+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT5M1.3447145S" EditActiveTime="PT15M20.2617845S">
+      <ModifiedDate>2022-02-10T08:36:20.1710789+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\Platofrm\VulkanApi\Logging\Logging.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T23:30:18.535099+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT14.6840604S" EditActiveTime="PT0.6662871S">
+      <ModifiedDate>2022-02-09T22:09:23.7045788+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\SandBox\src\SandBox.cpp</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\SandBox\Sandbox.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:56:46.6329746+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT3M1.5283737S" EditActiveTime="PT1M1.435833S">
+      <ModifiedDate>2022-02-09T19:07:09.2651825+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\PlutoniumGameEngine\Application.cpp</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:54:12.8207337+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT11M58.1635462S" EditActiveTime="PT4M6.3434633S">
+      <ModifiedDate>2022-02-10T08:45:12.3011695+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:50:20.2414276+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT41.1634954S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\PlutoniumGameEngine\Application.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:50:15.3700421+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT6.9259902S" EditActiveTime="PT5.0676982S">
+      <ModifiedDate>2022-02-09T18:50:02.9585781+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\GraphicsEngine.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:49:52.5935525+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT1M34.0865423S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\PlutoniumGameEngine\IamGui\ImGuiBuild.cpp</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:44:15.9985989+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT20.5923027S" EditActiveTime="PT0S">
+      <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
+      <EditedCount>0</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\pphd.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:35:45.635686+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT43M13.4595093S" EditActiveTime="PT18M34.5628481S">
+      <ModifiedDate>2022-02-09T23:03:24.3195127+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>d:\projects\plutoniumgameengine\PlutoniumGameEngine\src\Platofrm\VulkanApi\instance\Instance.h</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:33:26.7346544+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
+    <DevTrackerDataItem ViewActiveTime="PT2H17M38.0423823S" EditActiveTime="PT4M18.2446984S">
+      <ModifiedDate>2022-02-10T10:39:49.549804+02:00</ModifiedDate>
+      <ModifiedBy>alexn</ModifiedBy>
+      <EditedCount>1</EditedCount>
+      <ViewedCount>1</ViewedCount>
+      <Item>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp</Item>
+      <ItemType>ProjectItem</ItemType>
+      <ProjectName>D:\Projects\PlutoniumGameEngine\PlutoniumGameEngine\PlutoniumGameEngine.vcxproj</ProjectName>
+      <CreatedDate>2022-02-09T18:13:58.1497972+02:00</CreatedDate>
+      <ViewedBy>alexn</ViewedBy>
+    </DevTrackerDataItem>
     <DevTrackerDataItem ViewActiveTime="PT4M12.4094775S" EditActiveTime="PT0S">
       <ModifiedDate>0001-01-01T00:00:00</ModifiedDate>
       <EditedCount>0</EditedCount>

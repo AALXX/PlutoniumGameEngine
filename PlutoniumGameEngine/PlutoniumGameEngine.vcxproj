@@ -558,7 +558,9 @@
     <ClInclude Include="Dependecies\glm\glm\vec3.hpp" />
     <ClInclude Include="Dependecies\glm\glm\vec4.hpp" />
     <ClInclude Include="Dependecies\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Instance\Instance.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Logging\Logging.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h" />
     <ClInclude Include="src\Platofrm\Windows\Input\WindowInput.h" />
     <ClInclude Include="src\Platofrm\Windows\WindowsWindow.h" />

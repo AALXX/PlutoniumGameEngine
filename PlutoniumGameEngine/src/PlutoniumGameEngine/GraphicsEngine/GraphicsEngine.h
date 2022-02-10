@@ -12,6 +12,8 @@ namespace PGE {
 		// initialize engine
 		bool init();
 
+		bool isDebug = true;
+
 		bool release();
 
 		~GraphicsEngine();
@@ -19,12 +21,25 @@ namespace PGE {
 	public:
 		static GraphicsEngine* get();
 	private:
+		//instance-related
 
-		bool isDebug = true;
+		//instance setup
+		void makeInstance();
 
+		//vulkan instance
 		vk::Instance instance{ nullptr };
 
-		void makeInstance();
+		//debug callback
+		vk::DebugUtilsMessengerEXT debugMessenger{ nullptr };
+
+		//dynamic instance dispatcher
+		vk::DispatchLoaderDynamic dldi;
+
+	private:
+		//device related
+		vk::PhysicalDevice physicalDevice{ nullptr };
+
+		void makeDevice();
 	};
 }
 
