@@ -1,8 +1,5 @@
 #include "pphd.h"
 #include "GraphicsEngine.h"
-#include "Platofrm/VulkanApi/Instance/Instance.h"
-#include "Platofrm/VulkanApi/Logging/Logging.h"
-#include "Platofrm/VulkanApi/Device/Device.h"
 
 namespace PGE {
 
@@ -12,20 +9,25 @@ namespace PGE {
 
 	bool GraphicsEngine::init()
 	{
-		makeInstance();
+		return RenderCommand::Init();
+	}
 
-		makeDevice();
+	void GraphicsEngine::BeginScene()
+	{
+	}
 
-		return true;
+	void GraphicsEngine::EndScene()
+	{
+	}
+
+	void GraphicsEngine::Submit()
+	{
+		RenderCommand::DrawIndexed();
 	}
 
 	bool GraphicsEngine::release()
 	{
-
-		instance.destroyDebugUtilsMessengerEXT(debugMessenger, nullptr, dldi);
-
-		instance.destroy();
-		return true;
+		return RenderCommand::release();
 	}
 
 	GraphicsEngine::~GraphicsEngine()
@@ -36,22 +38,6 @@ namespace PGE {
 	{
 		static GraphicsEngine engine;
 		return &engine;
-	}
-
-	void GraphicsEngine::makeInstance()
-	{
-		instance = PGE_VULKAN::make_instance(isDebug, "Plutonium engine");
-
-		dldi = vk::DispatchLoaderDynamic(instance, vkGetInstanceProcAddr);
-
-		if (isDebug) {
-			debugMessenger = PGE_VULKAN::make_debug_messenger(instance, dldi);
-		}
-	}
-
-	void GraphicsEngine::makeDevice()
-	{
-		physicalDevice = PGE_VULKAN::choose_phisical_device(instance, isDebug);
 	}
 
 }

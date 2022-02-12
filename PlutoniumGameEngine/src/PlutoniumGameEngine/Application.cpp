@@ -1,11 +1,11 @@
 #include "pphd.h"
 
 #include "Application.h"
-#include <glad/glad.h>
 
 #include "PlutoniumGameEngine/Input/Input.h"
 
 #include "PlutoniumGameEngine/GraphicsEngine/GraphicsEngine.h"
+//#include "PlutoniumGameEngine/GraphicsEngine/Renderer/"
 
 namespace PGE {
 
@@ -21,8 +21,8 @@ namespace PGE {
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
-		m_ImGuiLayer = new ImGuiLayer;
-		PushOverLay(m_ImGuiLayer);
+		//m_ImGuiLayer = new ImGuiLayer;
+		//PushOverLay(m_ImGuiLayer);
 
 		GraphicsEngine::get()->init();
 	}
@@ -35,20 +35,25 @@ namespace PGE {
 	{
 
 		while (m_Running) {
-			glClearColor(1, 0, 0, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			//RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
+			//RenderCommand::Clear();
+
+			GraphicsEngine::get()->BeginScene();
+
+			GraphicsEngine::get()->EndScene();
+
 
 			for (Layer* layer : m_LayerStack){
 				layer->OnUpdate();
 			}
 
-			m_ImGuiLayer->Begin(); //begin imgui rendering
+			//m_ImGuiLayer->Begin(); //begin imgui rendering
 
-			for (Layer* layer : m_LayerStack) {
-				layer->OnImGuiRender();
-			}
+			//for (Layer* layer : m_LayerStack) {
+			//	layer->OnImGuiRender();
+			//}
 
-			m_ImGuiLayer->End(); //end imgui rendering
+			//m_ImGuiLayer->End(); //end imgui rendering
 
 
 			m_Window->OnUpdate();
@@ -60,8 +65,6 @@ namespace PGE {
 	{
 		EventDispatcher dipathcer(e);
 		dipathcer.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
-
-		//PGE_CORE_TRACE("{0}", e);
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{

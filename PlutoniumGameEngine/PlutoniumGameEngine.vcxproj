@@ -26,19 +26,19 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -558,9 +558,17 @@
     <ClInclude Include="Dependecies\glm\glm\vec3.hpp" />
     <ClInclude Include="Dependecies\glm\glm\vec4.hpp" />
     <ClInclude Include="Dependecies\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Suraface\Surface.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RendererApi.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Instance\Instance.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Logging\Logging.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsContext\GraphicsContext.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h" />
     <ClInclude Include="src\Platofrm\Windows\Input\WindowInput.h" />
     <ClInclude Include="src\Platofrm\Windows\WindowsWindow.h" />
@@ -583,6 +591,12 @@
     <ClInclude Include="src\pphd.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
+    <ClCompile Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RendererApi.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp" />
+    <ClCompile Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp" />
     <ClCompile Include="src\Platofrm\Windows\Input\WindowInput.cpp" />
     <ClCompile Include="src\Platofrm\Windows\WindowsWindow.cpp" />

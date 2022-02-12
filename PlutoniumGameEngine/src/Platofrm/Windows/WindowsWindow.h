@@ -2,6 +2,8 @@
 #include "PlutoniumGameEngine/Window/Window.h"
 #include <GLFW/glfw3.h>
 
+#include "PlutoniumGameEngine/GraphicsEngine/GraphicsContext/GraphicsContext.h"
+
 namespace PGE {
 
 	class WindowsWindow: public Window
@@ -27,6 +29,8 @@ namespace PGE {
 		virtual void Shutdown();
 	private:
 		GLFWwindow* m_Window;
+
+		GraphicsContext* m_Context;
 
 		struct WindowData
 		{

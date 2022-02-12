@@ -1,7 +1,9 @@
 #pragma once
-#include <vulkan/vulkan.hpp>
+
+#include "Renderer/RenderCommand.h"
 
 namespace PGE {
+
 
 	class GraphicsEngine
 	{
@@ -12,7 +14,12 @@ namespace PGE {
 		// initialize engine
 		bool init();
 
-		bool isDebug = true;
+		void BeginScene();
+		void EndScene();
+		
+		//TODO IMPLEMENT VERTEX ARRAy
+		void Submit();
+
 
 		bool release();
 
@@ -20,26 +27,9 @@ namespace PGE {
 
 	public:
 		static GraphicsEngine* get();
-	private:
-		//instance-related
 
-		//instance setup
-		void makeInstance();
+		inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); };
 
-		//vulkan instance
-		vk::Instance instance{ nullptr };
-
-		//debug callback
-		vk::DebugUtilsMessengerEXT debugMessenger{ nullptr };
-
-		//dynamic instance dispatcher
-		vk::DispatchLoaderDynamic dldi;
-
-	private:
-		//device related
-		vk::PhysicalDevice physicalDevice{ nullptr };
-
-		void makeDevice();
 	};
 }
 

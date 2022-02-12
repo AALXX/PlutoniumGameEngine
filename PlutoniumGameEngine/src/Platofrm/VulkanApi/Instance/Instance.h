@@ -52,7 +52,7 @@ namespace PGE_VULKAN {
 			}
 		}
 
-		//check layers support
+		//check		 support
 		std::vector<vk::LayerProperties> supportedLayers = vk::enumerateInstanceLayerProperties();
 		if (debug) {
 			PGE_CORE_INFO("Device can support the folowing extensions: { ");
@@ -106,9 +106,6 @@ namespace PGE_VULKAN {
 		/*
 		* We can scan the system and check which version it will support up to,
 		* as of vulkan 1.1
-		*
-		* VkResult vkEnumerateInstanceVersion(
-			uint32_t*                                   pApiVersion);
 		*/
 
 		uint32_t version{ 0 };

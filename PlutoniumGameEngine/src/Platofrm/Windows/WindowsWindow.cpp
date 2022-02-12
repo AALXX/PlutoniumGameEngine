@@ -3,7 +3,12 @@
 #include "PlutoniumGameEngine/EventSystem/KeyEvent.h"
 #include "PlutoniumGameEngine/EventSystem/AplicationEvent.h"
 #include "PlutoniumGameEngine/EventSystem/MouseEvent.h"
-#include <glad/glad.h>
+
+#include "Platofrm/OpenGlApi/ApiContext/OepnGlContext.h"
+#include "Platofrm/VulkanApi/VulkanApiContext/VulkanApiContext.h"
+
+
+using namespace PGE_OPENGL;
 
 namespace PGE {
 	static bool s_GLFWInitalizated = false;
@@ -29,7 +34,7 @@ namespace PGE {
 	void WindowsWindow::OnUpdate()
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)
@@ -40,6 +45,8 @@ namespace PGE {
 
 		PGE_CORE_INFO("Creating window {0} ({1}, {2})", props.windowTitle, props.Width, props.Height);
 
+
+
 		if (!s_GLFWInitalizated) {
 			int success = glfwInit();
 			PGE_CORE_ASSERT(success, "could not init glfw");
@@ -48,9 +55,14 @@ namespace PGE {
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.windowTitle.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		PGE_CORE_ASSERT(status, "Failed to init GLAD");
+
+		m_Context = new PGE_VULKAN::VulkanContext(m_Window);
+		//m_Context = new PGE_OPENGL::OpenGlContext(m_Window);
+
+		m_Context->Init();
+
+
+
 		glfwSetWindowUserPointer(m_Window, &m_Data);
 		SetVSync(true);
 
@@ -92,15 +104,15 @@ namespace PGE {
 				break;
 			}
 			}
-		});
+			});
 
 		glfwSetCharCallback(m_Window, [](GLFWwindow* window, unsigned int keycode) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
-			
+
 			KeyTypedEvent event(keycode);
 			data.EventCallback(event);
 
-		});
+			});
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			switch (action)
@@ -124,7 +136,7 @@ namespace PGE {
 			MouseScrolledEvent event((float)xOffset, (float)yOffset);
 			data.EventCallback(event);
 
-		});
+			});
 
 		glfwSetCursorPosCallback(m_Window, [](GLFWwindow* window, double xPos, double yPos) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -132,7 +144,7 @@ namespace PGE {
 			MouseMovedEvent event((float)xPos, (float)yPos);
 			data.EventCallback(event);
 
-		});
+			});
 	}
 
 	void WindowsWindow::Shutdown()
