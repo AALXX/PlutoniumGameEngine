@@ -54,6 +54,8 @@ namespace PGE {
 			s_GLFWInitalizated = true;
 		}
 
+		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.windowTitle.c_str(), nullptr, nullptr);
 
 		m_Context = new PGE_VULKAN::VulkanContext(m_Window);
@@ -61,10 +63,8 @@ namespace PGE {
 
 		m_Context->Init();
 
-
-
 		glfwSetWindowUserPointer(m_Window, &m_Data);
-		SetVSync(true);
+		//SetVSync(false);
 
 		//Set GLFW callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {

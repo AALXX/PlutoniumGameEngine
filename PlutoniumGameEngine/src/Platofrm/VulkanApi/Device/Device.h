@@ -121,13 +121,14 @@ namespace PGE_VULKAN {
 
 	struct QueueFamilyIndices {
 		std::optional<uint32_t> graphicsFamily;
+		std::optional<uint32_t> presentFamily;
 
 		bool isComplete() {
-			return graphicsFamily.has_value();
+			return graphicsFamily.has_value() && presentFamily.has_value();
 		}
 	};
 
-	QueueFamilyIndices findQueueFamilies(const vk::PhysicalDevice physicalDevice, const bool debug) {
+	QueueFamilyIndices findQueueFamilies(const vk::PhysicalDevice physicalDevice, const bool debug, const vk::SurfaceKHR surface) {
 		QueueFamilyIndices indices;
 
 		auto queueFamilies = physicalDevice.getQueueFamilyProperties();
@@ -139,6 +140,10 @@ namespace PGE_VULKAN {
 			if (queueFamily.queueCount > 0 && queueFamily.queueFlags & vk::QueueFlagBits::eGraphics) {
 				indices.graphicsFamily = i;
 
+			}
+
+			if (queueFamily.queueCount > 0 && physicalDevice.getSurfaceSupportKHR(i, surface)) {
+				indices.presentFamily = i;
 			}
 
 			if (indices.isComplete()) {
@@ -194,15 +199,22 @@ namespace PGE_VULKAN {
 	}
 
 
-	vk::Queue create_logical_device(const vk::PhysicalDevice& physicalDevice, vk::Device& device, const const bool debug) {
+	void create_logical_device(const vk::PhysicalDevice& physicalDevice, vk::Device& device, vk::SurfaceKHR& surface, const bool debug, vk::Queue &graphicsQueue, vk::Queue& presentQueue) {
 
-		QueueFamilyIndices indices = findQueueFamilies(physicalDevice, debug);
+		QueueFamilyIndices indices = findQueueFamilies(physicalDevice, debug, surface);
+
+		std::vector<vk::DeviceQueueCreateInfo> queueCreateInfos;
+		std::set<uint32_t> uniqueQueueFamilies = { indices.graphicsFamily.value(), indices.presentFamily.value() };
+
 		float queuePriority = 1.0f;
 
-		vk::DeviceQueueCreateInfo queueCreateInfo = vk::DeviceQueueCreateInfo(vk::DeviceQueueCreateFlags(), indices.graphicsFamily.value(), 1, &queuePriority);
+		for (uint32_t queueFamily : uniqueQueueFamilies) {
+			queueCreateInfos.push_back({vk::DeviceQueueCreateFlags(),queueFamily,1, &queuePriority});
+		}
+
 
 		auto deviceFeatures = vk::PhysicalDeviceFeatures();
-		auto createInfo = vk::DeviceCreateInfo(vk::DeviceCreateFlags(), 1, &queueCreateInfo);
+		auto createInfo = vk::DeviceCreateInfo(vk::DeviceCreateFlags(),static_cast<uint32_t>(queueCreateInfos.size()),queueCreateInfos.data());
 
 		createInfo.pEnabledFeatures = &deviceFeatures;
 		createInfo.enabledExtensionCount = 0;
@@ -214,7 +226,7 @@ namespace PGE_VULKAN {
 		}
 
 		if (!supported(layers, debug)) {
-			return nullptr;
+			PGE_CORE_ERROR("not supported");
 		}
 
 		createInfo.enabledLayerCount = static_cast<uint32_t>(layers.size());
@@ -230,7 +242,8 @@ namespace PGE_VULKAN {
 			PGE_CORE_ERROR("failed to create logical device!");
 		}
 
-		return device.getQueue(indices.graphicsFamily.value(), 0);
+		graphicsQueue = device.getQueue(indices.graphicsFamily.value(), 0);
+		presentQueue = device.getQueue(indices.presentFamily.value(), 0);
 
 	}
 

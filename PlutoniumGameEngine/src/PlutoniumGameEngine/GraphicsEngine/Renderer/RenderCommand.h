@@ -13,15 +13,18 @@ namespace PGE{
 			return s_RendererAPI->Init();
 		}
 
+		inline static void GetWindow(GLFWwindow* window) {
+			s_RendererAPI->GetWindow(window);
+		}
+
 		inline static void SetClearColor(const glm::vec4& color) {
 			s_RendererAPI->SetClearColor(color);
 		}
 
-		inline static void Clear() {
+		inline static void Clear(){
 			s_RendererAPI->Clear();
 
 		}
-
 
 		inline static void DrawIndexed() {
 			s_RendererAPI->DrawIndexed();

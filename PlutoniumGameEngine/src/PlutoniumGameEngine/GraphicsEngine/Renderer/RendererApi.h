@@ -1,8 +1,10 @@
 #pragma once
   
+#include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 
 namespace PGE {
+
 
 	class RendererAPI
 	{
@@ -14,6 +16,8 @@ namespace PGE {
 	public:
 
 		virtual bool Init() = 0;
+
+		virtual void GetWindow(GLFWwindow* window) = 0;
 
 		virtual void SetClearColor(const glm::vec4& color) = 0;
 		virtual void Clear() = 0;

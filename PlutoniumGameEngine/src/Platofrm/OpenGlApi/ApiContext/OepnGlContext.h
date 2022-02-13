@@ -7,7 +7,7 @@ namespace PGE_OPENGL {
 	class OpenGlContext: public PGE::GraphicsContext
 	{
 	public:
-		OpenGlContext(GLFWwindow* windwoHandle);
+		OpenGlContext(GLFWwindow *windwoHandle);
 
 
 		virtual void Init() override;

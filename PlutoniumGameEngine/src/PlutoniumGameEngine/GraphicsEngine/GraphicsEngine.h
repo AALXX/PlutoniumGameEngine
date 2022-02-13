@@ -26,7 +26,7 @@ namespace PGE {
 		~GraphicsEngine();
 
 	public:
-		static GraphicsEngine* get();
+		static GraphicsEngine* get();	
 
 		inline static RendererAPI::API GetAPI() { return RendererAPI::GetAPI(); };
 

@@ -5,7 +5,7 @@
 #include "PlutoniumGameEngine/Input/Input.h"
 
 #include "PlutoniumGameEngine/GraphicsEngine/GraphicsEngine.h"
-//#include "PlutoniumGameEngine/GraphicsEngine/Renderer/"
+//#include "PlutoniumGameEngine/GraphicsEngine/Renderer/RenderCommand.h"
 
 namespace PGE {
 
@@ -21,10 +21,12 @@ namespace PGE {
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
 
+		GraphicsEngine::get()->init();
+
+
 		//m_ImGuiLayer = new ImGuiLayer;
 		//PushOverLay(m_ImGuiLayer);
 
-		GraphicsEngine::get()->init();
 	}
 
 	Application::~Application()

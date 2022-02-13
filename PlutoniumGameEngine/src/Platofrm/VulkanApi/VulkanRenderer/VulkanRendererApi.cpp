@@ -11,27 +11,35 @@ namespace PGE_VULKAN {
 
 	bool VulkanRendererAPI::Init()
 	{
+		
 		makeInstance();
-
+		createSurface(m_windowHandle);
 		makeDevice();
+
 
 		return true;
 	}
 
+	void VulkanRendererAPI::GetWindow(GLFWwindow* window)
+	{
+		m_windowHandle = window;
+	}
+
 	void VulkanRendererAPI::SetClearColor(const glm::vec4& color)
 	{
-
 	}
 
 	void VulkanRendererAPI::Clear()
 	{
-
 	}
 
 	bool VulkanRendererAPI::release()
 	{
+
 		instance.destroyDebugUtilsMessengerEXT(debugMessenger, nullptr, dldi);
 		
+		instance.destroySurfaceKHR(surface);
+
 		device.destroy();
 
 		instance.destroy();
@@ -49,9 +57,10 @@ namespace PGE_VULKAN {
 		}
 	}
 
-	void VulkanRendererAPI::createSurface()
+	void VulkanRendererAPI::createSurface(GLFWwindow* windwoHandle)
 	{
 
+		surface = create_surface(instance, windwoHandle);
 	}
 
 	void VulkanRendererAPI::makeDevice()
@@ -60,6 +69,7 @@ namespace PGE_VULKAN {
 		physicalDevice = choose_phisical_device(instance, isDebug);
 
 		//create logical devices
-		graphicsQueue = create_logical_device(physicalDevice, device, isDebug);
+		create_logical_device(physicalDevice, device, surface, isDebug, graphicsQueue, presentQueue);
 	}
+
 }

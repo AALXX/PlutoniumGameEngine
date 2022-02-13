@@ -1,6 +1,8 @@
 #pragma once
 
 namespace PGE {
+
+
 	class GraphicsContext
 	{
 	public:

@@ -3,12 +3,17 @@
 
 #include "PlutoniumGameEngine/GraphicsEngine/Renderer/RendererApi.h"
 
+
 namespace PGE_VULKAN {
+
+
 	class VulkanRendererAPI : public PGE::RendererAPI {
 
 	public:
 
 		virtual bool Init() override;
+
+		virtual void GetWindow(GLFWwindow* window) override;
 
 		virtual void SetClearColor(const glm::vec4& color) override;
 		virtual void Clear() override;
@@ -20,12 +25,13 @@ namespace PGE_VULKAN {
 		virtual bool release() override;
 
 
+
 	private:
 		//instance-related
 
 		//instance setup
 		void makeInstance();
-
+	
 		//vulkan instance
 		vk::Instance instance{ nullptr };
 
@@ -34,11 +40,13 @@ namespace PGE_VULKAN {
 
 		//dynamic instance dispatcher
 		vk::DispatchLoaderDynamic dldi;
-	private:
+	public:
 		//vulkan surface
 		vk::SurfaceKHR surface;
 
-		void createSurface();
+		GLFWwindow* m_windowHandle;
+
+		void createSurface(GLFWwindow* windwoHandle);
 
 	private:
 		//device related
@@ -47,7 +55,9 @@ namespace PGE_VULKAN {
 		vk::Device device;
 
 		vk::Queue graphicsQueue;
+		vk::Queue presentQueue;
 
 		void makeDevice();
+
 	};
 }
