@@ -559,7 +559,9 @@
     <ClInclude Include="Dependecies\glm\glm\vec4.hpp" />
     <ClInclude Include="Dependecies\glm\glm\vector_relational.hpp" />
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Device\QueueIndices.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Suraface\Surface.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\SwapChain\SwapChain.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RendererApi.h" />

@@ -1377,6 +1377,8 @@
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Suraface\Surface.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\SwapChain\SwapChain.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Device\QueueIndices.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\Windows\Input\WindowInput.cpp">

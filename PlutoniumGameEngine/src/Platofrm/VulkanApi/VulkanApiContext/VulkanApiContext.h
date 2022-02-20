@@ -7,7 +7,7 @@ namespace PGE_VULKAN {
 	class VulkanContext : public PGE::GraphicsContext
 	{
 	public:
-		VulkanContext(GLFWwindow* windwoHandle);
+		VulkanContext(GLFWwindow* windwoHandle, int windowWidth, int windowHeight);
 
 
 		virtual void Init() override;

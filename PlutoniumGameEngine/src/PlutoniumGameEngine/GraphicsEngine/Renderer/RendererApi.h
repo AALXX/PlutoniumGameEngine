@@ -17,7 +17,7 @@ namespace PGE {
 
 		virtual bool Init() = 0;
 
-		virtual void GetWindow(GLFWwindow* window) = 0;
+		virtual void GetWindow(GLFWwindow* window, int windowWidth, int windowHeight) = 0;
 
 		virtual void SetClearColor(const glm::vec4& color) = 0;
 		virtual void Clear() = 0;

@@ -4,6 +4,7 @@
 #include "PlutoniumGameEngine/GraphicsEngine/Renderer/RendererApi.h"
 
 
+
 namespace PGE_VULKAN {
 
 
@@ -13,8 +14,8 @@ namespace PGE_VULKAN {
 
 		virtual bool Init() override;
 
-		virtual void GetWindow(GLFWwindow* window) override;
-
+		virtual void GetWindow(GLFWwindow* window, int windowWidth, int windowHeight) override;
+		
 		virtual void SetClearColor(const glm::vec4& color) override;
 		virtual void Clear() override;
 
@@ -24,7 +25,12 @@ namespace PGE_VULKAN {
 
 		virtual bool release() override;
 
+	private:
+		//Window reference
+		GLFWwindow* m_windowHandle;
 
+		int m_windowHandleWidth;
+		int m_windowHandleHeight;
 
 	private:
 		//instance-related
@@ -44,7 +50,6 @@ namespace PGE_VULKAN {
 		//vulkan surface
 		vk::SurfaceKHR surface;
 
-		GLFWwindow* m_windowHandle;
 
 		void createSurface(GLFWwindow* windwoHandle);
 
@@ -58,6 +63,16 @@ namespace PGE_VULKAN {
 		vk::Queue presentQueue;
 
 		void makeDevice();
+	private:
 
+		vk::SwapchainKHR swapChain;
+		std::vector<vk::Image> swapChainImages;
+		vk::Format swapChainImageFormat;
+		vk::Extent2D swapChainExtent;
+
+		std::vector<vk::ImageView> swapChainImageViews;
+
+		void createSwapChain();
+		void createImageViews();
 	};
 }

@@ -58,7 +58,7 @@ namespace PGE {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, m_Data.windowTitle.c_str(), nullptr, nullptr);
 
-		m_Context = new PGE_VULKAN::VulkanContext(m_Window);
+		m_Context = new PGE_VULKAN::VulkanContext(m_Window, (int)props.Width, (int)props.Height);
 		//m_Context = new PGE_OPENGL::OpenGlContext(m_Window);
 
 		m_Context->Init();
