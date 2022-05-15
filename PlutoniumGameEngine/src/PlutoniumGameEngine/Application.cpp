@@ -42,6 +42,7 @@ namespace PGE {
 
 			GraphicsEngine::get()->BeginScene();
 
+
 			GraphicsEngine::get()->EndScene();
 
 

@@ -126,13 +126,14 @@ namespace PGE_VULKAN {
 		swapChainImageFormat = surfaceFormat.format;
 		swapChainExtent = extent;
 	}
-
+	 
 	//Create Swap Chain Image Views
 	void create_image_views(std::vector<vk::Image> swapChainImages, std::vector<vk::ImageView>& swapChainImageViews, vk::Format swapChainImageFormat, vk::Device device, const bool debug) {
 		swapChainImageViews.resize(swapChainImages.size());
 
 		for (size_t i = 0; i < swapChainImages.size(); i++)
 		{
+
 			vk::ImageViewCreateInfo createInfo = {};
 			createInfo.image = swapChainImages[i];
 			createInfo.viewType = vk::ImageViewType::e2D;

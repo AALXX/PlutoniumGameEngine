@@ -6,6 +6,7 @@
 #include "Platofrm/VulkanApi/Suraface/Surface.h"
 #include "Platofrm/VulkanApi/SwapChain/SwapChain.h"
 #include "Platofrm/VulkanApi/Device/Device.h"
+#include "Platofrm/VulkanApi/GraphicsPipeline/GraphicsPipeline.h"
 
 
 namespace PGE_VULKAN {
@@ -18,6 +19,8 @@ namespace PGE_VULKAN {
 		makeDevice();
 		createSwapChain();
 		createImageViews();
+		createRenderPass();
+		createGraphicsPipeline();
 
 		return true;
 	}
@@ -40,6 +43,10 @@ namespace PGE_VULKAN {
 
 	bool VulkanRendererAPI::release()
 	{
+
+		device.destroyPipeline(graphicsPipeline);
+		device.destroyPipelineLayout(pipelineLayout);
+		device.destroyRenderPass(renderPass);
 
 		for (auto imageView : swapChainImageViews) {
 			device.destroyImageView(imageView);
@@ -97,4 +104,11 @@ namespace PGE_VULKAN {
 		create_image_views(swapChainImages, swapChainImageViews, swapChainImageFormat, device, isDebug);
 	}
 
+	void VulkanRendererAPI::createRenderPass() {
+		create_render_pass(renderPass, device, swapChainImageFormat);
+	}
+
+	void VulkanRendererAPI::createGraphicsPipeline() {
+		create_graphics_pipeline(device, swapChainExtent, pipelineLayout, renderPass, graphicsPipeline, isDebug);
+	} 
 }

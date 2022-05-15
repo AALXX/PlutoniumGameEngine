@@ -15,10 +15,9 @@ namespace PGE_VULKAN {
 		virtual bool Init() override;
 
 		virtual void GetWindow(GLFWwindow* window, int windowWidth, int windowHeight) override;
-		
+
 		virtual void SetClearColor(const glm::vec4& color) override;
 		virtual void Clear() override;
-
 		virtual void DrawIndexed() {};
 
 		bool isDebug = true;
@@ -37,7 +36,7 @@ namespace PGE_VULKAN {
 
 		//instance setup
 		void makeInstance();
-	
+
 		//vulkan instance
 		vk::Instance instance{ nullptr };
 
@@ -57,16 +56,16 @@ namespace PGE_VULKAN {
 		//device related
 		vk::PhysicalDevice physicalDevice{ nullptr };
 
-		vk::Device device;
+		vk::Device device{ nullptr };
 
-		vk::Queue graphicsQueue;
-		vk::Queue presentQueue;
+		vk::Queue graphicsQueue{ nullptr };
+		vk::Queue presentQueue{ nullptr };
 
 		void makeDevice();
 	private:
 
-		vk::SwapchainKHR swapChain;
-		std::vector<vk::Image> swapChainImages;
+		vk::SwapchainKHR swapChain{ nullptr };
+		std::vector<vk::Image> swapChainImages{ nullptr };
 		vk::Format swapChainImageFormat;
 		vk::Extent2D swapChainExtent;
 
@@ -74,5 +73,19 @@ namespace PGE_VULKAN {
 
 		void createSwapChain();
 		void createImageViews();
+	private:
+		//Render pass
+
+		vk::RenderPass renderPass;
+		void createRenderPass();
+
+	private:
+		//GraphicsPipeline
+
+		vk::PipelineLayout pipelineLayout;
+		vk::Pipeline graphicsPipeline;
+
+		void createGraphicsPipeline();
+
 	};
 }

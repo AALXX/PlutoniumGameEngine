@@ -1,4 +1,5 @@
 .vs
+.svn
 /bin
 /bin-int
 /PlutoniumGameEngine/Dependecies/Vulkan/Lib
