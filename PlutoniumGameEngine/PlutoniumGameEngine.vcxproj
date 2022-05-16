@@ -562,6 +562,7 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\QueueIndices.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\FrameBuffers\FrameBuffers.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\GraphicsPipeline\GraphicsPipeline.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Instance\Instance.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Logging\Logging.h" />

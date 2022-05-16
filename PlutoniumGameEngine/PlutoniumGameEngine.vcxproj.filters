@@ -1455,6 +1455,7 @@
     <ClInclude Include="src\pphd.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platofrm\VulkanApi\FrameBuffers\FrameBuffers.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp">

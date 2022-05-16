@@ -42,7 +42,7 @@ namespace PGE_VULKAN {
 
 		//debug callback
 		vk::DebugUtilsMessengerEXT debugMessenger{ nullptr };
-
+		
 		//dynamic instance dispatcher
 		vk::DispatchLoaderDynamic dldi;
 	public:
@@ -86,6 +86,14 @@ namespace PGE_VULKAN {
 		vk::Pipeline graphicsPipeline;
 
 		void createGraphicsPipeline();
+	private: 
+		//FrameBuffer
+		std::vector<vk::Framebuffer> swapChainFrameBuffers;
+		vk::CommandPool commandPool;
+		std::vector<vk::CommandBuffer> commandBuffer;
 
+		void createFrameBuffers();
+		void createCommandPool();
+		void createCommandBuffer();
 	};
 }

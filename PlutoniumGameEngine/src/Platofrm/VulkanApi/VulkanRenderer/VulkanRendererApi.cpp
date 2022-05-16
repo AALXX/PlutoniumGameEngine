@@ -7,6 +7,7 @@
 #include "Platofrm/VulkanApi/SwapChain/SwapChain.h"
 #include "Platofrm/VulkanApi/Device/Device.h"
 #include "Platofrm/VulkanApi/GraphicsPipeline/GraphicsPipeline.h"
+#include <Platofrm/VulkanApi/FrameBuffers/FrameBuffers.h>
 
 
 namespace PGE_VULKAN {
@@ -21,6 +22,7 @@ namespace PGE_VULKAN {
 		createImageViews();
 		createRenderPass();
 		createGraphicsPipeline();
+		createFrameBuffers();
 
 		return true;
 	}
@@ -43,6 +45,13 @@ namespace PGE_VULKAN {
 
 	bool VulkanRendererAPI::release()
 	{
+
+		device.destroyCommandPool(commandPool);
+
+		for (auto framebuffer : swapChainFrameBuffers) {
+			device.destroyFramebuffer(framebuffer);
+		}
+
 
 		device.destroyPipeline(graphicsPipeline);
 		device.destroyPipelineLayout(pipelineLayout);
@@ -110,5 +119,21 @@ namespace PGE_VULKAN {
 
 	void VulkanRendererAPI::createGraphicsPipeline() {
 		create_graphics_pipeline(device, swapChainExtent, pipelineLayout, renderPass, graphicsPipeline, isDebug);
-	} 
+	}
+
+	void VulkanRendererAPI::createFrameBuffers()
+	{
+		create_frame_buffers(swapChainFrameBuffers, swapChainImageViews,renderPass,swapChainExtent,device, isDebug);
+	}
+
+	void VulkanRendererAPI::createCommandPool()
+	{
+		create_command_pool(commandPool, device, physicalDevice, surface, isDebug);
+	}
+
+	void VulkanRendererAPI::createCommandBuffer()
+	{
+		create_command_buffer(commandBuffer, swapChainFrameBuffers, commandPool, device, renderPass, swapChainExtent, graphicsPipeline);
+	}
+
 }
