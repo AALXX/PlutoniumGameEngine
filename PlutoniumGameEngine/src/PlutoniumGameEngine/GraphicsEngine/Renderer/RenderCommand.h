@@ -25,9 +25,17 @@ namespace PGE{
 			s_RendererAPI->Clear();
 
 		}
+		
+		inline static void WindowResized(int width, int height) {
+			s_RendererAPI->WindowResized(width, height);
+		}
 
 		inline static void DrawIndexed() {
 			s_RendererAPI->DrawIndexed();
+		}
+
+		inline static void DrawFrame() {
+			s_RendererAPI->DrawFrame();
 		}
 
 		inline static bool release()

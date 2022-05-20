@@ -12,6 +12,10 @@ namespace PGE_OPENGL {
 		virtual void SetClearColor(const glm::vec4& color) override;
 		virtual void Clear() override;
 		virtual void DrawIndexed() override;
+		virtual void DrawFrame() {};
+		virtual void WindowResized(int width, int height) {
+			PGE_CORE_TRACE("{0}, {1}", width, height);
+		};
 		virtual bool release() override;
 	};
 }

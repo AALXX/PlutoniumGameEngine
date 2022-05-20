@@ -5,10 +5,11 @@
 #include "PlutoniumGameEngine/EventSystem/AplicationEvent.h"
 #include "PlutoniumGameEngine/EventSystem/KeyEvent.h"
 #include "PlutoniumGameEngine/EventSystem/MouseEvent.h"
+#include "PlutoniumGameEngine/IamGui/IamGuiApiRenderer.h"
 
 namespace PGE {
 
-	class PGE_API ImGuiLayer : public Layer
+	class ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();
@@ -20,7 +21,10 @@ namespace PGE {
 
 		void Begin();
 		void End();
+		
 	private:
+		IAmGuiRendererAPI* m_iamgui_renderer;
+
 		float m_Time = 0.0f;
 	};
 

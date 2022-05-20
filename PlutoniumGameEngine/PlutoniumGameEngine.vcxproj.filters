@@ -1456,6 +1456,10 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\Platofrm\VulkanApi\FrameBuffers\FrameBuffers.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Drawing\SyncObjects.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiApiRenderer.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\VertexBuffer\VertexBuffer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp">
@@ -1509,5 +1513,6 @@
     <ClCompile Include="src\pphd.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp" />
   </ItemGroup>
 </Project>

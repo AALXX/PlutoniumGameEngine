@@ -5,7 +5,6 @@
 #include "PlutoniumGameEngine/Input/Input.h"
 
 #include "PlutoniumGameEngine/GraphicsEngine/GraphicsEngine.h"
-//#include "PlutoniumGameEngine/GraphicsEngine/Renderer/RenderCommand.h"
 
 namespace PGE {
 
@@ -27,6 +26,7 @@ namespace PGE {
 		//m_ImGuiLayer = new ImGuiLayer;
 		//PushOverLay(m_ImGuiLayer);
 
+
 	}
 
 	Application::~Application()
@@ -39,6 +39,9 @@ namespace PGE {
 		while (m_Running) {
 			//RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 			//RenderCommand::Clear();
+
+			RenderCommand::DrawFrame();
+
 
 			GraphicsEngine::get()->BeginScene();
 
@@ -68,6 +71,7 @@ namespace PGE {
 	{
 		EventDispatcher dipathcer(e);
 		dipathcer.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(OnWindowClose));
+		dipathcer.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OnWindowResize));
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{
@@ -95,5 +99,12 @@ namespace PGE {
 
 		m_Running = false;
 		return true;
+	}
+
+	bool  Application::OnWindowResize(WindowResizeEvent& e)
+	{
+
+		RenderCommand::WindowResized(e.GetWidth(), e.GetHeight());
+		return false;
 	}
 }

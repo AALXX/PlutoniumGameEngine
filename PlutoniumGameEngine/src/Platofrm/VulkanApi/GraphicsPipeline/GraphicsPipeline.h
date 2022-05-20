@@ -66,15 +66,23 @@ namespace PGE_VULKAN {
 			}
 		};
 
-
+		//vertex fetch
 		vk::PipelineVertexInputStateCreateInfo vertexInputInfo = {};
 		vertexInputInfo.vertexBindingDescriptionCount = 0;
 		vertexInputInfo.vertexAttributeDescriptionCount = 0;
 
+		auto bindingDescription = Vertex::getBindingDescription();
+		auto attributeDescriptions = Vertex::getAttributeDescriptions();
+
+		vertexInputInfo.vertexBindingDescriptionCount = 1;
+		vertexInputInfo.vertexAttributeDescriptionCount = static_cast<uint32_t>(attributeDescriptions.size());
+		vertexInputInfo.pVertexBindingDescriptions = &bindingDescription;
+		vertexInputInfo.pVertexAttributeDescriptions = attributeDescriptions.data();
+		
+		//input assembly
 		vk::PipelineInputAssemblyStateCreateInfo inputAssembly = {};
 		inputAssembly.topology = vk::PrimitiveTopology::eTriangleList;
 		inputAssembly.primitiveRestartEnable = VK_FALSE;
-
 
 		//viewport
 		vk::Viewport viewport = {};
@@ -192,11 +200,23 @@ namespace PGE_VULKAN {
 		subpass.colorAttachmentCount = 1;
 		subpass.pColorAttachments = &colorAttachmentRef;
 
+		//this is here to prevent the subpasss to become active before the image is acquired and ready
+		vk::SubpassDependency dependency = {};
+		dependency.srcSubpass = VK_SUBPASS_EXTERNAL; //implicit subpass before render begin/after it ends
+		dependency.dstSubpass = 0;//the rendering subpass
+		dependency.srcStageMask = vk::PipelineStageFlagBits::eColorAttachmentOutput;
+		//dependency.srcAccessMask = 0;
+		dependency.dstStageMask = vk::PipelineStageFlagBits::eColorAttachmentOutput;
+		dependency.dstAccessMask = vk::AccessFlagBits::eColorAttachmentRead | vk::AccessFlagBits::eColorAttachmentWrite;
+
+
 		vk::RenderPassCreateInfo renderPassInfo = {};
 		renderPassInfo.attachmentCount = 1;
 		renderPassInfo.pAttachments = &colorAttachment;
 		renderPassInfo.subpassCount = 1;
 		renderPassInfo.pSubpasses = &subpass;
+		renderPassInfo.dependencyCount = 1;
+		renderPassInfo.pDependencies = &dependency;
 
 		try
 		{

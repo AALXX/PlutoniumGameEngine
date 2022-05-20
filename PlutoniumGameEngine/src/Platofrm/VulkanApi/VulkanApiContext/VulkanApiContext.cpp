@@ -13,6 +13,8 @@ namespace PGE_VULKAN {
 	VulkanContext::VulkanContext(GLFWwindow* windwoHandle, int windowWidth, int windowHeight)
 		: m_WindowHandle(windwoHandle)
 	{
+		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
+
 
 		PGE_CORE_ASSERT(m_WindowHandle, "window handle is null");
 		

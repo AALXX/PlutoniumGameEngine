@@ -2,6 +2,7 @@
 #include "OpenGLRendererApi.h"
 
 #include <glad/glad.h>
+#include "..\IamGuiOpenGl\IamGuiOpengl.h"
 
 namespace PGE_OPENGL {
 	bool OpenGLRendererAPI::Init()
@@ -24,8 +25,9 @@ namespace PGE_OPENGL {
 	
 	void OpenGLRendererAPI::DrawIndexed()
 	{
-		PGE_CORE_INFO("impllement gl draw elements");
+		//PGE_CORE_INFO("implement gl draw elements");
 	}
+
 	bool OpenGLRendererAPI::release()
 	{
 		return true;

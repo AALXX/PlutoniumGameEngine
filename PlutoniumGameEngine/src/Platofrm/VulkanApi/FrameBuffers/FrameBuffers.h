@@ -49,8 +49,8 @@ namespace PGE_VULKAN {
 		}
 	}
 
-	void create_command_buffer(std::vector<vk::CommandBuffer> &commandBuffers, std::vector<vk::Framebuffer> swapChainFrameBuffers, vk::CommandPool commandPool, 
-		vk::Device device, vk::RenderPass renderPass, vk::Extent2D swapChainExtent, vk::Pipeline graphicsPipeline) {
+	void create_command_buffer(std::vector<vk::CommandBuffer> &commandBuffers, std::vector<vk::Framebuffer> swapChainFrameBuffers, vk::CommandPool commandPool,
+		vk::Device device, vk::RenderPass renderPass, vk::Extent2D swapChainExtent, vk::Pipeline graphicsPipeline, vk::Buffer vertexBuffer, std::vector<Vertex> vertices) {
 		//each command buffer holds the chain of instructions used in render pass
 		//individual command buffer must e made for each framebuffer
 		commandBuffers.resize(swapChainFrameBuffers.size());
@@ -93,7 +93,12 @@ namespace PGE_VULKAN {
 
 			commandBuffers[i].beginRenderPass(renderPassBeginInfo, vk::SubpassContents::eInline);
 			commandBuffers[i].bindPipeline(vk::PipelineBindPoint::eGraphics, graphicsPipeline);
-			commandBuffers[i].draw(3, 1, 0, 0);
+			
+			vk::Buffer vertexBuffers[] = { vertexBuffer };
+			vk::DeviceSize offsets[] = { 0 };
+			commandBuffers[i].bindVertexBuffers(0, 1, vertexBuffers, offsets);
+			commandBuffers[i].draw(static_cast<uint32_t>(vertices.size()), 1, 0, 0);
+			
 			commandBuffers[i].endRenderPass();
 
 			try

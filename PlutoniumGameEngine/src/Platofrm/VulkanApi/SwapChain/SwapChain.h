@@ -50,7 +50,7 @@ namespace PGE_VULKAN {
 		return bestMode;
 	}
 
-	vk::Extent2D chooseSwapExtend(const vk::SurfaceCapabilitiesKHR& capabilities, const int width, const int height) {
+	vk::Extent2D chooseSwapExtent(const vk::SurfaceCapabilitiesKHR& capabilities, const int width, const int height) {
 		if (capabilities.currentExtent.width != std::numeric_limits<uint32_t>::max()) {
 			return capabilities.currentExtent;
 		}
@@ -70,25 +70,25 @@ namespace PGE_VULKAN {
 	{
 		SwapChainSupportDetails swapChainSupport = querySwapChainSupport(physicalDevice, surface);
 
-		vk::SurfaceFormatKHR surfaceFormat = chooseSwapSurfaceFormat(swapChainSupport.formats);
-		vk::PresentModeKHR presentMode = chooseSwapPresentMode(swapChainSupport.presentModes);
-		vk::Extent2D extent = chooseSwapExtend(swapChainSupport.capabilities, width, height);
+        vk::SurfaceFormatKHR surfaceFormat = chooseSwapSurfaceFormat(swapChainSupport.formats);
+        vk::PresentModeKHR presentMode = chooseSwapPresentMode(swapChainSupport.presentModes);
+        vk::Extent2D extent = chooseSwapExtent(swapChainSupport.capabilities, width, height);
 
 		uint32_t imageCount = swapChainSupport.capabilities.minImageCount + 1;
 		if (swapChainSupport.capabilities.maxImageCount > 0 && imageCount > swapChainSupport.capabilities.maxImageCount) {
 			imageCount = swapChainSupport.capabilities.maxImageCount;
 		}
 
-		vk::SwapchainCreateInfoKHR createInfo(
-			vk::SwapchainCreateFlagsKHR(),
-			surface,
-			imageCount,
-			surfaceFormat.format,
-			surfaceFormat.colorSpace,
-			extent,
-			1, // imageArrayLayers
-			vk::ImageUsageFlagBits::eColorAttachment
-		);
+        vk::SwapchainCreateInfoKHR createInfo(
+            vk::SwapchainCreateFlagsKHR(),
+            surface,
+            imageCount,
+            surfaceFormat.format,
+            surfaceFormat.colorSpace,
+            extent,
+            1, // imageArrayLayers
+            vk::ImageUsageFlagBits::eColorAttachment
+        );
 
 		QueueFamilyIndices indices = findQueueFamilies(physicalDevice, debug, surface);
 		uint32_t queueFamilyIndices[] = { indices.graphicsFamily.value(), indices.presentFamily.value() };
@@ -101,6 +101,7 @@ namespace PGE_VULKAN {
 		else {
 			createInfo.imageSharingMode = vk::SharingMode::eExclusive;
 		}
+
 
 		createInfo.preTransform = swapChainSupport.capabilities.currentTransform;
 		createInfo.compositeAlpha = vk::CompositeAlphaFlagBitsKHR::eOpaque;

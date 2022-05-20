@@ -64,7 +64,7 @@ namespace PGE {
 		m_Context->Init();
 
 		glfwSetWindowUserPointer(m_Window, &m_Data);
-		//SetVSync(false);
+		SetVSync(true);
 
 		//Set GLFW callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height) {
@@ -76,7 +76,6 @@ namespace PGE {
 			WindowResizeEvent event(width, height);
 			data.EventCallback(event);
 			});
-
 		glfwSetWindowCloseCallback(m_Window, [](GLFWwindow* window) {
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			WindowCloseEvent event;
