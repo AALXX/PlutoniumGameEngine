@@ -12,34 +12,6 @@ namespace PGE_VULKAN {
 		VK_KHR_SWAPCHAIN_EXTENSION_NAME
 	};
 
-	//Physical devices
-	void log_device_properties(const vk::PhysicalDevice& device) {
-
-		//get device properties
-		vk::PhysicalDeviceProperties properties = device.getProperties();
-
-		PGE_CORE_INFO("Device name: {0}, device type:", properties.deviceName);
-
-		switch (properties.deviceType)
-		{
-		case (vk::PhysicalDeviceType::eCpu):
-			PGE_CORE_INFO("CPU");
-			break;
-		case (vk::PhysicalDeviceType::eDiscreteGpu):
-			PGE_CORE_INFO("Discrete GPU");
-			break;
-		case (vk::PhysicalDeviceType::eIntegratedGpu):
-			PGE_CORE_INFO("Integrated GPU");
-			break;
-		case (vk::PhysicalDeviceType::eVirtualGpu):
-			PGE_CORE_INFO("Virtual GPU");
-			break;
-		default:
-			PGE_CORE_INFO("Other");
-		}
-
-	}
-
 	bool checkDeviceExtensionSupported(const vk::PhysicalDevice& device, const std::vector<const char*>& requestedExtensions, const bool& debug) {
 		//check if a provided physical device can support a list of required extensions
 

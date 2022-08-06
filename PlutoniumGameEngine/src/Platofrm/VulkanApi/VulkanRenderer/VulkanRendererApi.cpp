@@ -9,7 +9,8 @@
 #include "Platofrm/VulkanApi/GraphicsPipeline/GraphicsPipeline.h"
 #include <Platofrm/VulkanApi/FrameBuffers/FrameBuffers.h>
 #include <Platofrm/VulkanApi/Drawing/SyncObjects.h>
-#include <Platofrm/VulkanApi/VertexBuffer/VertexBuffer.h>
+#include <Platofrm/VulkanApi/Buffers/Buffer.h>
+#include <Platofrm/VulkanApi/Buffers/VertexBuffer.h>
 
 
 namespace PGE_VULKAN {
@@ -50,15 +51,19 @@ namespace PGE_VULKAN {
 	{
 	}
 
-	void VulkanRendererAPI::WindowResized(int width, int height)
-	{
-		framebufferResized = true;
-	}
-
-	void VulkanRendererAPI::DrawFrame()
+	void VulkanRendererAPI::DrawIndexed()
 	{
 		drawFrame();
 
+	}
+
+	void VulkanRendererAPI::SubmitVertices(glm::mat3x3& Recivedvertices)
+	{
+	}
+
+	void VulkanRendererAPI::WindowResized(int width, int height)
+	{
+		framebufferResized = true;
 	}
 
 
@@ -276,6 +281,7 @@ namespace PGE_VULKAN {
 	
 	void VulkanRendererAPI::createVertexBuffer()
 	{
-		create_vertex_buffer(vertexBuffer, vertexBufferMemory, vertices, device, physicalDevice);
+		create_vertex_buffer(graphicsQueue, commandPool,vertexBuffer, vertexBufferMemory, vertices, device, physicalDevice);
 	}
+
 }

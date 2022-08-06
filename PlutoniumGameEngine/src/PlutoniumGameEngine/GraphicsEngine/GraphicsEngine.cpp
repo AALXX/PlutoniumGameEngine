@@ -9,11 +9,13 @@ namespace PGE {
 
 	bool GraphicsEngine::init()
 	{
+
 		return RenderCommand::Init();
 	}
 
 	void GraphicsEngine::BeginScene()
 	{
+
 	}
 
 	void GraphicsEngine::EndScene()

@@ -10,6 +10,7 @@ namespace PGE{
 
 		inline static bool Init()
 		{
+
 			return s_RendererAPI->Init();
 		}
 
@@ -19,6 +20,10 @@ namespace PGE{
 
 		inline static void SetClearColor(const glm::vec4& color) {
 			s_RendererAPI->SetClearColor(color);
+		}
+
+		inline static void SubmitVertices(glm::mat3x3 &vertices) {
+			s_RendererAPI->SubmitVertices(vertices);
 		}
 
 		inline static void Clear(){
@@ -34,9 +39,6 @@ namespace PGE{
 			s_RendererAPI->DrawIndexed();
 		}
 
-		inline static void DrawFrame() {
-			s_RendererAPI->DrawFrame();
-		}
 
 		inline static bool release()
 		{

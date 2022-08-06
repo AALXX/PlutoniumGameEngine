@@ -17,7 +17,6 @@ namespace PGE {
 		void BeginScene();
 		void EndScene();
 		
-		//TODO IMPLEMENT VERTEX ARRAy
 		void Submit();
 
 

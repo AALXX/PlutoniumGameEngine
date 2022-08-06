@@ -6,6 +6,7 @@
 
 #include "PlutoniumGameEngine/GraphicsEngine/GraphicsEngine.h"
 
+
 namespace PGE {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -22,6 +23,7 @@ namespace PGE {
 
 		GraphicsEngine::get()->init();
 
+		RenderCommand::SubmitVertices(m_vertices);
 
 		//m_ImGuiLayer = new ImGuiLayer;
 		//PushOverLay(m_ImGuiLayer);
@@ -37,13 +39,14 @@ namespace PGE {
 	{
 
 		while (m_Running) {
-			//RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
-			//RenderCommand::Clear();
-
-			RenderCommand::DrawFrame();
+			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
+			RenderCommand::Clear();
 
 
 			GraphicsEngine::get()->BeginScene();
+
+
+			GraphicsEngine::get()->Submit();
 
 
 			GraphicsEngine::get()->EndScene();

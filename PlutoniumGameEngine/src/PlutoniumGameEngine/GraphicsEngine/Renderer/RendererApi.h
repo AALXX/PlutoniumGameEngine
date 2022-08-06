@@ -23,8 +23,8 @@ namespace PGE {
 		virtual void Clear() = 0;
 		
 		virtual void WindowResized(int width, int height) = 0;
+		virtual void SubmitVertices(glm::mat3x3 &vertices) = 0;
 		virtual void DrawIndexed() = 0;
-		virtual void DrawFrame() = 0;
 
 		virtual bool release() = 0;
 

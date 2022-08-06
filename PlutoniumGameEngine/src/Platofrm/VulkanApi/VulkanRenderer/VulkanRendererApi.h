@@ -45,14 +45,14 @@ namespace PGE_VULKAN {
 
 		virtual void SetClearColor(const glm::vec4& color) override;
 		virtual void Clear() override;
-		virtual void DrawIndexed() {};
+		virtual void DrawIndexed();
+		virtual void SubmitVertices(glm::mat3x3& Recivedvertices) override;
 		virtual void WindowResized(int width, int height) override;
-		virtual void DrawFrame() override;
 
 		bool isDebug = true;
 
 		const std::vector<Vertex> vertices = {
-			{{0.0f, -0.5f}, {1.0f, 0.0f, 0.0f}},
+			{{0.0f, -0.5f}, {1.0f, 1.0f, 0.0f}},
 			{{0.5f, 0.5f}, {0.0f, 1.0f, 0.0f}},
 			{{-0.5f, 0.5f}, {0.0f, 0.0f, 1.0f}}
 		};
@@ -155,7 +155,5 @@ namespace PGE_VULKAN {
 
 		vk::Buffer vertexBuffer;
 		vk::DeviceMemory vertexBufferMemory;
-
-
 	};
 }

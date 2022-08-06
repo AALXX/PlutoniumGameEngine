@@ -143,6 +143,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.h" />
     <ClInclude Include="Dependecies\glm\glm\common.hpp" />
     <ClInclude Include="Dependecies\glm\glm\detail\_features.hpp" />
     <ClInclude Include="Dependecies\glm\glm\detail\_fixes.hpp" />
@@ -561,6 +562,8 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Buffers\Buffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\QueueIndices.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\FrameBuffers\FrameBuffers.h" />
@@ -570,7 +573,7 @@
     <ClInclude Include="src\Platofrm\VulkanApi\Drawing\SyncObjects.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Suraface\Surface.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\SwapChain\SwapChain.h" />
-    <ClInclude Include="src\Platofrm\VulkanApi\VertexBuffer\VertexBuffer.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Buffers\VertexBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.h" />
     <ClInclude Include="src\Platofrm\Windows\Input\WindowInput.h" />
@@ -599,9 +602,11 @@
     <ClInclude Include="src\pphd.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.cpp" />
     <ClCompile Include="src\Platofrm\Windows\Input\WindowInput.cpp" />

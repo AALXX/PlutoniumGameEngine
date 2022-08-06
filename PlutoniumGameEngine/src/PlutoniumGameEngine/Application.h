@@ -6,9 +6,10 @@
 #include "PlutoniumGameEngine/LayerSystem/LayerStack.h"
 #include "PlutoniumGameEngine/IamGui/IamGuiLayer.h"
 
+#include <glm/glm.hpp>
 
 namespace PGE {
-	class PGE_API Application
+	class Application
 	{
 	public:
 		Application();
@@ -36,8 +37,17 @@ namespace PGE {
 		LayerStack m_LayerStack;
 	private:
 		static Application* s_Instance;
+
+	private:
+
+		glm::mat3x3 m_vertices = {
+			-0.5f, -0.5f, 0.0f,
+			0.5f,  -0.5f, 0.0f,
+			0.0f,   0.5f, 0.0f,
+		};
 	};
-	
+
 	//*To be defined in client
 	Application* CreateApplication();
+
 }
