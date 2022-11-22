@@ -1,201 +1,533 @@
+
 #pragma once
 #include "pphd.h"
 #include <vulkan/vulkan.hpp>
-
-#include "Platofrm/VulkanApi/SwapChain/SwapChain.h"
-
-#include "Platofrm/VulkanApi/Device/QueueIndices.h"
+#include <Platofrm/VulkanApi/Logging/Logging.h>
 
 namespace PGE_VULKAN {
+	struct QueueFamilyIndices {
+		std::optional<uint32_t> graphicsFamily;
+		std::optional<uint32_t> presentFamily;
 
-	const std::vector<const char*> requestedExtensions = {
-		VK_KHR_SWAPCHAIN_EXTENSION_NAME
+		bool isComplete() {
+			return graphicsFamily.has_value() && presentFamily.has_value();
+		}
 	};
 
-	bool checkDeviceExtensionSupported(const vk::PhysicalDevice& device, const std::vector<const char*>& requestedExtensions, const bool& debug) {
-		//check if a provided physical device can support a list of required extensions
+	struct SwapChainSupportDetails
+	{
+		vk::SurfaceCapabilitiesKHR capabilities;
+		std::vector<vk::SurfaceFormatKHR> format;
+		std::vector<vk::PresentModeKHR> presentModes;
+	};
 
-		std::set<std::string>requiredExtensions(requestedExtensions.begin(), requestedExtensions.end());
+	struct SwapChainBundle {
+		vk::SwapchainKHR swapchain;
+		std::vector<vk::Image> images;
+		vk::Format format;
+		vk::Extent2D extent;
+	};
+
+	void log_device_properties(const vk::PhysicalDevice& device) {
+		/*
+		* void vkGetPhysicalDeviceProperties(
+			VkPhysicalDevice                            physicalDevice,
+			VkPhysicalDeviceProperties*                 pProperties);
+		*/
+
+		vk::PhysicalDeviceProperties properties = device.getProperties();
+
+		/*
+		* typedef struct VkPhysicalDeviceProperties {
+			uint32_t                            apiVersion;
+			uint32_t                            driverVersion;
+			uint32_t                            vendorID;
+			uint32_t                            deviceID;
+			VkPhysicalDeviceType                deviceType;
+			char                                deviceName[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE];
+			uint8_t                             pipelineCacheUUID[VK_UUID_SIZE];
+			VkPhysicalDeviceLimits              limits;
+			VkPhysicalDeviceSparseProperties    sparseProperties;
+			} VkPhysicalDeviceProperties;
+		*/
+
+		PGE_CORE_INFO("Device name: {0}", properties.deviceName);
+
+
+		PGE_CORE_INFO("Device type: ");
+
+		switch (properties.deviceType) {
+
+		case (vk::PhysicalDeviceType::eCpu):
+			PGE_CORE_INFO("CPU\n");
+			break;
+
+		case (vk::PhysicalDeviceType::eDiscreteGpu):
+			PGE_CORE_INFO("Discrete GPU\n");
+			break;
+
+		case (vk::PhysicalDeviceType::eIntegratedGpu):
+			PGE_CORE_INFO("Integrated GPU\n");
+			break;
+
+		case (vk::PhysicalDeviceType::eVirtualGpu):
+			PGE_CORE_INFO("Virtual GPU\n");
+			break;
+
+		default:
+			PGE_CORE_INFO("other\n");
+		}
+	}
+
+	bool checkDeviceExtensionSupport(
+		const vk::PhysicalDevice& device,
+		const std::vector<const char*>& requestedExtensions,
+		const bool& debug
+	) {
+
+		/*
+		* Check if a given physical device can satisfy a list of requested device
+		* extensions.
+		*/
+
+		std::set<std::string> requiredExtensions(requestedExtensions.begin(), requestedExtensions.end());
 
 		if (debug) {
-			PGE_CORE_INFO("Device can support the folowing extensions: ");
+			PGE_CORE_INFO("Device can support extensions:\n");
+
 		}
 
 		for (vk::ExtensionProperties& extension : device.enumerateDeviceExtensionProperties()) {
+
 			if (debug) {
-				PGE_CORE_INFO("{0}", extension.extensionName);
+				PGE_CORE_INFO(" {0} ", extension.extensionName);
+
 			}
 
-			//remove this from list of required extensions
+			//remove this from the list of required extensions (set checks for equality automatically)
 			requiredExtensions.erase(extension.extensionName);
 		}
 
+		//if the set is empty then all requirements have been satisfied
 		return requiredExtensions.empty();
-
 	}
 
-	bool isSuitable(const vk::PhysicalDevice& device, const bool debug, const vk::SurfaceKHR& surface) {
+	bool isSuitable(const vk::PhysicalDevice& device, const bool debug) {
+
 		if (debug) {
-			PGE_CLIENT_TRACE("Checking if device is sutable");
+			PGE_CORE_INFO("Checking if device is suitable\n");
 		}
 
+		/*
+		* A device is suitable if it can present to the screen, ie support
+		* the swapchain extension
+		*/
+		const std::vector<const char*> requestedExtensions = {
+			VK_KHR_SWAPCHAIN_EXTENSION_NAME
+		};
 
 		if (debug) {
-			PGE_CORE_INFO("We are requesting device extensions: {");
+			PGE_CORE_INFO("We are requesting device extensions: ");
+
 
 			for (const char* extension : requestedExtensions) {
-				PGE_CORE_INFO("{0}", extension);
+				PGE_CORE_INFO("{0} ", extension);
 			}
-			PGE_CORE_INFO("}");
+
 		}
 
-		if (bool extensionSupported = checkDeviceExtensionSupported(device, requestedExtensions, debug)) {
+		if (bool extensionsSupported = checkDeviceExtensionSupport(device, requestedExtensions, debug)) {
+
 			if (debug) {
-				PGE_CORE_INFO("Device can support the requested extensions");
-			}
-			else {
-				if (debug) {
-					PGE_CORE_INFO("Device can not support the requested extensions");
-				}
-				return false;
+				PGE_CORE_INFO("Device can support the requested extensions!\n");
 			}
 		}
+		else {
 
-		bool swapChainAdequate = false;
+			if (debug) {
+				PGE_CORE_INFO("Device can't support the requested extensions!\n");
+			}
 
-		SwapChainSupportDetails swapChainSupport = querySwapChainSupport(device, surface);
-		swapChainAdequate = !swapChainSupport.formats.empty() && !swapChainSupport.presentModes.empty();
-
+			return false;
+		}
 		return true;
 	}
 
-	vk::PhysicalDevice choose_phisical_device(vk::Instance& instance, bool debug, const vk::SurfaceKHR surface) {
-		/*chose a suitable physical device from list provided by host system*/
-		if (debug)
-		{
-			PGE_CLIENT_TRACE("Choosing physical device");
+	vk::PhysicalDevice choose_physical_device(const vk::Instance& instance, const bool debug) {
+
+		/*
+		* Choose a suitable physical device from a list of candidates.
+		* Note: Physical devices are neither created nor destroyed, they exist
+		* independently to the program.
+		*/
+
+		if (debug) {
+			PGE_CORE_INFO("Choosing Physical Device\n");
 		}
 
-
-		//create a vector of physical devices
+		/*
+		* ResultValueType<std::vector<PhysicalDevice, PhysicalDeviceAllocator>>::type
+			Instance::enumeratePhysicalDevices( Dispatch const & d )
+		  std::vector<vk::PhysicalDevice> instance.enumeratePhysicalDevices( Dispatch const & d = static/default )
+		*/
 		std::vector<vk::PhysicalDevice> availableDevices = instance.enumeratePhysicalDevices();
 
 		if (debug) {
-			PGE_CORE_INFO("There are {0} physical devices available on this system", availableDevices.size());
+			PGE_CORE_INFO("There are {0} physical devices available on this system\n", availableDevices.size());
 		}
 
-		//check if a suitable device can be found
-		for (vk::PhysicalDevice device : availableDevices)
-		{
+		/*
+		* check if a suitable device can be found
+		*/
+		for (vk::PhysicalDevice device : availableDevices) {
+
 			if (debug) {
 				log_device_properties(device);
 			}
-			if (isSuitable(device, debug, surface)) {
+			if (isSuitable(device, debug)) {
 				return device;
 			}
 		}
 
 		return nullptr;
-
 	}
 
-	//Logical Devices
-	bool supported(std::vector<const char*>& layers, bool debug) {
+	QueueFamilyIndices findQueueFamilies(vk::PhysicalDevice device, vk::SurfaceKHR surface, bool debug) {
+		QueueFamilyIndices indices;
 
-		bool found;
+		std::vector<vk::QueueFamilyProperties> queueFamilies = device.getQueueFamilyProperties();
 
-		//check		 support
-		std::vector<vk::LayerProperties> supportedLayers = vk::enumerateInstanceLayerProperties();
 		if (debug) {
-			PGE_CORE_TRACE("Logical device Device can support the folowing extensions: { ");
+			PGE_CORE_INFO("There are {0} queue families available on the system.\n", queueFamilies.size());
 
-			for (vk::LayerProperties supportedLayer : supportedLayers) {
-				PGE_CORE_INFO("{0}", supportedLayer.layerName);
-			}
-			PGE_CORE_INFO("}");
 		}
 
-		/**
-		* quadratic search for layers
-		*/
-		for (const char* layer : layers)
-		{
-			found = false;
+		int i = 0;
+		for (vk::QueueFamilyProperties queueFamily : queueFamilies) {
 
-			for (vk::LayerProperties supportedLayer : supportedLayers)
-			{
-				if (strcmp(layer, supportedLayer.layerName) == 0) {
-					found = true;
-					if (debug) {
-						PGE_CORE_INFO("layer: {0} is supported", layer);
-					}
-				}
-			}
-			if (!found) {
+			/*
+			* // Provided by VK_VERSION_1_0
+				typedef struct VkQueueFamilyProperties {
+				VkQueueFlags    queueFlags;
+				uint32_t        queueCount;
+				uint32_t        timestampValidBits;
+				VkExtent3D      minImageTransferGranularity;
+				} VkQueueFamilyProperties;
+				queueFlags is a bit mask of VkQueueFlagBits indicating capabilities of the queues in this queue family.
+				queueCount is the unsigned integer count of queues in this queue family. Each queue family must support
+				at least one queue.
+				timestampValidBits is the unsigned integer count of meaningful bits in the timestamps written via
+				vkCmdWriteTimestamp. The valid range for the count is 36..64 bits, or a value of 0,
+				indicating no support for timestamps. Bits outside the valid range are guaranteed to be zeros.
+				minImageTransferGranularity is the minimum granularity supported for image transfer
+				operations on the queues in this queue family.
+			*/
+
+			/*
+			* // Provided by VK_VERSION_1_0
+				typedef enum VkQueueFlagBits {
+				VK_QUEUE_GRAPHICS_BIT = 0x00000001,
+				VK_QUEUE_COMPUTE_BIT = 0x00000002,
+				VK_QUEUE_TRANSFER_BIT = 0x00000004,
+				VK_QUEUE_SPARSE_BINDING_BIT = 0x00000008,
+				} VkQueueFlagBits;
+			*/
+
+			if (queueFamily.queueFlags & vk::QueueFlagBits::eGraphics) {
+				indices.graphicsFamily = i;
+
 				if (debug) {
-					PGE_CORE_INFO("layer: {0} is not supported", layer);
+					PGE_CORE_INFO("Queue Family {0} is suitable for graphics\n", i);
 				}
-				return false;
 			}
+
+			if (device.getSurfaceSupportKHR(i, surface)) {
+				indices.presentFamily = i;
+
+				if (debug) {
+					PGE_CORE_INFO("Queue Family {0} is suitable for presenting\n", i);
+				}
+			}
+
+			if (indices.isComplete()) {
+				break;
+			}
+
+			i++;
 		}
 
-		return true;
+		return indices;
 	}
 
+	vk::Device create_logical_device(vk::PhysicalDevice physicalDevice, vk::SurfaceKHR surface, bool debug) {
 
-	void create_logical_device(const vk::PhysicalDevice physicalDevice, vk::Device& device, vk::SurfaceKHR& surface, const bool debug, vk::Queue& graphicsQueue,
-		vk::Queue& presentQueue) {
+		/*
+		* Create an abstraction around the GPU
+		*/
 
-		QueueFamilyIndices m_indices = findQueueFamilies(physicalDevice, debug, surface);
+		/*
+		* At time of creation, any required queues will also be created,
+		* so queue create info must be passed in.
+		*/
 
-		std::vector<vk::DeviceQueueCreateInfo> queueCreateInfos;
-		std::set<uint32_t> uniqueQueueFamilies = { m_indices.graphicsFamily.value(), m_indices.presentFamily.value() };
+		QueueFamilyIndices indices = findQueueFamilies(physicalDevice, surface, debug);
+		std::vector<uint32_t> uniqueIndices;
+
+		uniqueIndices.push_back(indices.graphicsFamily.value());
+
+		if (indices.graphicsFamily.value() != indices.presentFamily.value())
+		{
+			uniqueIndices.push_back(indices.presentFamily.value());
+		}
 
 		float queuePriority = 1.0f;
+		/*
+		* VULKAN_HPP_CONSTEXPR DeviceQueueCreateInfo( VULKAN_HPP_NAMESPACE::DeviceQueueCreateFlags flags_            = {},
+												uint32_t                                     queueFamilyIndex_ = {},
+												uint32_t                                     queueCount_       = {},
+												const float * pQueuePriorities_ = {} ) VULKAN_HPP_NOEXCEPT
+		*/
+		std::vector<vk::DeviceQueueCreateInfo> queueCreateInfo;
 
-		for (uint32_t queueFamily : uniqueQueueFamilies) {
-			queueCreateInfos.push_back({ vk::DeviceQueueCreateFlags(),queueFamily,1, &queuePriority });
+		for (uint32_t queueFamilyIndex : uniqueIndices)
+		{
+			queueCreateInfo.push_back(vk::DeviceQueueCreateInfo(vk::DeviceQueueCreateFlags(), queueFamilyIndex, 1, &queuePriority));
 		}
 
+		std::vector<const char*> deviceExtensions = {
+			VK_KHR_SWAPCHAIN_EXTENSION_NAME
+		};
 
-		auto deviceFeatures = vk::PhysicalDeviceFeatures();
-		auto createInfo = vk::DeviceCreateInfo(vk::DeviceCreateFlags(), static_cast<uint32_t>(queueCreateInfos.size()), queueCreateInfos.data());
+		/*
+		* Device features must be requested before the device is abstracted,
+		* therefore we only pay for what we need.
+		*/
 
-		createInfo.pEnabledFeatures = &deviceFeatures;
-		createInfo.enabledExtensionCount = static_cast<uint32_t>(requestedExtensions.size());
-		createInfo.ppEnabledExtensionNames = requestedExtensions.data();
+		vk::PhysicalDeviceFeatures deviceFeatures = vk::PhysicalDeviceFeatures();
 
-		std::vector<const char*> layers;
-
-		createInfo.enabledLayerCount = static_cast<uint32_t>(layers.size());
-		createInfo.ppEnabledLayerNames = layers.data();
-
-
+		/*
+		* VULKAN_HPP_CONSTEXPR DeviceCreateInfo( VULKAN_HPP_NAMESPACE::DeviceCreateFlags flags_                         = {},
+										   uint32_t                                queueCreateInfoCount_          = {},
+										   const VULKAN_HPP_NAMESPACE::DeviceQueueCreateInfo * pQueueCreateInfos_ = {},
+										   uint32_t                                            enabledLayerCount_ = {},
+										   const char * const * ppEnabledLayerNames_                              = {},
+										   uint32_t             enabledExtensionCount_                            = {},
+										   const char * const * ppEnabledExtensionNames_                          = {},
+										   const VULKAN_HPP_NAMESPACE::PhysicalDeviceFeatures * pEnabledFeatures_ = {} )
+		*/
+		std::vector<const char*> enabledLayers;
 		if (debug) {
-			layers.push_back("VK_LAYER_KHRONOS_validation");
+			enabledLayers.push_back("VK_LAYER_KHRONOS_validation");
 		}
 
-		if (!supported(layers, debug)) {
-			PGE_CORE_ERROR("not supported");
-		}
-
-		createInfo.enabledLayerCount = static_cast<uint32_t>(layers.size());
-		createInfo.ppEnabledLayerNames = layers.data();
+		vk::DeviceCreateInfo deviceInfo = vk::DeviceCreateInfo(
+			vk::DeviceCreateFlags(),
+			queueCreateInfo.size(), queueCreateInfo.data(),
+			enabledLayers.size(), enabledLayers.data(),
+			deviceExtensions.size(), deviceExtensions.data(),
+			&deviceFeatures
+		);
 
 		try {
+			vk::Device device = physicalDevice.createDevice(deviceInfo);
 			if (debug) {
-				PGE_CORE_INFO("logical device created succsfully");
+				PGE_CORE_INFO("GPU has been successfully abstracted!\n");
+
 			}
-			device = physicalDevice.createDevice(createInfo);
+			return device;
 		}
 		catch (vk::SystemError err) {
-			PGE_CORE_ERROR("failed to create logical device!");
+			if (debug) {
+				PGE_CORE_INFO("Device creation failed!\n");
+
+				return nullptr;
+			}
 		}
+		return nullptr;
+	}
 
-		graphicsQueue = device.getQueue(m_indices.graphicsFamily.value(), 0);
-		presentQueue = device.getQueue(m_indices.presentFamily.value(), 0);
+	std::array<vk::Queue, 2> get_queues(vk::PhysicalDevice physicalDevice, vk::Device device, vk::SurfaceKHR surface, bool debug) {
 
+		QueueFamilyIndices indices = findQueueFamilies(physicalDevice, surface, debug);
+
+		return { {
+				device.getQueue(indices.graphicsFamily.value(), 0),
+				device.getQueue(indices.presentFamily.value(), 0),
+			} };
 	}
 
 
+	vk::SurfaceFormatKHR choose_swapchain_surface_format(std::vector<vk::SurfaceFormatKHR> formats) {
+		for (vk::SurfaceFormatKHR format : formats)
+		{
+			if (format.format == vk::Format::eB8G8R8A8Unorm && format.colorSpace == vk::ColorSpaceKHR::eSrgbNonlinear) {
+				return format;
+			}
+		}
+
+		return formats[0];
+	}
+
+	vk::PresentModeKHR choose_swapchain_present_mode(std::vector<vk::PresentModeKHR> presentModes) {
+		for (vk::PresentModeKHR presentMode : presentModes) {
+			if (presentMode == vk::PresentModeKHR::eMailbox) {
+				return presentMode;
+			}
+		}
+
+		return vk::PresentModeKHR::eFifo;
+	}
+
+	vk::Extent2D choose_swapchain_extent(uint32_t width, uint32_t height, vk::SurfaceCapabilitiesKHR capabilities) {
+		if (capabilities.currentExtent != UINT32_MAX) {
+			return capabilities.currentExtent;
+		}
+		else {
+			vk::Extent2D extent = { width, height };
+
+			extent.width = std::min(
+				capabilities.maxImageExtent.width,
+				std::max(capabilities.minImageExtent.width, extent.width)
+			);
+
+			extent.height = std::min(
+				capabilities.maxImageExtent.height,
+				std::max(capabilities.minImageExtent.height, extent.height)
+			);
+
+			return extent;
+		}
+	}
+
+
+	SwapChainSupportDetails query_swapchain_support(vk::PhysicalDevice device, vk::SurfaceKHR surface, bool debug) {
+		SwapChainSupportDetails support;
+
+		support.capabilities = device.getSurfaceCapabilitiesKHR(surface);
+
+		if (debug)
+		{
+			PGE_CORE_INFO("swapchain can suport the folowing surface capabilities \n");
+
+			PGE_CORE_INFO("\tminimum image count: {0} \n", support.capabilities.minImageCount);
+			PGE_CORE_INFO("\tminimum image count: {0} \n", support.capabilities.maxImageCount);
+
+			PGE_CORE_INFO("\tminimum supported extent: \n");
+			PGE_CORE_INFO("\twidth: {0} \n", support.capabilities.minImageExtent.width);
+			PGE_CORE_INFO("\theight: {0} \n", support.capabilities.minImageExtent.height);
+
+			PGE_CORE_INFO("\tmaximum supported extent: \n");
+
+			PGE_CORE_INFO("\theight: {0} \n", support.capabilities.maxImageExtent.width);
+			PGE_CORE_INFO("\theight: {0} \n", support.capabilities.maxImageExtent.height);
+
+			PGE_CORE_INFO("\tmaximum image array layers:  \n", support.capabilities.maxImageArrayLayers);
+
+			PGE_CORE_INFO("\tsupported transforms: \n");
+			std::vector<std::string> stringList = log_transform_bits(support.capabilities.supportedTransforms);
+			for (std::string line : stringList) {
+				PGE_CORE_INFO("\t\t {0},", line);
+			}
+
+			PGE_CORE_INFO("\tcurrent transform: \n");
+			stringList = log_transform_bits(support.capabilities.currentTransform);
+			for (std::string line : stringList) {
+				PGE_CORE_INFO("\t\t {0},", line);
+			}
+
+			PGE_CORE_INFO("\tsupported alpha operations: \n");
+			stringList = log_alpha_composite_bits(support.capabilities.supportedCompositeAlpha);
+			for (std::string line : stringList) {
+				PGE_CORE_INFO("\t\t {0},", line);
+			}
+
+			PGE_CORE_INFO("\tsupported image usage: \n");
+			stringList = log_image_usage_bits(support.capabilities.supportedUsageFlags);
+			for (std::string line : stringList) {
+				PGE_CORE_INFO("\t\t {0},", line);
+			}
+		}
+
+		support.format = device.getSurfaceFormatsKHR(surface);
+
+		if (debug) {
+
+			for (vk::SurfaceFormatKHR supportedFormat : support.format) {
+				/*
+				* typedef struct VkSurfaceFormatKHR {
+					VkFormat           format;
+					VkColorSpaceKHR    colorSpace;
+				} VkSurfaceFormatKHR;
+				*/
+
+				PGE_CORE_INFO("supported pixel format: {0},", vk::to_string(supportedFormat.format));
+
+				PGE_CORE_INFO("supported color space: {0},", vk::to_string(supportedFormat.colorSpace));
+			}
+		}
+
+		support.presentModes = device.getSurfacePresentModesKHR(surface);
+
+		for (vk::PresentModeKHR presentMode : support.presentModes) {
+			PGE_CORE_INFO("supported color space: {0},", log_present_mode(presentMode));
+
+		}
+
+		return support;
+	}
+
+	SwapChainBundle create_swapchain(vk::Device logicalDevice, vk::PhysicalDevice physicalDevice, vk::SurfaceKHR surface, int width, int height, bool debug) {
+		SwapChainSupportDetails support = query_swapchain_support(physicalDevice, surface, debug);
+
+		vk::SurfaceFormatKHR format = choose_swapchain_surface_format(support.format);
+
+		vk::PresentModeKHR presentMode = choose_swapchain_present_mode(support.presentModes);
+
+		vk::Extent2D extent = choose_swapchain_extent(width, height, support.capabilities);
+
+		uint32_t imageCount = std::min(
+			support.capabilities.maxImageCount,
+			support.capabilities.maxImageCount + 1
+		);
+
+		vk::SwapchainCreateInfoKHR createInfo = vk::SwapchainCreateInfoKHR(
+			vk::SwapchainCreateFlagsKHR(), surface, imageCount, format.format, format.colorSpace, extent, 1, vk::ImageUsageFlagBits::eColorAttachment
+
+		);
+
+		QueueFamilyIndices indices = findQueueFamilies(physicalDevice, surface, debug);
+		uint32_t queueFamilyIndices[] = { indices.graphicsFamily.value(), indices.presentFamily.value() };
+
+		if (indices.graphicsFamily != indices.presentFamily) {
+			createInfo.imageSharingMode = vk::SharingMode::eConcurrent;
+			createInfo.queueFamilyIndexCount = 2;
+			createInfo.pQueueFamilyIndices = queueFamilyIndices;
+		}
+		else {
+			createInfo.imageSharingMode = vk::SharingMode::eExclusive;
+		}
+
+		createInfo.preTransform = support.capabilities.currentTransform;
+		createInfo.compositeAlpha = vk::CompositeAlphaFlagBitsKHR::eOpaque;
+		createInfo.presentMode = presentMode;
+		createInfo.clipped = VK_TRUE;
+
+		createInfo.oldSwapchain = vk::SwapchainKHR(nullptr);
+
+		SwapChainBundle bundle{};
+		try {
+			bundle.swapchain = logicalDevice.createSwapchainKHR(createInfo);
+			PGE_CORE_INFO("Sucessfull create swap chain!");
+		}
+		catch (vk::SystemError err) {
+			PGE_CORE_ERROR("failed to create swap chain!");
+		}
+
+		bundle.images = logicalDevice.getSwapchainImagesKHR(bundle.swapchain);
+		bundle.format = format.format;
+		bundle.extent = extent;
+
+		return bundle;
+
+	}
 }

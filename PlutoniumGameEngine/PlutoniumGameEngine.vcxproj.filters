@@ -34,14 +34,32 @@
     <Filter Include="src\Platofrm\OpenGlApi\ApiContext">
       <UniqueIdentifier>{9D2F8D13-099E-E292-5287-9D92BE34D82E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Platofrm\OpenGlApi\Buffer">
+      <UniqueIdentifier>{B81B13C1-2434-FAEA-EDE0-898459B88E84}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platofrm\OpenGlApi\IamGuiOpenGl">
+      <UniqueIdentifier>{3F60F577-AB19-6022-3479-7AFCA0311692}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platofrm\OpenGlApi\OpenGLREnderer">
       <UniqueIdentifier>{5A827E1D-C646-7D0D-8FAC-ADD7FB2F1943}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platofrm\OpenGlApi\Shader">
+      <UniqueIdentifier>{75C9CCE7-E1E1-B311-AA8E-43AB166648AB}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platofrm\VulkanApi">
       <UniqueIdentifier>{5B997C86-4793-A5D8-3000-3CE91C990B45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Platofrm\VulkanApi\Buffers">
+      <UniqueIdentifier>{D783365B-C3A9-00C2-ACEF-858D98B4258E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Platofrm\VulkanApi\Device">
       <UniqueIdentifier>{9A4293FE-065B-7A28-CF07-0AC23BDF0EC2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platofrm\VulkanApi\Drawing">
+      <UniqueIdentifier>{D66BDAED-C291-A454-ABD7-2920979CC920}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platofrm\VulkanApi\FrameBuffers">
+      <UniqueIdentifier>{42755D42-AE2E-C8EC-378E-E2C6A3467E5C}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platofrm\VulkanApi\GraphicsPipeline">
       <UniqueIdentifier>{F1CB6FD3-5D5B-31BE-6657-12D6D2656CCA}</UniqueIdentifier>
@@ -1356,32 +1374,17 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.h">
       <Filter>src\Platofrm\OpenGlApi\ApiContext</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.h">
+      <Filter>src\Platofrm\OpenGlApi\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h">
+      <Filter>src\Platofrm\OpenGlApi\IamGuiOpenGl</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h">
       <Filter>src\Platofrm\OpenGlApi\OpenGLREnderer</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h">
-      <Filter>src\Platofrm\VulkanApi\Device</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platofrm\VulkanApi\Device\QueueIndices.h">
-      <Filter>src\Platofrm\VulkanApi\Device</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platofrm\VulkanApi\GraphicsPipeline\GraphicsPipeline.h">
-      <Filter>src\Platofrm\VulkanApi\GraphicsPipeline</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platofrm\VulkanApi\Instance\Instance.h">
-      <Filter>src\Platofrm\VulkanApi\Instance</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platofrm\VulkanApi\Logging\Logging.h">
-      <Filter>src\Platofrm\VulkanApi\Logging</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platofrm\VulkanApi\Suraface\Surface.h">
-      <Filter>src\Platofrm\VulkanApi\Suraface</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platofrm\VulkanApi\SwapChain\SwapChain.h">
-      <Filter>src\Platofrm\VulkanApi\SwapChain</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.h">
-      <Filter>src\Platofrm\VulkanApi\VulkanApiContext</Filter>
+    <ClInclude Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.h">
+      <Filter>src\Platofrm\OpenGlApi\Shader</Filter>
     </ClInclude>
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.h">
       <Filter>src\Platofrm\VulkanApi\VulkanRenderer</Filter>
@@ -1428,6 +1431,9 @@
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RendererApi.h">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiApiRenderer.h">
+      <Filter>src\PlutoniumGameEngine\IamGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.h">
       <Filter>src\PlutoniumGameEngine\IamGui</Filter>
     </ClInclude>
@@ -1455,24 +1461,26 @@
     <ClInclude Include="src\pphd.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platofrm\VulkanApi\FrameBuffers\FrameBuffers.h" />
-    <ClInclude Include="src\Platofrm\VulkanApi\Drawing\SyncObjects.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiApiRenderer.h" />
-    <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h" />
-    <ClInclude Include="src\Platofrm\VulkanApi\Buffers\VertexBuffer.h" />
-    <ClInclude Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.h" />
-    <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.h" />
-    <ClInclude Include="src\Platofrm\VulkanApi\Buffers\Buffer.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\VulkanInstance\VulkanInstance.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Logging\Logging.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp">
       <Filter>src\Platofrm\OpenGlApi\ApiContext</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.cpp">
+      <Filter>src\Platofrm\OpenGlApi\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp">
+      <Filter>src\Platofrm\OpenGlApi\IamGuiOpenGl</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp">
       <Filter>src\Platofrm\OpenGlApi\OpenGLREnderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.cpp">
-      <Filter>src\Platofrm\VulkanApi\VulkanApiContext</Filter>
+    <ClCompile Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.cpp">
+      <Filter>src\Platofrm\OpenGlApi\Shader</Filter>
     </ClCompile>
     <ClCompile Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.cpp">
       <Filter>src\Platofrm\VulkanApi\VulkanRenderer</Filter>
@@ -1516,8 +1524,7 @@
     <ClCompile Include="src\pphd.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp" />
-    <ClCompile Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.cpp" />
-    <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.cpp" />
+    <ClCompile Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.cpp" />
+    <ClCompile Include="src\Platofrm\VulkanApi\VulkanInstance\VulkanInstance.cpp" />
   </ItemGroup>
 </Project>

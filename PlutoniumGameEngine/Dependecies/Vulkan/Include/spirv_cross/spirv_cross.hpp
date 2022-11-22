@@ -24,6 +24,9 @@
 #ifndef SPIRV_CROSS_HPP
 #define SPIRV_CROSS_HPP
 
+#ifndef SPV_ENABLE_UTILITY_CODE
+#define SPV_ENABLE_UTILITY_CODE
+#endif
 #include "spirv.hpp"
 #include "spirv_cfg.hpp"
 #include "spirv_cross_parsed_ir.hpp"
@@ -95,6 +98,8 @@ struct ShaderResources
 	// There can only be one push constant block,
 	// but keep the vector in case this restriction is lifted in the future.
 	SmallVector<Resource> push_constant_buffers;
+
+	SmallVector<Resource> shader_record_buffers;
 
 	// For Vulkan GLSL and HLSL source,
 	// these correspond to separate texture2D and samplers respectively.
@@ -357,8 +362,11 @@ public:
 	void set_execution_mode(spv::ExecutionMode mode, uint32_t arg0 = 0, uint32_t arg1 = 0, uint32_t arg2 = 0);
 
 	// Gets argument for an execution mode (LocalSize, Invocations, OutputVertices).
-	// For LocalSize, the index argument is used to select the dimension (X = 0, Y = 1, Z = 2).
+	// For LocalSize or LocalSizeId, the index argument is used to select the dimension (X = 0, Y = 1, Z = 2).
 	// For execution modes which do not have arguments, 0 is returned.
+	// LocalSizeId query returns an ID. If LocalSizeId execution mode is not used, it returns 0.
+	// LocalSize always returns a literal. If execution mode is LocalSizeId,
+	// the literal (spec constant or not) is still returned.
 	uint32_t get_execution_mode_argument(spv::ExecutionMode mode, uint32_t index = 0) const;
 	spv::ExecutionModel get_execution_model() const;
 
@@ -380,6 +388,8 @@ public:
 	// If the component is not a specialization constant, a zeroed out struct will be written.
 	// The return value is the constant ID of the builtin WorkGroupSize, but this is not expected to be useful
 	// for most use cases.
+	// If LocalSizeId is used, there is no uvec3 value representing the workgroup size, so the return value is 0,
+	// but x, y and z are written as normal if the components are specialization constants.
 	uint32_t get_work_group_size_specialization_constants(SpecializationConstant &x, SpecializationConstant &y,
 	                                                      SpecializationConstant &z) const;
 
@@ -549,6 +559,11 @@ protected:
 				SPIRV_CROSS_THROW("Compiler::stream() out of range.");
 			return &ir.spirv[instr.offset];
 		}
+	}
+
+	uint32_t *stream_mutable(const Instruction &instr) const
+	{
+		return const_cast<uint32_t *>(stream(instr));
 	}
 
 	ParsedIR ir;
@@ -730,9 +745,11 @@ protected:
 	SPIRBlock::ContinueBlockType continue_block_type(const SPIRBlock &continue_block) const;
 
 	void force_recompile();
+	void force_recompile_guarantee_forward_progress();
 	void clear_force_recompile();
 	bool is_forcing_recompilation() const;
 	bool is_force_recompile = false;
+	bool is_force_recompile_forward_progress = false;
 
 	bool block_is_loop_candidate(const SPIRBlock &block, SPIRBlock::Method method) const;
 
@@ -740,6 +757,7 @@ protected:
 	void inherit_expression_dependencies(uint32_t dst, uint32_t source);
 	void add_implied_read_expression(SPIRExpression &e, uint32_t source);
 	void add_implied_read_expression(SPIRAccessChain &e, uint32_t source);
+	void add_active_interface_variable(uint32_t var_id);
 
 	// For proper multiple entry point support, allow querying if an Input or Output
 	// variable is part of that entry points interface.
@@ -915,6 +933,7 @@ protected:
 	// Similar is implemented for images, as well as if subpass inputs are needed.
 	std::unordered_set<uint32_t> comparison_ids;
 	bool need_subpass_input = false;
+	bool need_subpass_input_ms = false;
 
 	// In certain backends, we will need to use a dummy sampler to be able to emit code.
 	// GLSL does not support texelFetch on texture2D objects, but SPIR-V does,
@@ -954,6 +973,7 @@ protected:
 
 		void add_hierarchy_to_comparison_ids(uint32_t ids);
 		bool need_subpass_input = false;
+		bool need_subpass_input_ms = false;
 		void add_dependency(uint32_t dst, uint32_t src);
 	};
 
@@ -1134,6 +1154,11 @@ protected:
 	uint32_t evaluate_constant_u32(uint32_t id) const;
 
 	bool is_vertex_like_shader() const;
+
+	// Get the correct case list for the OpSwitch, since it can be either a
+	// 32 bit wide condition or a 64 bit, but the type is not embedded in the
+	// instruction itself.
+	const SmallVector<SPIRBlock::Case> &get_case_list(const SPIRBlock &block) const;
 
 private:
 	// Used only to implement the old deprecated get_entry_point() interface.
