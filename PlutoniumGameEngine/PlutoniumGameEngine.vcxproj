@@ -564,7 +564,10 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Device\QueueFamilies.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Logging\Logging.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Swapchain\Frame.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Swapchain\Swapchain.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanInstance\VulkanInstance.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.h" />

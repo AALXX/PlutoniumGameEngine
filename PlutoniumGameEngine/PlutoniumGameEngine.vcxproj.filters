@@ -1465,6 +1465,9 @@
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanInstance\VulkanInstance.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Logging\Logging.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Swapchain\Swapchain.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Device\QueueFamilies.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Swapchain\Frame.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp">

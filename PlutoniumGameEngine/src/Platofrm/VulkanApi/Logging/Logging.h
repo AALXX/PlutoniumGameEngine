@@ -304,4 +304,55 @@ This mode may result in visible tearing if rendering to the image is not timed c
 		}
 		return "none/undefined";
 	}
+
+	void log_device_properties(const vk::PhysicalDevice& device) {
+		/*
+		* void vkGetPhysicalDeviceProperties(
+			VkPhysicalDevice                            physicalDevice,
+			VkPhysicalDeviceProperties*                 pProperties);
+		*/
+
+		vk::PhysicalDeviceProperties properties = device.getProperties();
+
+		/*
+		* typedef struct VkPhysicalDeviceProperties {
+			uint32_t                            apiVersion;
+			uint32_t                            driverVersion;
+			uint32_t                            vendorID;
+			uint32_t                            deviceID;
+			VkPhysicalDeviceType                deviceType;
+			char                                deviceName[VK_MAX_PHYSICAL_DEVICE_NAME_SIZE];
+			uint8_t                             pipelineCacheUUID[VK_UUID_SIZE];
+			VkPhysicalDeviceLimits              limits;
+			VkPhysicalDeviceSparseProperties    sparseProperties;
+			} VkPhysicalDeviceProperties;
+		*/
+
+		PGE_CORE_INFO("Device name: {0}", properties.deviceName);
+
+
+		PGE_CORE_INFO("Device type: ");
+
+		switch (properties.deviceType) {
+
+		case (vk::PhysicalDeviceType::eCpu):
+			PGE_CORE_INFO("CPU\n");
+			break;
+
+		case (vk::PhysicalDeviceType::eDiscreteGpu):
+			PGE_CORE_INFO("Discrete GPU\n");
+			break;
+
+		case (vk::PhysicalDeviceType::eIntegratedGpu):
+			PGE_CORE_INFO("Integrated GPU\n");
+			break;
+
+		case (vk::PhysicalDeviceType::eVirtualGpu):
+			PGE_CORE_INFO("Virtual GPU\n");
+			break;
+
+		default:
+			PGE_CORE_INFO("other\n");
+		}
+	}
 }

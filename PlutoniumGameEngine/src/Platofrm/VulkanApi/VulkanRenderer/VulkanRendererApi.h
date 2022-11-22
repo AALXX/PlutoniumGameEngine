@@ -2,6 +2,7 @@
 #include <vulkan/vulkan.hpp>
 
 #include "PlutoniumGameEngine/GraphicsEngine/Renderer/RendererApi.h"
+#include <Platofrm/VulkanApi/Swapchain/Frame.h>
 
 
 namespace PGE_VULKAN {
@@ -58,7 +59,7 @@ namespace PGE_VULKAN {
 		vk::Queue presentQueue{ nullptr };
 
 		vk::SwapchainKHR swapChain;
-		std::vector<vk::Image> swapChainImages;
+		std::vector<SwapChainFrame> swapchainFrames;
 		vk::Format swapChainFormat;
 		vk::Extent2D swapChainExtent;
 

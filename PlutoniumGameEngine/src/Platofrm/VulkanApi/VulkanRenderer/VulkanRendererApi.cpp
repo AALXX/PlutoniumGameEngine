@@ -3,6 +3,7 @@
 #include <Platofrm/VulkanApi/VulkanInstance/VulkanInstance.h>
 #include <Platofrm/VulkanApi/Logging/Logging.h>
 #include <Platofrm/VulkanApi/Device/Device.h>
+#include <Platofrm/VulkanApi/Swapchain/Swapchain.h>
 
 
 
@@ -53,6 +54,10 @@ namespace PGE_VULKAN {
 		device.waitIdle();
 
 
+		for (SwapChainFrame frame : swapchainFrames) {
+			device.destroyImageView(frame.imageView);
+		}
+
 		device.destroySwapchainKHR(swapChain);
 		device.destroy();
 
@@ -100,7 +105,7 @@ namespace PGE_VULKAN {
 		presentQueue = queues[1];
 		SwapChainBundle bundle = create_swapchain(device, physicalDevice, surface, m_windowHandleWidth, m_windowHandleHeight, isDebug);
 		swapChain = bundle.swapchain;
-		swapChainImages = bundle.images;
+		swapchainFrames = bundle.frames;
 		swapChainFormat = bundle.format;
 		swapChainExtent = bundle.extent;
 	}
