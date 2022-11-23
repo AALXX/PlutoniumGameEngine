@@ -1,5 +1,4 @@
 #pragma once
-#include "pphd.h"
 #include <vulkan/vulkan.hpp>
 #include <Platofrm/VulkanApi/Logging/Logging.h>
 #include <Platofrm/VulkanApi/Device/QueueFamilies.h>

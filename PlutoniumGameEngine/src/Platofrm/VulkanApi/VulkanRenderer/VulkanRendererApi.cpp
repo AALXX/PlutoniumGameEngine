@@ -4,6 +4,7 @@
 #include <Platofrm/VulkanApi/Logging/Logging.h>
 #include <Platofrm/VulkanApi/Device/Device.h>
 #include <Platofrm/VulkanApi/Swapchain/Swapchain.h>
+#include <Platofrm/VulkanApi/VulkanGraphicsPipeline/VulkanGraphicsPipeline.h>
 
 
 
@@ -14,6 +15,8 @@ namespace PGE_VULKAN {
 	{
 		CreateVulkanInstance();
 		CreateVulkanDevice();
+
+		CreateVulkanGraphicsPipeline();
 
 		return true;
 	}
@@ -53,6 +56,10 @@ namespace PGE_VULKAN {
 
 		device.waitIdle();
 
+
+		device.destroyPipeline(pipeline);
+		device.destroyPipelineLayout(pipelineLayout);
+		device.destroyRenderPass(renderpass);
 
 		for (SwapChainFrame frame : swapchainFrames) {
 			device.destroyImageView(frame.imageView);
@@ -110,4 +117,22 @@ namespace PGE_VULKAN {
 		swapChainExtent = bundle.extent;
 	}
 
+	void VulkanRendererAPI::CreateVulkanGraphicsPipeline() {
+		
+		GraphicsPipelineInBundle specification = {};
+		specification.device = device;
+		specification.vertexFilepath = "D:/Projects/PlutoniumGameEngine/bin/Debug-windows-x86_64/Sandbox/vertx.spv";
+		specification.fragmentFilepath = "D:/Projects/PlutoniumGameEngine/bin/Debug-windows-x86_64/Sandbox/fragment.spv";
+		specification.swapchainExtent = swapChainExtent;
+
+		specification.swapchainImageFormat = swapChainFormat;
+
+		GraphicsPipelineOutBundle output = create_graphics_pipeline(
+			specification, isDebug
+		);
+
+		pipelineLayout = output.layout;
+		renderpass = output.renderpass;
+		pipeline = output.pipeline;
+	}
 }

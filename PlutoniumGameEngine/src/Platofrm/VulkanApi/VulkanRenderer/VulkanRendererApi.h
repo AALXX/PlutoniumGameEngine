@@ -64,7 +64,14 @@ namespace PGE_VULKAN {
 		vk::Extent2D swapChainExtent;
 
 		void CreateVulkanDevice();
+	private:
+		//graphics Pipeline
 
+		vk::PipelineLayout pipelineLayout;
+		vk::RenderPass renderpass;
+		vk::Pipeline pipeline;
+
+		void CreateVulkanGraphicsPipeline();
 	};
 
 }

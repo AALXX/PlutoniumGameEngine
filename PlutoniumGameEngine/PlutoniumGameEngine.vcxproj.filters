@@ -1468,6 +1468,8 @@
     <ClInclude Include="src\Platofrm\VulkanApi\Swapchain\Swapchain.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\QueueFamilies.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Swapchain\Frame.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Shaders\Shaders.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\VulkanGraphicsPipeline\VulkanGraphicsPipeline.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp">
@@ -1529,5 +1531,6 @@
     </ClCompile>
     <ClCompile Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\VulkanInstance\VulkanInstance.cpp" />
+    <ClCompile Include="src\Platofrm\VulkanApi\VulkanGraphicsPipeline\VulkanGraphicsPipeline.cpp" />
   </ItemGroup>
 </Project>

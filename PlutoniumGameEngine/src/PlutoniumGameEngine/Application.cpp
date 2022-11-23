@@ -42,14 +42,7 @@ namespace PGE {
 			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 			RenderCommand::Clear();
 
-
-			GraphicsEngine::get()->BeginScene();
-
-
 			GraphicsEngine::get()->Submit();
-
-
-			GraphicsEngine::get()->EndScene();
 
 
 			for (Layer* layer : m_LayerStack){
