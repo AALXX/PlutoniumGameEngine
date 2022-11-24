@@ -5,6 +5,9 @@
 #include <Platofrm/VulkanApi/Device/Device.h>
 #include <Platofrm/VulkanApi/Swapchain/Swapchain.h>
 #include <Platofrm/VulkanApi/VulkanGraphicsPipeline/VulkanGraphicsPipeline.h>
+#include <Platofrm/VulkanApi/Buffers/FrameBuffer/FrameBuffer.h>
+#include <Platofrm/VulkanApi/Buffers/CommandBuffer/CommandBuffer.h>
+#include <Platofrm/VulkanApi/Sync/Sync.h>
 
 
 
@@ -17,6 +20,8 @@ namespace PGE_VULKAN {
 		CreateVulkanDevice();
 
 		CreateVulkanGraphicsPipeline();
+
+		Finish_Setup();
 
 		return true;
 	}
@@ -39,8 +44,51 @@ namespace PGE_VULKAN {
 
 	void VulkanRendererAPI::DrawIndexed()
 	{
-		//drawFrame();
+		device.waitForFences(1, &inFlightFence, VK_TRUE, UINT64_MAX);
+		device.resetFences(1, &inFlightFence);
 
+		uint32_t imageIndex{ device.acquireNextImageKHR(swapChain, UINT64_MAX, imageAvailable, nullptr).value };
+
+		vk::CommandBuffer commandBuffer = swapchainFrames[imageIndex].commandBuffer;
+		record_draw_commands(commandBuffer, imageIndex);
+
+
+		vk::SubmitInfo submitInfo = {};
+
+		vk::Semaphore waitSemaphores[] = { imageAvailable };
+		vk::PipelineStageFlags waitStages[] = { vk::PipelineStageFlagBits::eColorAttachmentOutput };
+		submitInfo.waitSemaphoreCount = 1;
+		submitInfo.pWaitSemaphores = waitSemaphores;
+		submitInfo.pWaitDstStageMask = waitStages;
+
+		submitInfo.commandBufferCount = 1;
+		submitInfo.pCommandBuffers = &commandBuffer;
+
+		vk::Semaphore signalSemaphores[] = { renderFinished };
+		submitInfo.signalSemaphoreCount = 1;
+		submitInfo.pSignalSemaphores = signalSemaphores;
+
+		try {
+			graphicsQueue.submit(submitInfo, inFlightFence);
+		}
+		catch (vk::SystemError err) {
+
+			if (isDebug) {
+				PGE_CORE_INFO("failed to submit draw command buffer!");
+			}
+		}
+
+		vk::PresentInfoKHR presentInfo = {};
+		presentInfo.waitSemaphoreCount = 1;
+		presentInfo.pWaitSemaphores = signalSemaphores;
+
+		vk::SwapchainKHR swapChains[] = { swapChain };
+		presentInfo.swapchainCount = 1;
+		presentInfo.pSwapchains = swapChains;
+
+		presentInfo.pImageIndices = &imageIndex;
+
+		presentQueue.presentKHR(presentInfo);
 	}
 
 	void VulkanRendererAPI::SubmitVertices(glm::mat3x3& Recivedvertices)
@@ -49,33 +97,6 @@ namespace PGE_VULKAN {
 
 	void VulkanRendererAPI::WindowResized(int width, int height)
 	{
-	}
-
-
-	bool VulkanRendererAPI::release(){
-
-		device.waitIdle();
-
-
-		device.destroyPipeline(pipeline);
-		device.destroyPipelineLayout(pipelineLayout);
-		device.destroyRenderPass(renderpass);
-
-		for (SwapChainFrame frame : swapchainFrames) {
-			device.destroyImageView(frame.imageView);
-		}
-
-		device.destroySwapchainKHR(swapChain);
-		device.destroy();
-
-		instance.destroySurfaceKHR(surface);
-
-		if (isDebug) {
-			instance.destroyDebugUtilsMessengerEXT(debugMessenger, nullptr, dldi);
-		}
-
-		instance.destroy();
-		return true;
 	}
 
 	void VulkanRendererAPI::CreateVulkanInstance()
@@ -134,5 +155,100 @@ namespace PGE_VULKAN {
 		pipelineLayout = output.layout;
 		renderpass = output.renderpass;
 		pipeline = output.pipeline;
+	}
+
+	void VulkanRendererAPI::Finish_Setup()
+	{
+		frameBufferInput framebufferInput;
+		framebufferInput.device = device;
+		framebufferInput.renderpass = renderpass;
+		framebufferInput.swapchainExtent = swapChainExtent;
+
+		make_framebuffers(framebufferInput, swapchainFrames, isDebug);
+
+		commandPool = make_command_pool(device, physicalDevice, surface, isDebug);
+		commandBufferInputChunk commandBufferInput = { device, commandPool, swapchainFrames };
+		mainCommandBuffer = make_command_buffers(commandBufferInput, isDebug);
+
+		inFlightFence = make_fence(device, isDebug);
+		imageAvailable = make_semaphore(device, isDebug);
+		renderFinished = make_semaphore(device, isDebug);
+
+	}
+
+	void VulkanRendererAPI::record_draw_commands(vk::CommandBuffer commandBuffer, uint32_t imageIndex)
+	{
+		vk::CommandBufferBeginInfo beginInfo = {};
+
+		try {
+			commandBuffer.begin(beginInfo);
+		}
+		catch (vk::SystemError err) {
+			if (isDebug) {
+				PGE_CORE_INFO("Failed to begin recording command buffer!");
+			}
+		}
+
+		vk::RenderPassBeginInfo renderPassInfo = {};
+		renderPassInfo.renderPass = renderpass;
+		renderPassInfo.framebuffer = swapchainFrames[imageIndex].frameBuffers;
+		renderPassInfo.renderArea.offset.x = 0;
+		renderPassInfo.renderArea.offset.y = 0;
+		renderPassInfo.renderArea.extent = swapChainExtent;
+
+		vk::ClearValue clearColor = { std::array<float, 4>{1.0f, 0.5f, 0.25f, 1.0f} };
+		renderPassInfo.clearValueCount = 1;
+		renderPassInfo.pClearValues = &clearColor;
+
+		commandBuffer.beginRenderPass(&renderPassInfo, vk::SubpassContents::eInline);
+
+		commandBuffer.bindPipeline(vk::PipelineBindPoint::eGraphics, pipeline);
+
+		commandBuffer.draw(3, 1, 0, 0);
+
+		commandBuffer.endRenderPass();
+
+		try {
+			commandBuffer.end();
+		}
+		catch (vk::SystemError err) {
+
+			if (isDebug) {
+				PGE_CORE_INFO("failed to record command buffer!");
+
+			}
+		}
+	}
+
+	bool VulkanRendererAPI::release() {
+
+		device.waitIdle();
+
+		device.destroyFence(inFlightFence);
+		device.destroySemaphore(imageAvailable);
+		device.destroySemaphore(renderFinished);
+
+		device.destroyCommandPool(commandPool);
+
+		device.destroyPipeline(pipeline);
+		device.destroyPipelineLayout(pipelineLayout);
+		device.destroyRenderPass(renderpass);
+
+		for (SwapChainFrame frame : swapchainFrames) {
+			device.destroyImageView(frame.imageView);
+			device.destroyFramebuffer(frame.frameBuffers);
+		}
+
+		device.destroySwapchainKHR(swapChain);
+		device.destroy();
+
+		instance.destroySurfaceKHR(surface);
+
+		if (isDebug) {
+			instance.destroyDebugUtilsMessengerEXT(debugMessenger, nullptr, dldi);
+		}
+
+		instance.destroy();
+		return true;
 	}
 }

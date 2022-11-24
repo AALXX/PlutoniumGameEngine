@@ -7,6 +7,8 @@ namespace PGE_VULKAN {
 	{
 		vk::Image image;
 		vk::ImageView imageView;
+		vk::Framebuffer frameBuffers;
+		vk::CommandBuffer commandBuffer;
 	};
 
 }

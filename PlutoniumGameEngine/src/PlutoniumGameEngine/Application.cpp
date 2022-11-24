@@ -39,9 +39,6 @@ namespace PGE {
 	{
 
 		while (m_Running) {
-			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
-			RenderCommand::Clear();
-
 			GraphicsEngine::get()->Submit();
 
 

@@ -72,6 +72,23 @@ namespace PGE_VULKAN {
 		vk::Pipeline pipeline;
 
 		void CreateVulkanGraphicsPipeline();
+
+		void Finish_Setup();
+
+	private:
+		//command buffer
+		vk::CommandPool commandPool;
+		vk::CommandBuffer mainCommandBuffer;
+
+	private:
+		//sync
+
+		vk::Fence inFlightFence;
+		vk::Semaphore imageAvailable, renderFinished;
+	private:
+		//render
+
+		void record_draw_commands(vk::CommandBuffer  CommandBuffer, uint32_t imageIndex);
 	};
 
 }
