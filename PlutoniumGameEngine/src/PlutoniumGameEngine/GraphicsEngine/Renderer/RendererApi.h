@@ -4,14 +4,13 @@
 #include <glm/glm.hpp>
 
 namespace PGE {
+	
+	enum class RendererAPI {
+		None = 0, Vulkan = 1, OpenGl = 2
+	};
 
-
-	class RendererAPI
+	class Renderer
 	{
-	public:
-		enum class API {
-			None = 0, Vulkan = 1, OpenGl = 2
-		};
 
 	public:
 
@@ -28,10 +27,10 @@ namespace PGE {
 
 		virtual bool release() = 0;
 
-		inline static API GetAPI() { return s_RendererAPI; };
+		inline static RendererAPI GetAPI() { return s_RendererAPI; };
 
 	private:
-		static API s_RendererAPI;
+		static RendererAPI s_RendererAPI;
 	};
 
 }

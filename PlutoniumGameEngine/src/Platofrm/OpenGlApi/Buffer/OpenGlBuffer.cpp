@@ -1,18 +1,18 @@
 #include "pphd.h"
 #include "OpenGlBuffer.h"
+#include <glad/glad.h>
 
 namespace PGE_OPENGL {
-
 	//-----------------------------------------------------------------
 	//|							VeretxBuffer						  |
 	//-----------------------------------------------------------------
 
-	//OpenGLVertexBuffer::OpenGLVertexBuffer(glm::mat3x3 &vertices, uint32_t size)
-	//{
-	//	glCreateBuffers(1, &m_RendererID);
-	//	glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
-	//	glBufferData(GL_ARRAY_BUFFER, size, &vertices, GL_STATIC_DRAW);
-	//}
+	OpenGLVertexBuffer::OpenGLVertexBuffer(float* vertices, uint32_t size)
+	{
+		glCreateBuffers(1, &m_RendererID);
+		glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
+		glBufferData(GL_ARRAY_BUFFER, size, vertices, GL_STATIC_DRAW);
+	}
 
 	OpenGLVertexBuffer::~OpenGLVertexBuffer()
 	{
@@ -30,8 +30,9 @@ namespace PGE_OPENGL {
 	}
 
 	//-----------------------------------------------------------------
-	//|							IndexBuffer							  |
+	//|								IndexBuffer						  |
 	//-----------------------------------------------------------------
+
 	OpenGLIndexBuffer::OpenGLIndexBuffer(uint32_t* indices, uint32_t count)
 		: m_Count(count)
 	{

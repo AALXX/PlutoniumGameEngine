@@ -26,6 +26,7 @@
 #ifdef PGE_ENABLE_ASSERTS
 #define PGE_ASSERT(x, ...) { if(!(x)) { PGE_CLIENT_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
 #define PGE_CORE_ASSERT(x, ...) { if(!(x)) { PGE_CORE_ERROR("Assertion Failed: {0}", __VA_ARGS__); __debugbreak(); } }
+
 #else
 #define PGE_ASSERT(x, ...)
 #define PGE_CORE_ASSERT(x, ...)

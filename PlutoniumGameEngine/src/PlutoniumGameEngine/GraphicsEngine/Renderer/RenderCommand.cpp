@@ -6,7 +6,7 @@
 
 namespace PGE {
 
-	//RendererAPI * RenderCommand::s_RendererAPI = new PGE_OPENGL::OpenGLRendererAPI;
+	Renderer * RenderCommand::s_RendererAPI = new PGE_OPENGL::OpenGLRendererAPI;
 
-	RendererAPI* RenderCommand::s_RendererAPI = new PGE_VULKAN::VulkanRendererAPI;
+	//Renderer* RenderCommand::s_RendererAPI = new PGE_VULKAN::VulkanRendererAPI;
 }

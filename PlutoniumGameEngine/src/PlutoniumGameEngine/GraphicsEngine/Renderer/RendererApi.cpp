@@ -4,6 +4,8 @@
 
 namespace PGE {
 
-	RendererAPI::API s_API = RendererAPI::API::Vulkan;
+	RendererAPI Renderer::s_RendererAPI = RendererAPI::OpenGl;
+	//RendererAPI Renderer::s_RendererAPI = RendererAPI::Vulkan;
+
 
 }

@@ -1380,9 +1380,6 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h">
       <Filter>src\Platofrm\OpenGlApi\IamGuiOpenGl</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h">
-      <Filter>src\Platofrm\OpenGlApi\OpenGLREnderer</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.h">
       <Filter>src\Platofrm\OpenGlApi\Shader</Filter>
     </ClInclude>
@@ -1473,6 +1470,10 @@
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\CommandBuffer\CommandBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Sync\Sync.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\RenderStructs\RenderStructs.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp">
@@ -1483,9 +1484,6 @@
     </ClCompile>
     <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp">
       <Filter>src\Platofrm\OpenGlApi\IamGuiOpenGl</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp">
-      <Filter>src\Platofrm\OpenGlApi\OpenGLREnderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.cpp">
       <Filter>src\Platofrm\OpenGlApi\Shader</Filter>
@@ -1537,5 +1535,8 @@
     <ClCompile Include="src\Platofrm\VulkanApi\VulkanGraphicsPipeline\VulkanGraphicsPipeline.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\Sync\Sync.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
   </ItemGroup>
 </Project>

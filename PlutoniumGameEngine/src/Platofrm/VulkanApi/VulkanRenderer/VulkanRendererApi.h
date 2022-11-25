@@ -6,7 +6,7 @@
 
 
 namespace PGE_VULKAN {
-	class VulkanRendererAPI : public PGE::RendererAPI {
+	class VulkanRendererAPI : public PGE::Renderer {
 
 	public:
 
@@ -82,12 +82,9 @@ namespace PGE_VULKAN {
 
 	private:
 		//sync
-
-		vk::Fence inFlightFence;
-		vk::Semaphore imageAvailable, renderFinished;
+		int maxFramesInFlight, frameNumber;
 	private:
 		//render
-
 		void record_draw_commands(vk::CommandBuffer  CommandBuffer, uint32_t imageIndex);
 	};
 

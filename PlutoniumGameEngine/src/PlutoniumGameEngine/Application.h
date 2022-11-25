@@ -5,8 +5,10 @@
 #include "PlutoniumGameEngine/Window/Window.h"
 #include "PlutoniumGameEngine/LayerSystem/LayerStack.h"
 #include "PlutoniumGameEngine/IamGui/IamGuiLayer.h"
+#include "PlutoniumGameEngine/GraphicsEngine/Shaders/Shader.h"
 
 #include <glm/glm.hpp>
+#include <PlutoniumGameEngine/GraphicsEngine/Buffer/Buffer.h>
 
 namespace PGE {
 	class Application
@@ -35,6 +37,11 @@ namespace PGE {
 		bool m_Running = true;
 
 		LayerStack m_LayerStack;
+
+		unsigned int m_VertexArray;
+		std::unique_ptr<Shader> m_Shader;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
+		std::unique_ptr<IndexBuffer> m_IndexBuffer;
 	private:
 		static Application* s_Instance;
 

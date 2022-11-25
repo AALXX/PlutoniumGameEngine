@@ -44,18 +44,18 @@ namespace PGE_VULKAN {
 
 	void VulkanRendererAPI::DrawIndexed()
 	{
-		device.waitForFences(1, &inFlightFence, VK_TRUE, UINT64_MAX);
-		device.resetFences(1, &inFlightFence);
+		device.waitForFences(1, &swapchainFrames[frameNumber].inFlight, VK_TRUE, UINT64_MAX);
+		device.resetFences(1, &swapchainFrames[frameNumber].inFlight);
 
-		uint32_t imageIndex{ device.acquireNextImageKHR(swapChain, UINT64_MAX, imageAvailable, nullptr).value };
+		uint32_t imageIndex{ device.acquireNextImageKHR(swapChain, UINT64_MAX, swapchainFrames[frameNumber].imageAvailable, nullptr).value };
 
-		vk::CommandBuffer commandBuffer = swapchainFrames[imageIndex].commandBuffer;
+		vk::CommandBuffer commandBuffer = swapchainFrames[frameNumber].commandBuffer;
 		record_draw_commands(commandBuffer, imageIndex);
 
 
 		vk::SubmitInfo submitInfo = {};
 
-		vk::Semaphore waitSemaphores[] = { imageAvailable };
+		vk::Semaphore waitSemaphores[] = { swapchainFrames[frameNumber].imageAvailable };
 		vk::PipelineStageFlags waitStages[] = { vk::PipelineStageFlagBits::eColorAttachmentOutput };
 		submitInfo.waitSemaphoreCount = 1;
 		submitInfo.pWaitSemaphores = waitSemaphores;
@@ -64,12 +64,12 @@ namespace PGE_VULKAN {
 		submitInfo.commandBufferCount = 1;
 		submitInfo.pCommandBuffers = &commandBuffer;
 
-		vk::Semaphore signalSemaphores[] = { renderFinished };
+		vk::Semaphore signalSemaphores[] = { swapchainFrames[frameNumber].imageAvailable };
 		submitInfo.signalSemaphoreCount = 1;
 		submitInfo.pSignalSemaphores = signalSemaphores;
 
 		try {
-			graphicsQueue.submit(submitInfo, inFlightFence);
+			graphicsQueue.submit(submitInfo, swapchainFrames[frameNumber].inFlight);
 		}
 		catch (vk::SystemError err) {
 
@@ -89,6 +89,8 @@ namespace PGE_VULKAN {
 		presentInfo.pImageIndices = &imageIndex;
 
 		presentQueue.presentKHR(presentInfo);
+
+		frameNumber = (frameNumber + 1) % maxFramesInFlight;
 	}
 
 	void VulkanRendererAPI::SubmitVertices(glm::mat3x3& Recivedvertices)
@@ -136,6 +138,8 @@ namespace PGE_VULKAN {
 		swapchainFrames = bundle.frames;
 		swapChainFormat = bundle.format;
 		swapChainExtent = bundle.extent;
+		maxFramesInFlight = static_cast<int>(swapchainFrames.size()); 
+		frameNumber = 0;
 	}
 
 	void VulkanRendererAPI::CreateVulkanGraphicsPipeline() {
@@ -170,10 +174,12 @@ namespace PGE_VULKAN {
 		commandBufferInputChunk commandBufferInput = { device, commandPool, swapchainFrames };
 		mainCommandBuffer = make_command_buffers(commandBufferInput, isDebug);
 
-		inFlightFence = make_fence(device, isDebug);
-		imageAvailable = make_semaphore(device, isDebug);
-		renderFinished = make_semaphore(device, isDebug);
-
+		for (SwapChainFrame& frame : swapchainFrames)
+		{
+			frame.inFlight = make_fence(device, isDebug);
+			frame.imageAvailable = make_semaphore(device, isDebug);
+			frame.renderFinished = make_semaphore(device, isDebug);
+		}
 	}
 
 	void VulkanRendererAPI::record_draw_commands(vk::CommandBuffer commandBuffer, uint32_t imageIndex)
@@ -224,10 +230,6 @@ namespace PGE_VULKAN {
 
 		device.waitIdle();
 
-		device.destroyFence(inFlightFence);
-		device.destroySemaphore(imageAvailable);
-		device.destroySemaphore(renderFinished);
-
 		device.destroyCommandPool(commandPool);
 
 		device.destroyPipeline(pipeline);
@@ -237,6 +239,9 @@ namespace PGE_VULKAN {
 		for (SwapChainFrame frame : swapchainFrames) {
 			device.destroyImageView(frame.imageView);
 			device.destroyFramebuffer(frame.frameBuffers);
+			device.destroyFence(frame.inFlight);
+			device.destroySemaphore(frame.imageAvailable);
+			device.destroySemaphore(frame.renderFinished);
 		}
 
 		device.destroySwapchainKHR(swapChain);

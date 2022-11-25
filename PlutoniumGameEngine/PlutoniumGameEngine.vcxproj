@@ -558,15 +558,18 @@
     <ClInclude Include="Dependecies\glm\glm\vec3.hpp" />
     <ClInclude Include="Dependecies\glm\glm\vec4.hpp" />
     <ClInclude Include="Dependecies\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h" />
-    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\CommandBuffer\CommandBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\QueueFamilies.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\RenderStructs\RenderStructs.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Sync\Sync.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanGraphicsPipeline\VulkanGraphicsPipeline.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Logging\Logging.h" />
@@ -602,10 +605,12 @@
     <ClInclude Include="src\pphd.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp" />
-    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\Sync\Sync.cpp" />

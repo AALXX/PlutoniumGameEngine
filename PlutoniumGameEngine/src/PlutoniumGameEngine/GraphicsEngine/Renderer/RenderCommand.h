@@ -48,7 +48,7 @@ namespace PGE{
 
 	private:
 
-		static RendererAPI* s_RendererAPI;
+		static Renderer* s_RendererAPI;
 	};
 
 }

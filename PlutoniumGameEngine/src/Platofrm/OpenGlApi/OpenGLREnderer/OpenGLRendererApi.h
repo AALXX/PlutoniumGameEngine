@@ -5,7 +5,7 @@
 #include <Platofrm/OpenGlApi/Buffer/OpenGlBuffer.h>
 
 namespace PGE_OPENGL {
-	class OpenGLRendererAPI : public PGE::RendererAPI {
+	class OpenGLRendererAPI : public PGE::Renderer {
 	public:
 
 		virtual bool Init() override;

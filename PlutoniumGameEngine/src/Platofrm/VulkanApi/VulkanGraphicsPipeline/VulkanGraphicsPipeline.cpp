@@ -1,6 +1,7 @@
 #include "pphd.h"
 #include "VulkanGraphicsPipeline.h"
 #include <Platofrm/VulkanApi/Shaders/Shaders.h>
+#include <Platofrm/VulkanApi/RenderStructs/RenderStructs.h>
 
 namespace PGE_VULKAN {
 
@@ -9,7 +10,14 @@ namespace PGE_VULKAN {
 		vk::PipelineLayoutCreateInfo layoutInfo;
 		layoutInfo.flags = vk::PipelineLayoutCreateFlags();
 		layoutInfo.setLayoutCount = 0;
-		layoutInfo.pushConstantRangeCount = 0;
+
+		layoutInfo.pushConstantRangeCount = 1;
+		vk::PushConstantRange pushConstantInfo;
+		pushConstantInfo.offset = 0;
+		pushConstantInfo.size = sizeof(ObjectData);
+		pushConstantInfo.stageFlags = vk::ShaderStageFlagBits::eVertex;
+		layoutInfo.pPushConstantRanges = &pushConstantInfo;
+
 		try {
 			return device.createPipelineLayout(layoutInfo);
 		}

@@ -9,6 +9,8 @@ namespace PGE_VULKAN {
 		vk::ImageView imageView;
 		vk::Framebuffer frameBuffers;
 		vk::CommandBuffer commandBuffer;
+		vk::Semaphore imageAvailable, renderFinished;
+		vk::Fence inFlight;
 	};
 
 }
