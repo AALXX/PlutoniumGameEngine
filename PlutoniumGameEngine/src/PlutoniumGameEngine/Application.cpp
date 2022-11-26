@@ -53,6 +53,7 @@ namespace PGE {
 		//m_ImGuiLayer = new ImGuiLayer;
 		//PushOverLay(m_ImGuiLayer);
 
+
 		glGenVertexArrays(1, &m_VertexArray);
 		glBindVertexArray(m_VertexArray);
 
@@ -117,6 +118,8 @@ namespace PGE {
 				color = v_Color;
 			}
 		)";
+
+		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
 	}
 
 	Application::~Application()

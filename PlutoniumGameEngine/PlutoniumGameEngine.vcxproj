@@ -32,13 +32,13 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v143</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -558,25 +558,23 @@
     <ClInclude Include="Dependecies\glm\glm\vec3.hpp" />
     <ClInclude Include="Dependecies\glm\glm\vec4.hpp" />
     <ClInclude Include="Dependecies\glm\glm\vector_relational.hpp" />
-    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\CommandBuffer\CommandBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\QueueFamilies.h" />
-    <ClInclude Include="src\Platofrm\VulkanApi\RenderStructs\RenderStructs.h" />
-    <ClInclude Include="src\Platofrm\VulkanApi\Sync\Sync.h" />
-    <ClInclude Include="src\Platofrm\VulkanApi\VulkanGraphicsPipeline\VulkanGraphicsPipeline.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Logging\Logging.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\RenderStructs\RenderStructs.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Shaders\Shaders.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Swapchain\Frame.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Swapchain\Swapchain.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\Sync\Sync.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.h" />
+    <ClInclude Include="src\Platofrm\VulkanApi\VulkanGraphicsPipeline\VulkanGraphicsPipeline.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanInstance\VulkanInstance.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.h" />
     <ClInclude Include="src\Platofrm\Windows\Input\WindowInput.h" />
@@ -589,10 +587,12 @@
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\Event.h" />
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\KeyEvent.h" />
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\MouseEvent.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsContext\GraphicsContext.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RendererApi.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.h" />
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiApiRenderer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Input\Input.h" />
@@ -605,12 +605,10 @@
     <ClInclude Include="src\pphd.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.cpp" />
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\Sync\Sync.cpp" />
@@ -621,9 +619,11 @@
     <ClCompile Include="src\Platofrm\Windows\Input\WindowInput.cpp" />
     <ClCompile Include="src\Platofrm\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\Application.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RendererApi.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\IamGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\Input\Input.cpp" />
