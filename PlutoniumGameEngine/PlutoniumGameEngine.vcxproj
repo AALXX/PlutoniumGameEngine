@@ -560,6 +560,7 @@
     <ClInclude Include="Dependecies\glm\glm\vector_relational.hpp" />
     <ClInclude Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.h" />
@@ -588,6 +589,7 @@
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\KeyEvent.h" />
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\MouseEvent.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsContext\GraphicsContext.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.h" />
@@ -607,6 +609,7 @@
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.cpp" />
@@ -620,6 +623,7 @@
     <ClCompile Include="src\Platofrm\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\Application.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RendererApi.cpp" />

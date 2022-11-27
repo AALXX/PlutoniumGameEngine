@@ -1392,9 +1392,6 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h">
       <Filter>src\Platofrm\OpenGlApi\IamGuiOpenGl</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h">
-      <Filter>src\Platofrm\OpenGlApi\OpenGLREnderer</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.h">
       <Filter>src\Platofrm\OpenGlApi\Shader</Filter>
     </ClInclude>
@@ -1518,6 +1515,9 @@
     <ClInclude Include="src\pphd.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp">
@@ -1528,9 +1528,6 @@
     </ClCompile>
     <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp">
       <Filter>src\Platofrm\OpenGlApi\IamGuiOpenGl</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp">
-      <Filter>src\Platofrm\OpenGlApi\OpenGLREnderer</Filter>
     </ClCompile>
     <ClCompile Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.cpp">
       <Filter>src\Platofrm\OpenGlApi\Shader</Filter>
@@ -1598,5 +1595,8 @@
     <ClCompile Include="src\pphd.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
   </ItemGroup>
 </Project>
