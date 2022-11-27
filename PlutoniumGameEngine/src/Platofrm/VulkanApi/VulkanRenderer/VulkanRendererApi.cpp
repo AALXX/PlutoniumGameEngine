@@ -26,13 +26,13 @@ namespace PGE_VULKAN {
 		return true;
 	}
 
-	void VulkanRendererAPI::GetWindow(GLFWwindow* window, int windowWidth, int windowHeight)
-	{
-		m_windowHandle = window;
-		m_windowHandleWidth = windowWidth;
-		m_windowHandleHeight = windowHeight;
+	//void VulkanRendererAPI::GetWindow(GLFWwindow* window, int windowWidth, int windowHeight)
+	//{
+	//	m_windowHandle = window;
+	//	m_windowHandleWidth = windowWidth;
+	//	m_windowHandleHeight = windowHeight;
 
-	}
+	//}
 
 	void VulkanRendererAPI::SetClearColor(const glm::vec4& color)
 	{
@@ -93,9 +93,6 @@ namespace PGE_VULKAN {
 		frameNumber = (frameNumber + 1) % maxFramesInFlight;
 	}
 
-	void VulkanRendererAPI::SubmitVertices(glm::mat3x3& Recivedvertices)
-	{
-	}
 
 	void VulkanRendererAPI::WindowResized(int width, int height)
 	{
@@ -112,15 +109,15 @@ namespace PGE_VULKAN {
 
 		VkSurfaceKHR c_stye_surface;
 
-		if (glfwCreateWindowSurface(instance, m_windowHandle, nullptr, &c_stye_surface) != VK_SUCCESS) {
-			if (isDebug) {
-				PGE_CORE_ERROR("failed to abstact glfw surface for Vulkan \n");
-			}
-		}
-		else if (isDebug) {
-			PGE_CORE_ERROR("Sucessfully abstact glfw surface for Vulkan \n");
+		//if (glfwCreateWindowSurface(instance, m_windowHandle, nullptr, &c_stye_surface) != VK_SUCCESS) {
+		//	if (isDebug) {
+		//		PGE_CORE_ERROR("failed to abstact glfw surface for Vulkan \n");
+		//	}
+		//}
+		//else if (isDebug) {
+		//	PGE_CORE_ERROR("Sucessfully abstact glfw surface for Vulkan \n");
 
-		}
+		//}
 
 		surface = c_stye_surface;
 	}

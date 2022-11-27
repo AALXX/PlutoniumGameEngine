@@ -14,16 +14,9 @@ namespace PGE{
 			return s_RendererAPI->Init();
 		}
 
-		inline static void GetWindow(GLFWwindow* window, int windowWidth, int windowHeight) {
-			s_RendererAPI->GetWindow(window, windowWidth, windowHeight);
-		}
 
 		inline static void SetClearColor(const glm::vec4& color) {
 			s_RendererAPI->SetClearColor(color);
-		}
-
-		inline static void SubmitVertices(glm::mat3x3 &vertices) {
-			s_RendererAPI->SubmitVertices(vertices);
 		}
 
 		inline static void Clear(){
@@ -35,8 +28,8 @@ namespace PGE{
 			s_RendererAPI->WindowResized(width, height);
 		}
 
-		inline static void DrawIndexed() {
-			s_RendererAPI->DrawIndexed();
+		inline static void DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray) {
+			s_RendererAPI->DrawIndexed(vertexArray);
 		}
 
 

@@ -12,12 +12,11 @@ namespace PGE_VULKAN {
 
 		virtual bool Init() override;
 
-		virtual void GetWindow(GLFWwindow* window, int windowWidth, int windowHeight) override;
+		//virtual void GetWindow(GLFWwindow* window, int windowWidth, int windowHeight) override;
 
 		virtual void SetClearColor(const glm::vec4& color) override;
 		virtual void Clear() override;
 		virtual void DrawIndexed();
-		virtual void SubmitVertices(glm::mat3x3& Recivedvertices) override;
 		virtual void WindowResized(int width, int height) override;
 
 		bool isDebug = true;
@@ -26,7 +25,7 @@ namespace PGE_VULKAN {
 
 	private:
 		//Window reference
-		GLFWwindow* m_windowHandle;
+		//GLFWwindow* m_windowHandle;
 
 		int m_windowHandleWidth;
 		int m_windowHandleHeight;

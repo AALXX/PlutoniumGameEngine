@@ -3,9 +3,7 @@
 
 namespace PGE {
 
-	GraphicsEngine::GraphicsEngine()
-	{
-	}
+	GraphicsEngine::SceneData* GraphicsEngine::m_SceneData = new GraphicsEngine::SceneData;
 
 	bool GraphicsEngine::init()
 	{
@@ -13,18 +11,22 @@ namespace PGE {
 		return RenderCommand::Init();
 	}
 
-	void GraphicsEngine::BeginScene()
-	{
 
+	void GraphicsEngine::BeginScene(OrthographicCamera& camera)
+	{
+		m_SceneData->ViewProjectionMatrix = camera.GetViewProjectionMatrix();
 	}
 
 	void GraphicsEngine::EndScene()
 	{
 	}
 
-	void GraphicsEngine::Submit()
+	void GraphicsEngine::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray)
 	{
-		RenderCommand::DrawIndexed();
+		shader->Bind();
+		shader->UploadUnifromMat4("u_ViewProjection", m_SceneData->ViewProjectionMatrix);
+		vertexArray->Bind();
+		RenderCommand::DrawIndexed(vertexArray);
 	}
 
 	bool GraphicsEngine::release()
@@ -32,14 +34,5 @@ namespace PGE {
 		return RenderCommand::release();
 	}
 
-	GraphicsEngine::~GraphicsEngine()
-	{
-	}
-
-	GraphicsEngine* GraphicsEngine::get()
-	{
-		static GraphicsEngine engine;
-		return &engine;
-	}
 
 }

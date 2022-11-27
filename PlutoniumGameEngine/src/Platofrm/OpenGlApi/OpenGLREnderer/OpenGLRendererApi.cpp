@@ -1,9 +1,8 @@
 #include "pphd.h"
 #include "OpenGLRendererApi.h"
+#include <GLFW/glfw3.h>
 
 #include <glad/glad.h>
-#include "..\IamGuiOpenGl\IamGuiOpengl.h"
-#include <iostream>
 
 namespace PGE_OPENGL {
 	bool OpenGLRendererAPI::Init()
@@ -11,27 +10,25 @@ namespace PGE_OPENGL {
 
 		return true;
 	}
-	void OpenGLRendererAPI::GetWindow(GLFWwindow* window, int windowWidth, int windowHeight)
-	{
-	}
+	//void OpenGLRendererAPI::GetWindow(GLFWwindow* window, int windowWidth, int windowHeight)
+	//{
+	//}
 	void OpenGLRendererAPI::SetClearColor(const glm::vec4& color)
 	{
+		glClearColor(color.r, color.g, color.b, color.a);
 	}
 
 	void OpenGLRendererAPI::Clear()
 	{
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	}
 
+	void OpenGLRendererAPI::DrawIndexed(const std::shared_ptr<PGE::VertexArray>& vertexArray)
+	{
+		//opengl draw call
+		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 	}
 	
-	void OpenGLRendererAPI::DrawIndexed()
-	{
-
-	}
-
-	void OpenGLRendererAPI::SubmitVertices(glm::mat3x3 &vertices)
-	{
-
-	}
 
 	bool OpenGLRendererAPI::release()
 	{

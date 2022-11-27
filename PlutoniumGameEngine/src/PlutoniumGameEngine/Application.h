@@ -10,6 +10,7 @@
 #include <glm/glm.hpp>
 #include <PlutoniumGameEngine/GraphicsEngine/Buffer/Buffer.h>
 #include <PlutoniumGameEngine/GraphicsEngine/Buffer/VertexArray.h>
+#include <PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrtographicCamera.h>
 
 namespace PGE {
 	class Application
@@ -39,21 +40,8 @@ namespace PGE {
 
 		LayerStack m_LayerStack;
 
-		std::shared_ptr<Shader> m_Shader;
-		std::shared_ptr<VertexArray> m_VertexArray;
-
-		std::shared_ptr<Shader> m_BlueShader;
-		std::shared_ptr<VertexArray> m_SquareVA;
 	private:
 		static Application* s_Instance;
-
-	private:
-
-		glm::mat3x3 m_vertices = {
-			-0.5f, -0.5f, 0.0f,
-			0.5f,  -0.5f, 0.0f,
-			0.0f,   0.5f, 0.0f,
-		};
 	};
 
 	//*To be defined in client

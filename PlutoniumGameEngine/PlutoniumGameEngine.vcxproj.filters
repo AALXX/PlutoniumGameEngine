@@ -1392,9 +1392,6 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h">
       <Filter>src\Platofrm\OpenGlApi\IamGuiOpenGl</Filter>
     </ClInclude>
-    <ClInclude Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.h">
-      <Filter>src\Platofrm\OpenGlApi\Shader</Filter>
-    </ClInclude>
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\CommandBuffer\CommandBuffer.h">
       <Filter>src\Platofrm\VulkanApi\Buffers\CommandBuffer</Filter>
     </ClInclude>
@@ -1518,6 +1515,7 @@
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp">
@@ -1528,9 +1526,6 @@
     </ClCompile>
     <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp">
       <Filter>src\Platofrm\OpenGlApi\IamGuiOpenGl</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platofrm\OpenGlApi\Shader\OpenGlShader.cpp">
-      <Filter>src\Platofrm\OpenGlApi\Shader</Filter>
     </ClCompile>
     <ClCompile Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.cpp">
       <Filter>src\Platofrm\VulkanApi\Buffers\FrameBuffer</Filter>
@@ -1598,5 +1593,6 @@
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.cpp" />
   </ItemGroup>
 </Project>

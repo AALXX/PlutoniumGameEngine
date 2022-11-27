@@ -1,6 +1,8 @@
 #pragma once
 
 #include "Renderer/RenderCommand.h"
+#include <PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrtographicCamera.h>
+#include <PlutoniumGameEngine/GraphicsEngine/Shaders/Shader.h>
 
 namespace PGE {
 
@@ -9,25 +11,28 @@ namespace PGE {
 	{
 
 	public:
-		GraphicsEngine();
 
 		// initialize engine
-		bool init();
+		static bool init();
 
-		void BeginScene();
-		void EndScene();
+		static void BeginScene(OrthographicCamera& camera);
+		static void EndScene();
 		
-		void Submit();
+		static void Submit( const std::shared_ptr<Shader>& shader,const std::shared_ptr<VertexArray>& vertexArray);
 
 
-		bool release();
+		static bool release();
 
-		~GraphicsEngine();
 
 	public:
-		static GraphicsEngine* get();	
-
 		inline static RendererAPI GetRenderAPI() { return Renderer::GetAPI(); };
+	private:
+		struct SceneData
+		{
+			glm::mat4 ViewProjectionMatrix;
+		};
+
+		static SceneData* m_SceneData;
 
 	};
 }

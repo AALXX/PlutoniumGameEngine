@@ -18,7 +18,7 @@ namespace PGE_VULKAN {
 
 		PGE_CORE_ASSERT(m_WindowHandle, "window handle is null");
 		
-		PGE::RenderCommand::GetWindow(windwoHandle, windowWidth, windowHeight);
+		//PGE::RenderCommand::GetWindow(windwoHandle, windowWidth, windowHeight);
 	}
 
 	void VulkanContext::Init()
