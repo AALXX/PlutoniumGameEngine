@@ -1,6 +1,7 @@
 #pragma once
 #include "../Core/Core.h"
 #include "../EventSystem/Event.h"
+#include <PlutoniumGameEngine/Core/Timestep/TimeStep.h>
 
 namespace PGE {
 	
@@ -12,7 +13,7 @@ namespace PGE {
 
 		virtual void OnAttach() {}
 		virtual void OnDeAttach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& event) {}
 

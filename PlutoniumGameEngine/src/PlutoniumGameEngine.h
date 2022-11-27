@@ -1,10 +1,12 @@
 #pragma once
 
-//* For Use by Game apps
+//Core
 #include "PlutoniumGameEngine/LogingSystem/Log.h"
 #include "PlutoniumGameEngine/LayerSystem/Layer.h"
 #include "PlutoniumGameEngine/Application.h"
 #include "PlutoniumGameEngine/IamGui/IamGuiLayer.h"
+#include "PlutoniumGameEngine/Core/Timestep/TimeStep.h"	
+
 
 //*Input
 #include "PlutoniumGameEngine/Input/Input.h"

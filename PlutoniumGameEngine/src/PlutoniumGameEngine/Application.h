@@ -6,6 +6,7 @@
 #include "PlutoniumGameEngine/LayerSystem/LayerStack.h"
 #include "PlutoniumGameEngine/IamGui/IamGuiLayer.h"
 #include "PlutoniumGameEngine/GraphicsEngine/Shaders/Shader.h"
+#include "PlutoniumGameEngine/Core/Timestep/TimeStep.h"	
 
 #include <glm/glm.hpp>
 #include <PlutoniumGameEngine/GraphicsEngine/Buffer/Buffer.h>
@@ -33,12 +34,15 @@ namespace PGE {
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 		bool OnWindowResize(WindowResizeEvent& e);
+	private:
 
 		std::unique_ptr<Window> m_Window;
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 
 		LayerStack m_LayerStack;
+
+		float m_LastFrameTime = 0.0f;
 
 	private:
 		static Application* s_Instance;

@@ -582,6 +582,7 @@
     <ClInclude Include="src\PlutoniumGameEngine.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Application.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Core\Core.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Timestep\TimeStep.h" />
     <ClInclude Include="src\PlutoniumGameEngine\EntryPoint\EntryPoint.h" />
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\AplicationEvent.h" />
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\Event.h" />

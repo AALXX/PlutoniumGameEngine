@@ -5,7 +5,7 @@
 class TestLayer :public PGE::Layer
 {
 public:
-	TestLayer() :Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f) {
+	TestLayer() :Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f) {
 		m_VertexArray.reset(PGE::VertexArray::Create());
 
 		float vertices[3 * 7] = {
@@ -112,11 +112,29 @@ public:
 		m_BlueShader.reset(new PGE::Shader(blueShaderVertexSrc, blueShaderFragmentSrc));
 	}
 
-	void OnUpdate() override {
+	void OnUpdate(PGE::Timestep ts) override {
+
+		if (PGE::Input::IsKeyPressed(PGE_KEY_LEFT))
+			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
+		else if (PGE::Input::IsKeyPressed(PGE_KEY_RIGHT))
+			m_CameraPosition.x += m_CameraMoveSpeed * ts;
+
+		if (PGE::Input::IsKeyPressed(PGE_KEY_UP))
+			m_CameraPosition.y += m_CameraMoveSpeed * ts;
+		else if (PGE::Input::IsKeyPressed(PGE_KEY_DOWN))
+			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
+
+		if (PGE::Input::IsKeyPressed(PGE_KEY_A))
+			m_CameraRotation += m_CameraRotationSpeed * ts;
+		if (PGE::Input::IsKeyPressed(PGE_KEY_D))
+			m_CameraRotation -= m_CameraRotationSpeed * ts;
+
 		PGE::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 		PGE::RenderCommand::Clear();
 
-		m_Camera.SetRotation(45.0f);
+		m_Camera.SetPosition(m_CameraPosition);
+		m_Camera.SetRotation(m_CameraRotation);
+
 
 		PGE::GraphicsEngine::BeginScene(m_Camera);
 
@@ -131,6 +149,7 @@ public:
 
 	}
 
+
 	virtual void OnImGuiRender() override {
 
 	}
@@ -143,6 +162,12 @@ private:
 	std::shared_ptr<PGE::VertexArray> m_SquareVA;
 
 	PGE::OrthographicCamera m_Camera;
+
+	glm::vec3 m_CameraPosition;
+	float m_CameraMoveSpeed = 5.0f;
+
+	float m_CameraRotation = 0.0f;
+	float m_CameraRotationSpeed = 180.0f;
 };
 
 class Sandbox : public PGE::Application
