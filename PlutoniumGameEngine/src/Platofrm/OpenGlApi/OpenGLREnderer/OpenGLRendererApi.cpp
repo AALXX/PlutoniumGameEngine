@@ -10,9 +10,7 @@ namespace PGE_OPENGL {
 
 		return true;
 	}
-	//void OpenGLRendererAPI::GetWindow(GLFWwindow* window, int windowWidth, int windowHeight)
-	//{
-	//}
+
 	void OpenGLRendererAPI::SetClearColor(const glm::vec4& color)
 	{
 		glClearColor(color.r, color.g, color.b, color.a);

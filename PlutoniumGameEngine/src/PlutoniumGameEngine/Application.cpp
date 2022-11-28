@@ -29,8 +29,8 @@ namespace PGE {
 			PGE_CORE_INFO("Graphics engine initializate");
 		}
 
-		//m_ImGuiLayer = new ImGuiLayer;
-		//PushOverLay(m_ImGuiLayer);
+		m_ImGuiLayer = new ImGuiLayer;
+		PushOverLay(m_ImGuiLayer);
 
 	}
 
@@ -50,13 +50,13 @@ namespace PGE {
 				layer->OnUpdate(timestep);
 			}
 
-			//m_ImGuiLayer->Begin(); //begin imgui rendering
+			m_ImGuiLayer->Begin(); //begin imgui rendering
 
-			//for (Layer* layer : m_LayerStack) {
-			//	layer->OnImGuiRender();
-			//}
+			for (Layer* layer : m_LayerStack) {
+				layer->OnImGuiRender();
+			}
 
-			//m_ImGuiLayer->End(); //end imgui rendering
+			m_ImGuiLayer->End(); //end imgui rendering
 
 
 			m_Window->OnUpdate();

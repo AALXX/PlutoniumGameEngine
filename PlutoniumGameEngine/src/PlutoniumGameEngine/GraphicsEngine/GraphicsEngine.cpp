@@ -1,5 +1,6 @@
 #include "pphd.h"
 #include "GraphicsEngine.h"
+#include <Platofrm/OpenGlApi/OpenGLShader/OpenGLShader.h>
 
 namespace PGE {
 
@@ -24,8 +25,8 @@ namespace PGE {
 	void GraphicsEngine::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray, const glm::mat4&transform)
 	{
 		shader->Bind();
-		shader->UploadUnifromMat4("u_ViewProjection", m_SceneData->ViewProjectionMatrix);
-		shader->UploadUnifromMat4("u_ModelMatrix", transform);
+		std::dynamic_pointer_cast<PGE_OPENGL::OpenGLShader>(shader)->UploadUniformMat4("u_ViewProjection", m_SceneData->ViewProjectionMatrix);
+		std::dynamic_pointer_cast<PGE_OPENGL::OpenGLShader>(shader)->UploadUniformMat4("u_ModelMatrix", transform);
 
 		vertexArray->Bind();
 		RenderCommand::DrawIndexed(vertexArray);

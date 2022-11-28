@@ -1517,6 +1517,7 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Core\Timestep\TimeStep.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLShader\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp">
@@ -1595,5 +1596,6 @@
     <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLShader\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>

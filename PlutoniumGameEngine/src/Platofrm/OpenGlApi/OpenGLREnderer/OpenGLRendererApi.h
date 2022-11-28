@@ -9,7 +9,6 @@ namespace PGE_OPENGL {
 	public:
 
 		virtual bool Init() override;
-		//virtual void GetWindow(GLFWwindow* window, int width, int height) override;
 
 		virtual void SetClearColor(const glm::vec4& color) override;
 		virtual void Clear() override;

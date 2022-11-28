@@ -563,6 +563,7 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLShader\OpenGLShader.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\CommandBuffer\CommandBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
@@ -613,6 +614,7 @@
     <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLShader\OpenGLShader.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\Sync\Sync.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.cpp" />
