@@ -15,6 +15,7 @@ namespace PGE {
 		void Unbind() const;
 
 		void UploadUnifromMat4(const std::string& name, const glm::mat4& matrix);
+		void UploadUnifromFloat4(const std::string& name, const glm::vec4& values);
 
 	private:
 		uint32_t m_RendererID;
