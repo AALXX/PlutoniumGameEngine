@@ -22,7 +22,7 @@ namespace PGE {
 		virtual void Clear() = 0;
 		
 		virtual void WindowResized(int width, int height) = 0;
-		virtual void DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray) = 0;
+		virtual void DrawIndexed(const Ref<VertexArray>& vertexArray) = 0;
 
 		virtual bool release() = 0;
 

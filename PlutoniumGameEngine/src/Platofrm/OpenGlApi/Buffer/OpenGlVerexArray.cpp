@@ -44,7 +44,7 @@ namespace PGE_OPENGL {
 		glBindVertexArray(0);
 	}
 
-	void OpenGLVertexArray::AddVertexBuffer(const std::shared_ptr<PGE::VertexBuffer>& vertexBuffer)
+	void OpenGLVertexArray::AddVertexBuffer(const PGE::Ref<PGE::VertexBuffer>& vertexBuffer)
 	{
 		PGE_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex Buffer has no layout!");
 
@@ -68,7 +68,7 @@ namespace PGE_OPENGL {
 		m_VertexBuffers.push_back(vertexBuffer);
 	}
 
-	void OpenGLVertexArray::SetIndexBuffer(const std::shared_ptr<PGE::IndexBuffer>& indexBuffer)
+	void OpenGLVertexArray::SetIndexBuffer(const PGE::Ref<PGE::IndexBuffer>& indexBuffer)
 	{
 		glBindVertexArray(m_RendererID);
 		indexBuffer->Bind();

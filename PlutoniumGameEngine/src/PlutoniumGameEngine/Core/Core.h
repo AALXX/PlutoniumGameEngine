@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 
 #ifdef PGE_PLATFORM_WINDOWS
 #if PGE_DYNAMIC_LINK
@@ -19,7 +20,6 @@
 
 #ifdef PGE_DEBUG
 	#define PGE_ENABLE_ASSERTS
-
 #endif // PGE_DEBUG
 
 
@@ -35,3 +35,14 @@
 #define BIT(x) (1<<x)
 
 #define PGE_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
+
+
+namespace PGE {
+
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+
+}

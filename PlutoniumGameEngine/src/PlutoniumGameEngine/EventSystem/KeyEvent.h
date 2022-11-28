@@ -3,7 +3,7 @@
 #include "./Event.h"
 
 namespace PGE {
-	class PGE_API KeyEvent : public Event
+	class  KeyEvent : public Event
 	{
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
@@ -16,7 +16,7 @@ namespace PGE {
 		int m_KeyCode;
 	};
 
-	class PGE_API KeyPressedEvent : public KeyEvent
+	class  KeyPressedEvent : public KeyEvent
 	{
 	public:
 		KeyPressedEvent(int keycode, int repeatCount)

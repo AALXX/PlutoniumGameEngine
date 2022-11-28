@@ -12,7 +12,7 @@ namespace PGE_OPENGL {
 
 		virtual void SetClearColor(const glm::vec4& color) override;
 		virtual void Clear() override;
-		virtual void DrawIndexed(const std::shared_ptr<PGE::VertexArray>& vertexArray) override;
+		virtual void DrawIndexed(const PGE::Ref<PGE::VertexArray>& vertexArray) override;
 
 		virtual void WindowResized(int width, int height) {
 			PGE_CORE_TRACE("{0}, {1}", width, height);

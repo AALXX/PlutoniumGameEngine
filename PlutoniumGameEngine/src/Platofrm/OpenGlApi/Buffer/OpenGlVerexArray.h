@@ -13,14 +13,14 @@ namespace PGE_OPENGL {
 		virtual void Bind() const override;
 		virtual void Unbind() const override;
 
-		virtual void AddVertexBuffer(const std::shared_ptr<PGE::VertexBuffer>& vertexBuffer) override;
-		virtual void SetIndexBuffer(const std::shared_ptr<PGE::IndexBuffer>& indexBuffer) override;
+		virtual void AddVertexBuffer(const PGE::Ref<PGE::VertexBuffer>& vertexBuffer) override;
+		virtual void SetIndexBuffer(const PGE::Ref<PGE::IndexBuffer>& indexBuffer) override;
 
-		virtual const std::vector<std::shared_ptr<PGE::VertexBuffer>>& GetVertexBuffers() const { return m_VertexBuffers; }
-		virtual const std::shared_ptr<PGE::IndexBuffer>& GetIndexBuffer() const { return m_IndexBuffer; }
+		virtual const std::vector<PGE::Ref<PGE::VertexBuffer>>& GetVertexBuffers() const { return m_VertexBuffers; }
+		virtual const PGE::Ref<PGE::IndexBuffer>& GetIndexBuffer() const { return m_IndexBuffer; }
 	private:
 		uint32_t m_RendererID;
-		std::vector<std::shared_ptr<PGE::VertexBuffer>> m_VertexBuffers;
-		std::shared_ptr<PGE::IndexBuffer> m_IndexBuffer;
+		std::vector<PGE::Ref<PGE::VertexBuffer>> m_VertexBuffers;
+		PGE::Ref<PGE::IndexBuffer> m_IndexBuffer;
 	};
 }

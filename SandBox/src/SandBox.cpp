@@ -17,7 +17,7 @@ public:
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<PGE::VertexBuffer> vertexBuffer;
+		PGE::Ref<PGE::VertexBuffer> vertexBuffer;
 		vertexBuffer.reset(PGE::VertexBuffer::Create(vertices, sizeof(vertices)));
 		PGE::BufferLayout layout = {
 			{ PGE::ShaderDataType::Float3, "a_Position" },
@@ -27,7 +27,7 @@ public:
 		m_VertexArray->AddVertexBuffer(vertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<PGE::IndexBuffer> indexBuffer;
+		PGE::Ref<PGE::IndexBuffer> indexBuffer;
 		indexBuffer.reset(PGE::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
@@ -40,7 +40,7 @@ public:
 			-0.5f,  0.5f, 0.0f
 		};
 
-		std::shared_ptr<PGE::VertexBuffer> squareVB;
+		PGE::Ref<PGE::VertexBuffer> squareVB;
 		squareVB.reset(PGE::VertexBuffer::Create(squareVertices, sizeof(squareVertices)));
 		squareVB->SetLayout({
 			{ PGE::ShaderDataType::Float3, "a_Position" }
@@ -48,7 +48,7 @@ public:
 		m_SquareVA->AddVertexBuffer(squareVB);
 
 		uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-		std::shared_ptr<PGE::IndexBuffer> squareIB;
+		PGE::Ref<PGE::IndexBuffer> squareIB;
 		squareIB.reset(PGE::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
@@ -125,12 +125,10 @@ public:
 			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
 		else if (PGE::Input::IsKeyPressed(PGE_KEY_D))
 			m_CameraPosition.x += m_CameraMoveSpeed * ts;
-
 		if (PGE::Input::IsKeyPressed(PGE_KEY_W))
 			m_CameraPosition.y += m_CameraMoveSpeed * ts;
 		else if (PGE::Input::IsKeyPressed(PGE_KEY_S))
 			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-
 		if (PGE::Input::IsKeyPressed(PGE_KEY_Q))
 			m_CameraRotation += m_CameraRotationSpeed * ts;
 		if (PGE::Input::IsKeyPressed(PGE_KEY_E))
@@ -147,8 +145,6 @@ public:
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-		//PGE::MaterialRef material = new PGE::Material(m_FlatColorShader);
-		
 		std::dynamic_pointer_cast<PGE_OPENGL::OpenGLShader>(m_FlatColorShader)->Bind();
 		std::dynamic_pointer_cast<PGE_OPENGL::OpenGLShader>(m_FlatColorShader)->UploadUniformFloat3("u_Color", m_SquareColor);
 
@@ -186,11 +182,11 @@ public:
 
 private:
 
-	std::shared_ptr<PGE::Shader> m_Shader;
-	std::shared_ptr<PGE::VertexArray> m_VertexArray;
+	PGE::Ref<PGE::Shader> m_Shader;
+	PGE::Ref<PGE::VertexArray> m_VertexArray;
 
-	std::shared_ptr<PGE::Shader> m_FlatColorShader;
-	std::shared_ptr<PGE::VertexArray> m_SquareVA;
+	PGE::Ref<PGE::Shader> m_FlatColorShader;
+	PGE::Ref<PGE::VertexArray> m_SquareVA;
 
 	PGE::OrthographicCamera m_Camera;
 

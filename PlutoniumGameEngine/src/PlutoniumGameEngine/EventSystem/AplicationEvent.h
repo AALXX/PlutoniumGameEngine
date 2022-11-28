@@ -6,7 +6,7 @@
 namespace PGE {
 
 	
-	class PGE_API WindowResizeEvent : public Event
+	class WindowResizeEvent : public Event
 	{
 	public:
 		WindowResizeEvent(unsigned int width, unsigned int height)
@@ -28,7 +28,7 @@ namespace PGE {
 		unsigned int m_Width, m_Height;
 	};
 
-	class PGE_API WindowCloseEvent : public Event
+	class WindowCloseEvent : public Event
 	{
 	public:
 		WindowCloseEvent() {}
@@ -37,7 +37,7 @@ namespace PGE {
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class PGE_API AppTickEvent : public Event
+	class AppTickEvent : public Event
 	{
 	public:
 		AppTickEvent() {}
@@ -46,7 +46,7 @@ namespace PGE {
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class PGE_API AppUpdateEvent : public Event
+	class  AppUpdateEvent : public Event
 	{
 	public:
 		AppUpdateEvent() {}
@@ -55,7 +55,7 @@ namespace PGE {
 			EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};
 
-	class PGE_API AppRenderEvent : public Event
+	class AppRenderEvent : public Event
 	{
 	public:
 		AppRenderEvent() {}
