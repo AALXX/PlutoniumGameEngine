@@ -4,6 +4,9 @@
     <Filter Include="Dependecies">
       <UniqueIdentifier>{BE56C520-2A0C-3E16-B300-38ED1FB5341A}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dependecies\Stb_image">
+      <UniqueIdentifier>{B8ECE3A7-2459-9FA2-ED4C-37005978C10A}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Dependecies\glm">
       <UniqueIdentifier>{0D100A1D-799B-77E1-82AC-FAD5EEB6D3E1}</UniqueIdentifier>
     </Filter>
@@ -43,8 +46,11 @@
     <Filter Include="src\Platofrm\OpenGlApi\OpenGLREnderer">
       <UniqueIdentifier>{5A827E1D-C646-7D0D-8FAC-ADD7FB2F1943}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\Platofrm\OpenGlApi\Shader">
-      <UniqueIdentifier>{75C9CCE7-E1E1-B311-AA8E-43AB166648AB}</UniqueIdentifier>
+    <Filter Include="src\Platofrm\OpenGlApi\OpenGLShader">
+      <UniqueIdentifier>{7A414DE9-E6FA-B793-6F5A-D26DDB126E03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Platofrm\OpenGlApi\Texture">
+      <UniqueIdentifier>{0FF90929-FB1E-D48F-E464-595BD029F95B}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\Platofrm\VulkanApi">
       <UniqueIdentifier>{5B997C86-4793-A5D8-3000-3CE91C990B45}</UniqueIdentifier>
@@ -100,6 +106,9 @@
     <Filter Include="src\PlutoniumGameEngine\Core">
       <UniqueIdentifier>{7168E3AD-5D23-D359-06DB-4BA4F2741DEA}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\PlutoniumGameEngine\Core\Timestep">
+      <UniqueIdentifier>{ABFD9E91-17C2-9D81-E027-CE4B4CAB39B7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\PlutoniumGameEngine\EntryPoint">
       <UniqueIdentifier>{C4313E64-B06D-41CE-1980-59C505DBE9E8}</UniqueIdentifier>
     </Filter>
@@ -112,6 +121,12 @@
     <Filter Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer">
       <UniqueIdentifier>{B87973FD-24EA-7576-ED08-F0FE5938AE77}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras">
+      <UniqueIdentifier>{9A15B4CA-8693-0464-6F8B-C2FB5BA8468C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera">
+      <UniqueIdentifier>{7429BA4B-602A-4EC6-89F2-BA4A7552C480}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsContext">
       <UniqueIdentifier>{34962A5A-2040-6069-0911-6884F5590058}</UniqueIdentifier>
     </Filter>
@@ -120,6 +135,9 @@
     </Filter>
     <Filter Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders">
       <UniqueIdentifier>{8816D2A9-7494-2243-5D8C-E0DA49A9646B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\PlutoniumGameEngine\GraphicsEngine\Texture">
+      <UniqueIdentifier>{0F1776F1-FB94-C68A-E48C-8422D0A908B3}</UniqueIdentifier>
     </Filter>
     <Filter Include="src\PlutoniumGameEngine\IamGui">
       <UniqueIdentifier>{64B75DC1-50DD-2728-3923-ADF325E84CF4}</UniqueIdentifier>
@@ -138,6 +156,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Dependecies\Stb_image\stb_image.h">
+      <Filter>Dependecies\Stb_image</Filter>
+    </ClInclude>
     <ClInclude Include="Dependecies\glm\glm\common.hpp">
       <Filter>Dependecies\glm\glm</Filter>
     </ClInclude>
@@ -1389,8 +1410,20 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.h">
       <Filter>src\Platofrm\OpenGlApi\Buffer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.h">
+      <Filter>src\Platofrm\OpenGlApi\Buffer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h">
       <Filter>src\Platofrm\OpenGlApi\IamGuiOpenGl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h">
+      <Filter>src\Platofrm\OpenGlApi\OpenGLREnderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLShader\OpenGLShader.h">
+      <Filter>src\Platofrm\OpenGlApi\OpenGLShader</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platofrm\OpenGlApi\Texture\OpenGLTexture.h">
+      <Filter>src\Platofrm\OpenGlApi\Texture</Filter>
     </ClInclude>
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\CommandBuffer\CommandBuffer.h">
       <Filter>src\Platofrm\VulkanApi\Buffers\CommandBuffer</Filter>
@@ -1449,6 +1482,9 @@
     <ClInclude Include="src\PlutoniumGameEngine\Core\Core.h">
       <Filter>src\PlutoniumGameEngine\Core</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Timestep\TimeStep.h">
+      <Filter>src\PlutoniumGameEngine\Core\Timestep</Filter>
+    </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\EntryPoint\EntryPoint.h">
       <Filter>src\PlutoniumGameEngine\EntryPoint</Filter>
     </ClInclude>
@@ -1467,6 +1503,12 @@
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.h">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Buffer</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.h">
+      <Filter>src\PlutoniumGameEngine\GraphicsEngine\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.h">
+      <Filter>src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera</Filter>
+    </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsContext\GraphicsContext.h">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\GraphicsContext</Filter>
     </ClInclude>
@@ -1481,6 +1523,9 @@
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.h">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Texture\Texture.h">
+      <Filter>src\PlutoniumGameEngine\GraphicsEngine\Texture</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiApiRenderer.h">
       <Filter>src\PlutoniumGameEngine\IamGui</Filter>
@@ -1512,22 +1557,31 @@
     <ClInclude Include="src\pphd.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.h" />
-    <ClInclude Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.h" />
-    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\Core\Timestep\TimeStep.h" />
-    <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLShader\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dependecies\Stb_image\stb_image.cpp">
+      <Filter>Dependecies\Stb_image</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp">
       <Filter>src\Platofrm\OpenGlApi\ApiContext</Filter>
     </ClCompile>
     <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.cpp">
       <Filter>src\Platofrm\OpenGlApi\Buffer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.cpp">
+      <Filter>src\Platofrm\OpenGlApi\Buffer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp">
       <Filter>src\Platofrm\OpenGlApi\IamGuiOpenGl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp">
+      <Filter>src\Platofrm\OpenGlApi\OpenGLREnderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLShader\OpenGLShader.cpp">
+      <Filter>src\Platofrm\OpenGlApi\OpenGLShader</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platofrm\OpenGlApi\Texture\OpenGLTexture.cpp">
+      <Filter>src\Platofrm\OpenGlApi\Texture</Filter>
     </ClCompile>
     <ClCompile Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.cpp">
       <Filter>src\Platofrm\VulkanApi\Buffers\FrameBuffer</Filter>
@@ -1559,6 +1613,12 @@
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.cpp">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Buffer</Filter>
     </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.cpp">
+      <Filter>src\PlutoniumGameEngine\GraphicsEngine\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.cpp">
+      <Filter>src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera</Filter>
+    </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine</Filter>
     </ClCompile>
@@ -1570,6 +1630,9 @@
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.cpp">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Texture\Texture.cpp">
+      <Filter>src\PlutoniumGameEngine\GraphicsEngine\Texture</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.cpp">
       <Filter>src\PlutoniumGameEngine\IamGui</Filter>
@@ -1592,10 +1655,5 @@
     <ClCompile Include="src\pphd.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.cpp" />
-    <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.cpp" />
-    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.cpp" />
-    <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLShader\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>

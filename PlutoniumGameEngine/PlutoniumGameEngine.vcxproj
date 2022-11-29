@@ -32,13 +32,13 @@
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'" Label="Configuration">
     <ConfigurationType>StaticLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>pphd.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PGE_PLATFORM_WINDOWS;PGE_BUILD_DLL;GLFW_INCLUDE_NONE;PGE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;Dependecies\spdlog\include;Dependecies\GLFW\include;Dependecies\Vulkan\include;Dependecies\Glad\include;Dependecies\imgui;Dependecies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;Dependecies\spdlog\include;Dependecies\GLFW\include;Dependecies\Vulkan\include;Dependecies\Glad\include;Dependecies\imgui;Dependecies\glm;Dependecies\Stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -98,7 +98,7 @@
       <PrecompiledHeaderFile>pphd.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PGE_PLATFORM_WINDOWS;PGE_BUILD_DLL;GLFW_INCLUDE_NONE;PGE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;Dependecies\spdlog\include;Dependecies\GLFW\include;Dependecies\Vulkan\include;Dependecies\Glad\include;Dependecies\imgui;Dependecies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;Dependecies\spdlog\include;Dependecies\GLFW\include;Dependecies\Vulkan\include;Dependecies\Glad\include;Dependecies\imgui;Dependecies\glm;Dependecies\Stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -123,7 +123,7 @@
       <PrecompiledHeaderFile>pphd.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;PGE_PLATFORM_WINDOWS;PGE_BUILD_DLL;GLFW_INCLUDE_NONE;PGE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;Dependecies\spdlog\include;Dependecies\GLFW\include;Dependecies\Vulkan\include;Dependecies\Glad\include;Dependecies\imgui;Dependecies\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>src;Dependecies\spdlog\include;Dependecies\GLFW\include;Dependecies\Vulkan\include;Dependecies\Glad\include;Dependecies\imgui;Dependecies\glm;Dependecies\Stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -143,6 +143,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Dependecies\Stb_image\stb_image.h" />
     <ClInclude Include="Dependecies\glm\glm\common.hpp" />
     <ClInclude Include="Dependecies\glm\glm\detail\_features.hpp" />
     <ClInclude Include="Dependecies\glm\glm\detail\_fixes.hpp" />
@@ -564,6 +565,7 @@
     <ClInclude Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.h" />
     <ClInclude Include="src\Platofrm\OpenGlApi\OpenGLShader\OpenGLShader.h" />
+    <ClInclude Include="src\Platofrm\OpenGlApi\Texture\OpenGLTexture.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\CommandBuffer\CommandBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.h" />
     <ClInclude Include="src\Platofrm\VulkanApi\Device\Device.h" />
@@ -597,6 +599,7 @@
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RendererApi.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Texture\Texture.h" />
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiApiRenderer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Input\Input.h" />
@@ -609,12 +612,14 @@
     <ClInclude Include="src\pphd.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dependecies\Stb_image\stb_image.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\ApiContext\OepnGlContext.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlBuffer.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\Buffer\OpenGlVerexArray.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\IamGuiOpenGl\IamGuiOpengl.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLREnderer\OpenGLRendererApi.cpp" />
     <ClCompile Include="src\Platofrm\OpenGlApi\OpenGLShader\OpenGLShader.cpp" />
+    <ClCompile Include="src\Platofrm\OpenGlApi\Texture\OpenGLTexture.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\Buffers\FrameBuffer\FrameBuffer.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\Sync\Sync.cpp" />
     <ClCompile Include="src\Platofrm\VulkanApi\VulkanApiContext\VulkanApiContext.cpp" />
@@ -631,6 +636,7 @@
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RendererApi.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Shaders\Shader.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Texture\Texture.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\IamGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\Input\Input.cpp" />

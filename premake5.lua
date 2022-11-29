@@ -18,6 +18,7 @@ IncludeDir["Vulkan"] = "PlutoniumGameEngine/Dependecies/Vulkan/include"
 IncludeDir["Glad"] = "PlutoniumGameEngine/Dependecies/Glad/include"
 IncludeDir["ImGui"] = "PlutoniumGameEngine/Dependecies/imgui"
 IncludeDir["glm"] = "PlutoniumGameEngine/Dependecies/glm"
+IncludeDir["stb_image"] = "PlutoniumGameEngine/Dependecies/Stb_image"
 
 include "PlutoniumGameEngine/Dependecies/GLFW"
 include "PlutoniumGameEngine/Dependecies/Glad"
@@ -47,6 +48,8 @@ project "PlutoniumGameEngine"
 	{
 		"%{prj.name}/src/**.h",
 		"%{prj.name}/src/**.cpp",
+		"%{prj.name}/Dependecies/Stb_image/**.h",
+		"%{prj.name}/Dependecies/Stb_image/**.cpp",
 		"%{prj.name}/Dependecies/glm/glm/**.hpp",
 		"%{prj.name}/Dependecies/glm/glm/**.inl",
 	}
@@ -64,7 +67,8 @@ project "PlutoniumGameEngine"
 		"%{IncludeDir.Vulkan}",
 		"%{IncludeDir.Glad}",
 		"%{IncludeDir.ImGui}",
-		"%{IncludeDir.glm}"
+		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}"
 
 	}
 

@@ -20,6 +20,8 @@
 #include "PlutoniumGameEngine/GraphicsEngine/Shaders/Shader.h"
 #include "PlutoniumGameEngine/GraphicsEngine/Buffer/VertexArray.h"
 #include "PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrtographicCamera.h"
+#include <PlutoniumGameEngine/GraphicsEngine/Texture/Texture.h>
+
 
 
 // ---Entry Point---------------------
