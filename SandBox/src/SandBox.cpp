@@ -53,7 +53,7 @@ public:
 		squareIB.reset(PGE::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t)));
 		m_SquareVA->SetIndexBuffer(squareIB);
 
-		std::string vertexSrc = R"(
+		std::string TriangleVertexSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) in vec3 a_Position;
@@ -72,7 +72,7 @@ public:
 			}
 		)";
 
-		std::string fragmentSrc = R"(
+		std::string TriangleFragmentSrc = R"(
 			#version 330 core
 			
 			layout(location = 0) out vec4 color;
@@ -85,7 +85,7 @@ public:
 			}
 		)";
 
-		m_Shader.reset(PGE::Shader::Create(vertexSrc, fragmentSrc));
+		m_TriangleShader = PGE::Shader::Create("TriangleShader",TriangleVertexSrc, TriangleFragmentSrc);
 
 		std::string flatColorShaderVertexSrc = R"(
 			#version 330 core
@@ -116,48 +116,18 @@ public:
 				color = vec4(u_Color, 1.0);
 			}
 		)";
-		m_FlatColorShader.reset(PGE::Shader::Create(flatColorShaderVertexSrc, flatColorShaderFragmentSrc));
+		m_FlatColorShader = PGE::Shader::Create("FlatColor",flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
 
-		std::string textureShaderVertexSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) in vec3 a_Position;
-			layout(location = 1) in vec2 a_TexCoord;
-
-			uniform mat4 u_ViewProjection;
-			uniform mat4 u_ModelMatrix;
-
-			out vec2 v_TexCoord;
-			void main()
-			{
-				v_TexCoord = a_TexCoord;
-				gl_Position = u_ViewProjection * u_ModelMatrix * vec4(a_Position, 1.0);	
-
-			}
-		)";
-
-		std::string textureShaderFragmentSrc = R"(
-			#version 330 core
-			
-			layout(location = 0) out vec4 color;
-			in vec2 v_TexCoord;
-			
-			uniform sampler2D u_Texture;
-			void main()
-			{
-				color = texture(u_Texture, v_TexCoord);
-			}
-		)";
 
 
-		m_TextureShader.reset(PGE::Shader::Create(textureShaderVertexSrc, textureShaderFragmentSrc));
+		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = PGE::Texture2D::Create("assets/textures/test.png");
 		m_S3RBVNTexture = PGE::Texture2D::Create("assets/textures/Icon.png");
 		
-		std::dynamic_pointer_cast<PGE_OPENGL::OpenGLShader>(m_TextureShader)->Bind();
-		std::dynamic_pointer_cast<PGE_OPENGL::OpenGLShader>(m_TextureShader)->UploadUniformInt("u_Texture", 0);
+		std::dynamic_pointer_cast<PGE_OPENGL::OpenGLShader>(textureShader)->Bind();
+		std::dynamic_pointer_cast<PGE_OPENGL::OpenGLShader>(textureShader)->UploadUniformInt("u_Texture", 0);
 	}
 
 	void OnUpdate(PGE::Timestep ts) override {
@@ -200,11 +170,13 @@ public:
 			}
 		}
 
+		auto textureShader = m_ShaderLibrary.Get("Texture");
+
 		m_Texture->Bind(0);
-		PGE::GraphicsEngine::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		PGE::GraphicsEngine::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 		m_S3RBVNTexture->Bind(0);
-		PGE::GraphicsEngine::Submit(m_TextureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+		PGE::GraphicsEngine::Submit(textureShader, m_SquareVA, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
 
 		PGE::GraphicsEngine::EndScene();
@@ -227,10 +199,12 @@ public:
 
 private:
 
-	PGE::Ref<PGE::Shader> m_Shader;
+	PGE::ShaderLibrary m_ShaderLibrary;
+
+	PGE::Ref<PGE::Shader> m_TriangleShader;
 	PGE::Ref<PGE::VertexArray> m_VertexArray;
 
-	PGE::Ref<PGE::Shader> m_FlatColorShader, m_TextureShader;
+	PGE::Ref<PGE::Shader> m_FlatColorShader;
 	PGE::Ref<PGE::VertexArray> m_SquareVA;
 
 	PGE::Ref<PGE::Texture2D> m_Texture, m_S3RBVNTexture;
