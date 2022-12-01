@@ -12,6 +12,8 @@
 #include "PlutoniumGameEngine/Input/Input.h"
 #include "PlutoniumGameEngine/Input/KeyCodes.h"
 #include "PlutoniumGameEngine/Input/MouseButtonCodes.h"
+#include "PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrthographicCameraController.h"
+
 
 //*Graphics engine
 #include "PlutoniumGameEngine/GraphicsEngine/GraphicsEngine.h"
@@ -19,7 +21,7 @@
 #include "PlutoniumGameEngine/GraphicsEngine/Buffer/Buffer.h"
 #include "PlutoniumGameEngine/GraphicsEngine/Shaders/Shader.h"
 #include "PlutoniumGameEngine/GraphicsEngine/Buffer/VertexArray.h"
-#include "PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrtographicCamera.h"
+#include "PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrthographicCamera.h"
 #include <PlutoniumGameEngine/GraphicsEngine/Texture/Texture.h>
 
 

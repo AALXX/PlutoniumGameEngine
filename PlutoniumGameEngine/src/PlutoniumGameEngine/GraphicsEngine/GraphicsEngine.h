@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Renderer/RenderCommand.h"
-#include <PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrtographicCamera.h>
+#include <PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrthographicCamera.h>
 #include <PlutoniumGameEngine/GraphicsEngine/Shaders/Shader.h>
 
 namespace PGE {

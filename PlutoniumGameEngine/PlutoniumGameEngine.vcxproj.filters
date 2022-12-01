@@ -1506,7 +1506,7 @@
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.h">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Buffer</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.h">
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCamera.h">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsContext\GraphicsContext.h">
@@ -1557,6 +1557,7 @@
     <ClInclude Include="src\pphd.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dependecies\Stb_image\stb_image.cpp">
@@ -1616,7 +1617,7 @@
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.cpp">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Buffer</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.cpp">
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCamera.cpp">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp">
@@ -1655,5 +1656,6 @@
     <ClCompile Include="src\pphd.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCameraController.cpp" />
   </ItemGroup>
 </Project>

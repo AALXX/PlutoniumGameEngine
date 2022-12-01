@@ -8,7 +8,7 @@
 class TestLayer :public PGE::Layer
 {
 public:
-	TestLayer() :Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f), m_CameraPosition(0.0f) {
+	TestLayer() :Layer("Example"), m_CameraController(1280.0f / 720.0f) {
 		m_VertexArray.reset(PGE::VertexArray::Create());
 
 		float vertices[3 * 7] = {
@@ -118,9 +118,6 @@ public:
 		)";
 		m_FlatColorShader = PGE::Shader::Create("FlatColor",flatColorShaderVertexSrc, flatColorShaderFragmentSrc);
 
-
-
-
 		auto textureShader = m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 
 		m_Texture = PGE::Texture2D::Create("assets/textures/test.png");
@@ -132,27 +129,14 @@ public:
 
 	void OnUpdate(PGE::Timestep ts) override {
 
-		if (PGE::Input::IsKeyPressed(PGE_KEY_A))
-			m_CameraPosition.x -= m_CameraMoveSpeed * ts;
-		else if (PGE::Input::IsKeyPressed(PGE_KEY_D))
-			m_CameraPosition.x += m_CameraMoveSpeed * ts;
-		if (PGE::Input::IsKeyPressed(PGE_KEY_W))
-			m_CameraPosition.y += m_CameraMoveSpeed * ts;
-		else if (PGE::Input::IsKeyPressed(PGE_KEY_S))
-			m_CameraPosition.y -= m_CameraMoveSpeed * ts;
-		if (PGE::Input::IsKeyPressed(PGE_KEY_Q))
-			m_CameraRotation += m_CameraRotationSpeed * ts;
-		if (PGE::Input::IsKeyPressed(PGE_KEY_E))
-			m_CameraRotation -= m_CameraRotationSpeed * ts;
+		//Updae
+		m_CameraController.OnUpdate(ts);
 
-
+		//REnderer
 		PGE::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 		PGE::RenderCommand::Clear();
-
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-
-		PGE::GraphicsEngine::BeginScene(m_Camera);
+		 
+		PGE::GraphicsEngine::BeginScene(m_CameraController.GetCamera());
 
 		glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
@@ -183,7 +167,7 @@ public:
 	}
 
 	void OnEvent(PGE::Event& event) override {
-
+		m_CameraController.OnEvent(event);
 	}
 
 
@@ -209,13 +193,8 @@ private:
 
 	PGE::Ref<PGE::Texture2D> m_Texture, m_S3RBVNTexture;
 
-	PGE::OrthographicCamera m_Camera;
+	PGE::OrthographicCameraController m_CameraController;
 
-	glm::vec3 m_CameraPosition;
-	float m_CameraMoveSpeed = 5.0f;
-
-	float m_CameraRotation = 0.0f;
-	float m_CameraRotationSpeed = 180.0f;
 
 	glm::vec3 m_SquareColor = { 0.2f, 0.3f, 0.8f };
 

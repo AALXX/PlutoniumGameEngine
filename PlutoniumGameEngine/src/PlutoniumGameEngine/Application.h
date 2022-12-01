@@ -11,7 +11,7 @@
 #include <glm/glm.hpp>
 #include <PlutoniumGameEngine/GraphicsEngine/Buffer/Buffer.h>
 #include <PlutoniumGameEngine/GraphicsEngine/Buffer/VertexArray.h>
-#include <PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrtographicCamera.h>
+#include <PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrthographicCamera.h>
 
 namespace PGE {
 	class Application

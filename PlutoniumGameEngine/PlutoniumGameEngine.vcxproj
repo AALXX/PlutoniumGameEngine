@@ -593,7 +593,8 @@
     <ClInclude Include="src\PlutoniumGameEngine\EventSystem\MouseEvent.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCamera.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCameraController.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsContext\GraphicsContext.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.h" />
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.h" />
@@ -631,7 +632,8 @@
     <ClCompile Include="src\PlutoniumGameEngine\Application.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.cpp" />
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrtographicCamera.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCamera.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCameraController.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Renderer\RendererApi.cpp" />
