@@ -46,8 +46,10 @@ namespace PGE {
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
-			for (Layer* layer : m_LayerStack) {
-				layer->OnUpdate(timestep);
+			if (!m_Minimized) {
+				for (Layer* layer : m_LayerStack) {
+					layer->OnUpdate(timestep);
+				}
 			}
 
 			m_ImGuiLayer->Begin(); //begin imgui rendering
@@ -63,7 +65,7 @@ namespace PGE {
 		}
 
 	}
-	
+
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dipathcer(e);
@@ -100,8 +102,13 @@ namespace PGE {
 
 	bool  Application::OnWindowResize(WindowResizeEvent& e)
 	{
+		if (e.GetWidth() == 0 || e.GetHeight() == 0) {
+			m_Minimized = true;
+			return true;
+		}
 
-		RenderCommand::WindowResized(e.GetWidth(), e.GetHeight());
+		m_Minimized = false;
+		GraphicsEngine::OnWindowResize(e.GetWidth(), e.GetHeight());
 		return false;
 	}
 }

@@ -14,6 +14,7 @@ namespace PGE {
 
 		// initialize engine
 		static bool init();
+		static void OnWindowResize(uint32_t width, uint32_t height);
 
 		static void BeginScene(OrthographicCamera& camera);
 		static void EndScene();

@@ -94,9 +94,10 @@ namespace PGE_VULKAN {
 	}
 
 
-	void VulkanRendererAPI::WindowResized(int width, int height)
+	void VulkanRendererAPI::SetViewPort(uint32_t x, uint32_t  y, uint32_t width, uint32_t height)
 	{
 	}
+
 
 	void VulkanRendererAPI::CreateVulkanInstance()
 	{

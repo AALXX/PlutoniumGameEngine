@@ -45,8 +45,6 @@ namespace PGE {
 
 		PGE_CORE_INFO("Creating window {0} ({1}, {2})", props.windowTitle, props.Width, props.Height);
 
-
-
 		if (!s_GLFWInitalizated) {
 			int success = glfwInit();
 			PGE_CORE_ASSERT(success, "could not init glfw");
