@@ -1,17 +1,19 @@
 #pragma once
-#include "Core/Core.h"
-#include "EventSystem/Event.h"
-#include "EventSystem/AplicationEvent.h"
-#include "PlutoniumGameEngine/Window/Window.h"
-#include "PlutoniumGameEngine/LayerSystem/LayerStack.h"
+#include "PlutoniumGameEngine/Core/Core.h"
+#include "PlutoniumGameEngine/EventSystem/Event.h"
+#include "PlutoniumGameEngine/EventSystem/AplicationEvent.h"
+#include "PlutoniumGameEngine/Core/Window/Window.h"
+#include "PlutoniumGameEngine/Core/LayerSystem/LayerStack.h"
 #include "PlutoniumGameEngine/IamGui/IamGuiLayer.h"
 #include "PlutoniumGameEngine/GraphicsEngine/Shaders/Shader.h"
 #include "PlutoniumGameEngine/Core/Timestep/TimeStep.h"	
 
+#include "PlutoniumGameEngine/GraphicsEngine/Buffer/Buffer.h"
+#include "PlutoniumGameEngine/GraphicsEngine/Buffer/VertexArray.h"
+#include "PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrthographicCamera.h"
+
 #include <glm/glm.hpp>
-#include <PlutoniumGameEngine/GraphicsEngine/Buffer/Buffer.h>
-#include <PlutoniumGameEngine/GraphicsEngine/Buffer/VertexArray.h>
-#include <PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrthographicCamera.h>
+
 
 namespace PGE {
 	class Application

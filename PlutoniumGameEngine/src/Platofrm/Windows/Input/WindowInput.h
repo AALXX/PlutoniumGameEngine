@@ -1,5 +1,5 @@
 #pragma once
-#include "PlutoniumGameEngine/Input/Input.h"
+#include "PlutoniumGameEngine/Core/Input/Input.h"
 
 namespace PGE {
 	class WindowsInput: public Input{

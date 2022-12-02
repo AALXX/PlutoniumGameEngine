@@ -1476,7 +1476,7 @@
     <ClInclude Include="src\PlutoniumGameEngine.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\Application.h">
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Application.h">
       <Filter>src\PlutoniumGameEngine</Filter>
     </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\Core\Core.h">
@@ -1509,6 +1509,9 @@
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCamera.h">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera</Filter>
     </ClInclude>
+    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCameraController.h">
+      <Filter>src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera</Filter>
+    </ClInclude>
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsContext\GraphicsContext.h">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\GraphicsContext</Filter>
     </ClInclude>
@@ -1533,31 +1536,30 @@
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.h">
       <Filter>src\PlutoniumGameEngine\IamGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\Input\Input.h">
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Input\Input.h">
       <Filter>src\PlutoniumGameEngine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\Input\KeyCodes.h">
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Input\KeyCodes.h">
       <Filter>src\PlutoniumGameEngine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\Input\MouseButtonCodes.h">
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Input\MouseButtonCodes.h">
       <Filter>src\PlutoniumGameEngine\Input</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\Layer.h">
+    <ClInclude Include="src\PlutoniumGameEngine\Core\LayerSystem\Layer.h">
       <Filter>src\PlutoniumGameEngine\LayerSystem</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.h">
+    <ClInclude Include="src\PlutoniumGameEngine\Core\LayerSystem\LayerStack.h">
       <Filter>src\PlutoniumGameEngine\LayerSystem</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h">
+    <ClInclude Include="src\PlutoniumGameEngine\Core\LogingSystem\Log.h">
       <Filter>src\PlutoniumGameEngine\LogingSystem</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\Window\Window.h">
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Window\Window.h">
       <Filter>src\PlutoniumGameEngine\Window</Filter>
     </ClInclude>
     <ClInclude Include="src\pphd.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Dependecies\Stb_image\stb_image.cpp">
@@ -1608,7 +1610,7 @@
     <ClCompile Include="src\Platofrm\Windows\WindowsWindow.cpp">
       <Filter>src\Platofrm\Windows</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\Application.cpp">
+    <ClCompile Include="src\PlutoniumGameEngine\Core\Application.cpp">
       <Filter>src\PlutoniumGameEngine</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.cpp">
@@ -1618,6 +1620,9 @@
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Buffer</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCamera.cpp">
+      <Filter>src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCameraController.cpp">
       <Filter>src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera</Filter>
     </ClCompile>
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\GraphicsEngine.cpp">
@@ -1641,21 +1646,20 @@
     <ClCompile Include="src\PlutoniumGameEngine\IamGui\ImGuiBuild.cpp">
       <Filter>src\PlutoniumGameEngine\IamGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\Input\Input.cpp">
+    <ClCompile Include="src\PlutoniumGameEngine\Core\Input\Input.cpp">
       <Filter>src\PlutoniumGameEngine\Input</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\Layer.cpp">
+    <ClCompile Include="src\PlutoniumGameEngine\Core\LayerSystem\Layer.cpp">
       <Filter>src\PlutoniumGameEngine\LayerSystem</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.cpp">
+    <ClCompile Include="src\PlutoniumGameEngine\Core\LayerSystem\LayerStack.cpp">
       <Filter>src\PlutoniumGameEngine\LayerSystem</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp">
+    <ClCompile Include="src\PlutoniumGameEngine\Core\LogingSystem\Log.cpp">
       <Filter>src\PlutoniumGameEngine\LogingSystem</Filter>
     </ClCompile>
     <ClCompile Include="src\pphd.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCameraController.cpp" />
   </ItemGroup>
 </Project>

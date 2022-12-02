@@ -1,7 +1,7 @@
 #pragma once
-#include "../Core/Core.h"
-#include "../EventSystem/Event.h"
-#include <PlutoniumGameEngine/Core/Timestep/TimeStep.h>
+#include "PlutoniumGameEngine/Core/Core.h"
+#include "PlutoniumGameEngine/EventSystem/Event.h"
+#include "PlutoniumGameEngine/Core/Timestep/TimeStep.h"
 
 namespace PGE {
 	

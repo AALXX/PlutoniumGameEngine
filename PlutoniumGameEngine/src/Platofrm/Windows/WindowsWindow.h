@@ -1,5 +1,5 @@
 #pragma once
-#include "PlutoniumGameEngine/Window/Window.h"
+#include "PlutoniumGameEngine/Core/Window/Window.h"
 #include <GLFW/glfw3.h>
 
 #include "PlutoniumGameEngine/GraphicsEngine/GraphicsContext/GraphicsContext.h"

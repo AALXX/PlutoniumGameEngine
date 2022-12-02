@@ -583,7 +583,7 @@
     <ClInclude Include="src\Platofrm\Windows\Input\WindowInput.h" />
     <ClInclude Include="src\Platofrm\Windows\WindowsWindow.h" />
     <ClInclude Include="src\PlutoniumGameEngine.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\Application.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Application.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Core\Core.h" />
     <ClInclude Include="src\PlutoniumGameEngine\Core\Timestep\TimeStep.h" />
     <ClInclude Include="src\PlutoniumGameEngine\EntryPoint\EntryPoint.h" />
@@ -603,13 +603,13 @@
     <ClInclude Include="src\PlutoniumGameEngine\GraphicsEngine\Texture\Texture.h" />
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiApiRenderer.h" />
     <ClInclude Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\Input\Input.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\Input\KeyCodes.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\Input\MouseButtonCodes.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\Layer.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\LogingSystem\Log.h" />
-    <ClInclude Include="src\PlutoniumGameEngine\Window\Window.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Input\Input.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Input\KeyCodes.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Input\MouseButtonCodes.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Core\LayerSystem\Layer.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Core\LayerSystem\LayerStack.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Core\LogingSystem\Log.h" />
+    <ClInclude Include="src\PlutoniumGameEngine\Core\Window\Window.h" />
     <ClInclude Include="src\pphd.h" />
   </ItemGroup>
   <ItemGroup>
@@ -629,7 +629,7 @@
     <ClCompile Include="src\Platofrm\VulkanApi\VulkanRenderer\VulkanRendererApi.cpp" />
     <ClCompile Include="src\Platofrm\Windows\Input\WindowInput.cpp" />
     <ClCompile Include="src\Platofrm\Windows\WindowsWindow.cpp" />
-    <ClCompile Include="src\PlutoniumGameEngine\Application.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\Core\Application.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\Buffer.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Buffer\VertexArray.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Cameras\OrtographicCamera\OrthographicCamera.cpp" />
@@ -641,10 +641,10 @@
     <ClCompile Include="src\PlutoniumGameEngine\GraphicsEngine\Texture\Texture.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\IamGui\IamGuiLayer.cpp" />
     <ClCompile Include="src\PlutoniumGameEngine\IamGui\ImGuiBuild.cpp" />
-    <ClCompile Include="src\PlutoniumGameEngine\Input\Input.cpp" />
-    <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\Layer.cpp" />
-    <ClCompile Include="src\PlutoniumGameEngine\LayerSystem\LayerStack.cpp" />
-    <ClCompile Include="src\PlutoniumGameEngine\LogingSystem\Log.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\Core\Input\Input.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\Core\LayerSystem\Layer.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\Core\LayerSystem\LayerStack.cpp" />
+    <ClCompile Include="src\PlutoniumGameEngine\Core\LogingSystem\Log.cpp" />
     <ClCompile Include="src\pphd.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

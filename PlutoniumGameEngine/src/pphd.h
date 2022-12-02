@@ -12,7 +12,7 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
-#include "PlutoniumGameEngine/LogingSystem/Log.h"
+#include "PlutoniumGameEngine/Core/LogingSystem/Log.h"
 
 
 #ifdef PGE_PLATFORM_WINDOWS

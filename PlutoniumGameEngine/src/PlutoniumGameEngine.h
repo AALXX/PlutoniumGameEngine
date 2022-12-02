@@ -1,17 +1,17 @@
 #pragma once
 
 //Core
-#include "PlutoniumGameEngine/LogingSystem/Log.h"
-#include "PlutoniumGameEngine/LayerSystem/Layer.h"
-#include "PlutoniumGameEngine/Application.h"
+#include "PlutoniumGameEngine/Core/LogingSystem/Log.h"
+#include "PlutoniumGameEngine/Core/LayerSystem/Layer.h"
+#include "PlutoniumGameEngine/Core/Application.h"
 #include "PlutoniumGameEngine/IamGui/IamGuiLayer.h"
 #include "PlutoniumGameEngine/Core/Timestep/TimeStep.h"	
 
 
 //*Input
-#include "PlutoniumGameEngine/Input/Input.h"
-#include "PlutoniumGameEngine/Input/KeyCodes.h"
-#include "PlutoniumGameEngine/Input/MouseButtonCodes.h"
+#include "PlutoniumGameEngine/Core/Input/Input.h"
+#include "PlutoniumGameEngine/Core/Input/KeyCodes.h"
+#include "PlutoniumGameEngine/Core/Input/MouseButtonCodes.h"
 #include "PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrthographicCameraController.h"
 
 

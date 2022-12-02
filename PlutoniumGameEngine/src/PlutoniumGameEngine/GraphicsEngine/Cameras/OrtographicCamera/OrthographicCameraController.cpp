@@ -1,7 +1,7 @@
 #include "pphd.h"
 #include "OrthographicCameraController.h"
-#include <PlutoniumGameEngine/Input/KeyCodes.h>
-#include <PlutoniumGameEngine/Input/Input.h>
+#include "PlutoniumGameEngine/Core/Input/KeyCodes.h"
+#include "PlutoniumGameEngine/Core/Input/Input.h"
 
 namespace PGE {
 

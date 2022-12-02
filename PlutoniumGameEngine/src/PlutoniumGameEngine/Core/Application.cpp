@@ -2,7 +2,7 @@
 
 #include "Application.h"
 
-#include "PlutoniumGameEngine/Input/Input.h"
+#include "PlutoniumGameEngine/Core/Input/Input.h"
 #include <GLFW/glfw3.h>
 
 

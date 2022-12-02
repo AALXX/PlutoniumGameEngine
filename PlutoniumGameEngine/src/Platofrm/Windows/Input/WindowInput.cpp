@@ -1,6 +1,6 @@
 #include "pphd.h"
 #include "WindowInput.h"
-#include "PlutoniumGameEngine/Application.h"
+#include "PlutoniumGameEngine/Core/Application.h"
 #include <GLFW/glfw3.h>
 
 namespace PGE {
