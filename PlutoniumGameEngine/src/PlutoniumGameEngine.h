@@ -24,8 +24,3 @@
 #include "PlutoniumGameEngine/GraphicsEngine/Cameras/OrtographicCamera/OrthographicCamera.h"
 #include <PlutoniumGameEngine/GraphicsEngine/Texture/Texture.h>
 
-
-
-// ---Entry Point---------------------
-#include "PlutoniumGameEngine/EntryPoint/EntryPoint.h"
-// -----------------------------------

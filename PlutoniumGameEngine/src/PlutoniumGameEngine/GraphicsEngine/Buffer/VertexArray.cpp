@@ -5,12 +5,12 @@
 #include "Platofrm/OpenGlApi/Buffer/OpenGlVerexArray.h"
 
 namespace PGE {
-	VertexArray* VertexArray::Create()
+	Ref<VertexArray> VertexArray::Create()
 	{
 		switch (Renderer::GetAPI())
 		{
 		case RendererAPI::None:    PGE_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
-		case RendererAPI::OpenGl:  return new PGE_OPENGL::OpenGLVertexArray();
+		case RendererAPI::OpenGl:  return std::make_shared<PGE_OPENGL::OpenGLVertexArray>();
 		}
 
 		PGE_CORE_ASSERT(false, "Unknown RendererAPI!");

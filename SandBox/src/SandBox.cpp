@@ -1,15 +1,19 @@
 #include <PlutoniumGameEngine.h>
+#include <PlutoniumGameEngine/EntryPoint/EntryPoint.h>
+
 #include <glm/gtc/matrix_transform.hpp>
 #include <Platofrm/OpenGlApi/OpenGLShader/OpenGLShader.h>
 #include <glm/gtc/type_ptr.hpp>
 
 #include "imgui/imgui.h"
 
+#include "Sandbox3D.h"
+
 class TestLayer :public PGE::Layer
 {
 public:
 	TestLayer() :Layer("Example"), m_CameraController(1280.0f / 720.0f) {
-		m_VertexArray.reset(PGE::VertexArray::Create());
+		m_VertexArray = PGE::VertexArray::Create();
 
 		float vertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
@@ -31,7 +35,7 @@ public:
 		indexBuffer.reset(PGE::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 		m_VertexArray->SetIndexBuffer(indexBuffer);
 
-		m_SquareVA.reset(PGE::VertexArray::Create());
+		m_SquareVA = PGE::VertexArray::Create();
 
 		float squareVertices[5 * 4] = {
 			-0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
@@ -205,7 +209,8 @@ class Sandbox : public PGE::Application
 public:
 	Sandbox()
 	{
-		PushLayer(new TestLayer());
+		//PushLayer(new TestLayer());
+		PushLayer(new Sandbox3D());
 	}
 
 	~Sandbox()
